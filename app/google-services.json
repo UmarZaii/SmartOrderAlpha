@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "823926801698",
+    "firebase_url": "https://smartorderalpha.firebaseio.com",
+    "project_id": "smartorderalpha",
+    "storage_bucket": "smartorderalpha.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:823926801698:android:feea49210d28e31e",
+        "android_client_info": {
+          "package_name": "com.davon.smartorderalpha"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "823926801698-jbir88mif07l6k79cdutq6olkkd7d0eq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD3QV9dBczA6aoBSRqHhJgSBUGgf4qIUGw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "823926801698-jbir88mif07l6k79cdutq6olkkd7d0eq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
