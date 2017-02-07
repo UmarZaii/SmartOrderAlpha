@@ -19,10 +19,12 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class LoginActivity extends AppCompatActivity{
 
+    public static String strEmail;
+
     private EditText edtEmail, edtPassword;
     private Button btnLogin;
-    private FirebaseAuth mAuth;
-    private FirebaseAuth.AuthStateListener mAuthListener;
+    private FirebaseAuth fAuth;
+    private FirebaseAuth.AuthStateListener fAuthListener;
     private ProgressDialog progressDialog;
 
     @Override
@@ -30,13 +32,13 @@ public class LoginActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        mAuth = FirebaseAuth.getInstance();
+        fAuth = FirebaseAuth.getInstance();
         edtEmail = (EditText)findViewById(R.id.edtEmail);
         edtPassword = (EditText)findViewById(R.id.edtPassword);
         btnLogin = (Button)findViewById(R.id.btnLogin);
         progressDialog = new ProgressDialog(this);
 
-        mAuthListener = new FirebaseAuth.AuthStateListener() {
+        fAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 if(firebaseAuth.getCurrentUser() != null){
@@ -56,24 +58,26 @@ public class LoginActivity extends AppCompatActivity{
     @Override
     protected void onStart() {
         super.onStart();
-        mAuth.addAuthStateListener(mAuthListener);
+        fAuth.addAuthStateListener(fAuthListener);
     }
 
     private void signIn() {
 
-        String email = edtEmail.getText().toString();
-        String password = edtPassword.getText().toString();
-        progressDialog.setMessage("Login Please Wait...");
+        this.strEmail = edtEmail.getText().toString().trim();
+
+        String strEmail = edtEmail.getText().toString().trim();
+        String strPassword = edtPassword.getText().toString().trim();
+        progressDialog.setMessage("Login. Please Wait...");
         progressDialog.show();
 
-        if(TextUtils.isEmpty(email) && TextUtils.isEmpty(password)) {
+        if(TextUtils.isEmpty(strEmail) && TextUtils.isEmpty(strPassword)) {
             Toast.makeText(LoginActivity.this, "Both fields are empty", Toast.LENGTH_LONG).show();
-        } else if(TextUtils.isEmpty(email)) {
+        } else if(TextUtils.isEmpty(strEmail)) {
             Toast.makeText(LoginActivity.this, "Please input your email", Toast.LENGTH_LONG).show();
-        } else if(TextUtils.isEmpty(password)) {
+        } else if(TextUtils.isEmpty(strPassword)) {
             Toast.makeText(LoginActivity.this, "Please input your password", Toast.LENGTH_LONG).show();
         } else {
-            mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            fAuth.signInWithEmailAndPassword(strEmail,strPassword).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if(!task.isSuccessful()) {

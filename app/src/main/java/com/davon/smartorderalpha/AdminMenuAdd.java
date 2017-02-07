@@ -31,7 +31,7 @@ public class AdminMenuAdd extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.activity_admin_menu_add,container,false);
+        View view = inflater.inflate(R.layout.fragment_admin_menu_add,container,false);
         return view;
     }
 
