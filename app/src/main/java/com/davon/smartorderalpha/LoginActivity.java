@@ -1,5 +1,6 @@
 package com.davon.smartorderalpha;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -22,6 +23,7 @@ public class LoginActivity extends AppCompatActivity{
     private Button btnLogin;
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
+    private ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -32,12 +34,13 @@ public class LoginActivity extends AppCompatActivity{
         edtEmail = (EditText)findViewById(R.id.edtEmail);
         edtPassword = (EditText)findViewById(R.id.edtPassword);
         btnLogin = (Button)findViewById(R.id.btnLogin);
+        progressDialog = new ProgressDialog(this);
 
         mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 if(firebaseAuth.getCurrentUser() != null){
-                    startActivity(new Intent(LoginActivity.this, AdminMainActivity.class));
+                    startActivity(new Intent(LoginActivity.this, DeleteIt.class));
                 }
             }
         };
@@ -76,7 +79,18 @@ public class LoginActivity extends AppCompatActivity{
                     }
                 }
             });
+            progressDialog.setMessage("Login Please Wait...");
+            progressDialog.show();
         }
-
     }
+
+    @Override
+    public void onBackPressed() {
+//        if (getFragmentManager().getBackStackEntryCount() > 0) {
+//            getFragmentManager().popBackStack();
+//        } else {
+//            super.onBackPressed();
+//        }
+    }
+
 }
