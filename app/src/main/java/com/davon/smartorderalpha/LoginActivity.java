@@ -63,6 +63,8 @@ public class LoginActivity extends AppCompatActivity{
 
         String email = edtEmail.getText().toString();
         String password = edtPassword.getText().toString();
+        progressDialog.setMessage("Login Please Wait...");
+        progressDialog.show();
 
         if(TextUtils.isEmpty(email) && TextUtils.isEmpty(password)) {
             Toast.makeText(LoginActivity.this, "Both fields are empty", Toast.LENGTH_LONG).show();
@@ -76,12 +78,10 @@ public class LoginActivity extends AppCompatActivity{
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if(!task.isSuccessful()) {
                         Toast.makeText(LoginActivity.this, "Sign In Error", Toast.LENGTH_LONG).show();
+                        progressDialog.dismiss();
                     }
                 }
             });
-            //progressDialog
-            progressDialog.setMessage("Login Please Wait...");
-            progressDialog.show();
         }
     }
 
