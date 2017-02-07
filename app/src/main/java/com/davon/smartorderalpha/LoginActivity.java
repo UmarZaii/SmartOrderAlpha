@@ -79,7 +79,7 @@ public class LoginActivity extends AppCompatActivity{
                     }
                 }
             });
-            //progressdialog
+            //progressDialog
             progressDialog.setMessage("Login Please Wait...");
             progressDialog.show();
         }
