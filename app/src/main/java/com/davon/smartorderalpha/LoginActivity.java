@@ -78,7 +78,7 @@ public class LoginActivity extends AppCompatActivity{
                         Toast.makeText(LoginActivity.this, "Sign In Error", Toast.LENGTH_LONG).show();
                     }
                 }
-            });
+            });\//progressdialog
             progressDialog.setMessage("Login Please Wait...");
             progressDialog.show();
         }
