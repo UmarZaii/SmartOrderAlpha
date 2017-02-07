@@ -17,7 +17,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".AdminMainActivity" android:windowSoftInputMode="adjustPan"></activity>
-        <activity android:name=".DeleteIt"></activity>
 
     </application>
 

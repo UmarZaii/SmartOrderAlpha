@@ -1,5 +1,6 @@
 package com.davon.smartorderalpha;
 
+import android.app.ProgressDialog;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.StringDef;
@@ -21,10 +22,11 @@ import java.util.HashMap;
 
 public class AdminMenuAdd extends Fragment {
 
-    DatabaseReference mDatabase;
+    private DatabaseReference mDatabase;
 
-    EditText edtMenuName, edtMenuPrice;
-    Button btnAddMenu;
+    private EditText edtMenuName, edtMenuPrice;
+    private Button btnAddMenu;
+    private ProgressDialog progressDialog;
 
     @Nullable
     @Override
@@ -43,10 +45,13 @@ public class AdminMenuAdd extends Fragment {
         edtMenuName = (EditText)v.findViewById(R.id.edtMenuName);
         edtMenuPrice = (EditText)v.findViewById(R.id.edtMenuPrice);
         btnAddMenu = (Button)v.findViewById(R.id.btnAddMenu);
+        progressDialog = new ProgressDialog(getActivity());
 
         btnAddMenu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                progressDialog.setMessage("Storing Data...");
+                progressDialog.show();
                 String strMenuName = edtMenuName.getText().toString().trim();
                 String strMenuPrice = edtMenuPrice.getText().toString().trim();
                 HashMap<String, String> dataMap =  new HashMap<String, String>();
@@ -55,11 +60,13 @@ public class AdminMenuAdd extends Fragment {
                 mDatabase.push().setValue(dataMap).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
-//                        if(task.isSuccessful()) {
-//                            Toast.makeText(AdminMenuAdd, "Stored", Toast.LENGTH_LONG).show();
-//                        } else {
-//                            Toast.makeText(AdminMenuAdd, "Unsuccessfull", Toast.LENGTH_LONG).show();
-//                        }
+                        if(task.isSuccessful()) {
+                            progressDialog.dismiss();
+                            Toast.makeText(getActivity(), "Stored", Toast.LENGTH_LONG).show();
+                        } else {
+                            progressDialog.dismiss();
+                            Toast.makeText(getActivity(), "Unsuccessfull", Toast.LENGTH_LONG).show();
+                        }
                     }
                 });
             }

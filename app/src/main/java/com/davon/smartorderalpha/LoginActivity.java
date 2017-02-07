@@ -40,7 +40,7 @@ public class LoginActivity extends AppCompatActivity{
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 if(firebaseAuth.getCurrentUser() != null){
-                    startActivity(new Intent(LoginActivity.this, DeleteIt.class));
+                    startActivity(new Intent(LoginActivity.this, AdminMainActivity.class));
                 }
             }
         };
@@ -77,8 +77,8 @@ public class LoginActivity extends AppCompatActivity{
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if(!task.isSuccessful()) {
-                        Toast.makeText(LoginActivity.this, "Sign In Error", Toast.LENGTH_LONG).show();
                         progressDialog.dismiss();
+                        Toast.makeText(LoginActivity.this, "Sign In Error", Toast.LENGTH_LONG).show();
                     }
                 }
             });
@@ -87,11 +87,6 @@ public class LoginActivity extends AppCompatActivity{
 
     @Override
     public void onBackPressed() {
-//        if (getFragmentManager().getBackStackEntryCount() > 0) {
-//            getFragmentManager().popBackStack();
-//        } else {
-//            super.onBackPressed();
-//        }
     }
 
 }
