@@ -1,9 +1,11 @@
 package com.davon.smartorderalpha;
 
+import android.os.Build;
 import android.support.v4.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.Toolbar;
 
 import com.roughike.bottombar.BottomBar;
 import com.roughike.bottombar.OnMenuTabClickListener;
@@ -11,6 +13,7 @@ import com.roughike.bottombar.OnMenuTabClickListener;
 public class AdminMainActivity extends AppCompatActivity implements OnMenuTabClickListener {
 
     private BottomBar btmBarAdmin;
+    private Toolbar mToolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
