@@ -58,8 +58,8 @@ public class AdminMenuAdd extends Fragment {
                 String strMenuName = edtMenuName.getText().toString().trim();
                 String strMenuPrice = edtMenuPrice.getText().toString().trim();
                 HashMap<String, String> dataMap =  new HashMap<String, String>();
-                dataMap.put("MenuName", strMenuName);
-                dataMap.put("MenuPrice", strMenuPrice);
+                dataMap.put("menuName", strMenuName);
+                dataMap.put("menuPrice", strMenuPrice);
                 fDatabase.push().setValue(dataMap).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
