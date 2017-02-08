@@ -40,7 +40,7 @@ public class AdminMenuAdd extends Fragment {
         super.onActivityCreated(savedInstanceState);
         View v = getView();
 
-        fDatabase = FirebaseDatabase.getInstance().getReference();
+        fDatabase = FirebaseDatabase.getInstance().getReference().child("tblMenu");
         edtMenuName = (EditText)v.findViewById(R.id.edtMenuName);
         edtMenuPrice = (EditText)v.findViewById(R.id.edtMenuPrice);
         btnAddMenu = (Button)v.findViewById(R.id.btnAddMenu);
