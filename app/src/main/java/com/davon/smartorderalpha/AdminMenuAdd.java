@@ -3,7 +3,6 @@ package com.davon.smartorderalpha;
 import android.app.ProgressDialog;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.annotation.StringDef;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -22,7 +21,7 @@ import java.util.HashMap;
 
 public class AdminMenuAdd extends Fragment {
 
-    private DatabaseReference mDatabase;
+    private DatabaseReference fDatabase;
 
     private EditText edtMenuName, edtMenuPrice;
     private Button btnAddMenu;
@@ -41,7 +40,7 @@ public class AdminMenuAdd extends Fragment {
         super.onActivityCreated(savedInstanceState);
         View v = getView();
 
-        mDatabase = FirebaseDatabase.getInstance().getReference();
+        fDatabase = FirebaseDatabase.getInstance().getReference();
         edtMenuName = (EditText)v.findViewById(R.id.edtMenuName);
         edtMenuPrice = (EditText)v.findViewById(R.id.edtMenuPrice);
         btnAddMenu = (Button)v.findViewById(R.id.btnAddMenu);
@@ -57,7 +56,7 @@ public class AdminMenuAdd extends Fragment {
                 HashMap<String, String> dataMap =  new HashMap<String, String>();
                 dataMap.put("MenuName", strMenuName);
                 dataMap.put("MenuPrice", strMenuPrice);
-                mDatabase.push().setValue(dataMap).addOnCompleteListener(new OnCompleteListener<Void>() {
+                fDatabase.push().setValue(dataMap).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if(task.isSuccessful()) {
