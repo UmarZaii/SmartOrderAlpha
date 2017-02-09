@@ -74,9 +74,9 @@ public class AdminUserAdd extends Fragment {
                 }
 
                 final HashMap<String, String> dataMap = new HashMap<String, String>();
-                dataMap.put("Email",strEmail);
-                dataMap.put("IC",strIC);
-                dataMap.put("Name",strName);
+                dataMap.put("userEmail",strEmail);
+                dataMap.put("userIC",strIC);
+                dataMap.put("userName",strName);
 
                 fAuth.createUserWithEmailAndPassword(strEmail, strPassword).addOnCompleteListener(getActivity(), new OnCompleteListener<AuthResult>() {
                     @Override
