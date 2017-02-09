@@ -38,4 +38,13 @@
         android:layout_below="@+id/lblMenuPriceDetails"
         android:layout_centerHorizontal="true" />
 
+    <Button
+        android:text="Delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_alignRight="@+id/lblMenuNameDetails"
+        android:layout_alignEnd="@+id/lblMenuNameDetails"
+        android:id="@+id/btnDelMenuDetails" />
+
 </RelativeLayout>
