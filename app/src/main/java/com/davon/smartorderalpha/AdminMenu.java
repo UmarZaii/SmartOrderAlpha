@@ -94,14 +94,14 @@ public class AdminMenu extends Fragment {
         public void setMenuName(String menuName) {
 
             TextView txtMenuName = (TextView)fView.findViewById(R.id.txtMenuName);
-            txtMenuName.setText(menuName);
+            txtMenuName.setText("work");
 
         }
 
         public void setMenuPrice(String menuPrice) {
 
             TextView txtMenuPrice = (TextView)fView.findViewById(R.id.txtMenuPrice);
-            txtMenuPrice.setText(menuPrice);
+            txtMenuPrice.setText("pls");
 
         }
 
