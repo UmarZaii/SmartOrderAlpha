@@ -45,7 +45,7 @@ public class AdminMenuDetails extends Fragment {
         btnDelMenuDetails.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                fDatabase.child("hi").removeValue();
+//                fDatabase.child("hi").removeValue();
             }
         });
 
