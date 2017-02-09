@@ -22,6 +22,9 @@ public class AdminMenu extends Fragment {
     private DatabaseReference fDatabase;
     private Button btnGoToAddMenu;
 
+    public static String strMenuNameDetails = "";
+    public static String strMenuPriceDetails = "";
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -69,10 +72,25 @@ public class AdminMenu extends Fragment {
 
         ) {
             @Override
-            protected void populateViewHolder(MenuViewHolder viewHolder, MenuList model, int position) {
+            protected void populateViewHolder(MenuViewHolder viewHolder, final MenuList model, int position) {
 
                 viewHolder.setMenuName(model.getMenuName());
                 viewHolder.setMenuPrice(model.getMenuPrice());
+                viewHolder.fView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                        strMenuNameDetails = model.getMenuName();
+                        strMenuPriceDetails = model.getMenuPrice();
+
+                        FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                        AdminMenuDetails fragmMenuDetails = new AdminMenuDetails();
+                        transaction.replace(R.id.activity_admin_main, fragmMenuDetails);
+                        transaction.addToBackStack(null);
+                        transaction.commit();
+
+                    }
+                });
 
             }
         };
