@@ -4,7 +4,7 @@
     android:layout_height="match_parent">
 
     <EditText
-        android:id="@+id/edtEmail"
+        android:id="@+id/edtAdminUserEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAlignment="center"
@@ -12,23 +12,31 @@
         android:layout_marginTop="30dp"/>
 
     <EditText
-        android:id="@+id/edtIC"
+        android:id="@+id/edtAdminUserIC"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAlignment="center"
-        android:hint="IC"
+        android:hint="User IC"
         android:layout_marginTop="30dp"/>
 
     <EditText
-        android:id="@+id/edtName"
+        android:id="@+id/edtAdminUserName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAlignment="center"
-        android:hint="Full Name"
+        android:hint="User Name"
+        android:layout_marginTop="30dp"/>
+
+    <EditText
+        android:id="@+id/edtAdminUserType"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:hint="User Type"
         android:layout_marginTop="30dp"/>
 
     <Button
-        android:id="@+id/btnUserAdd"
+        android:id="@+id/btnAdminUserAdd"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Add User"

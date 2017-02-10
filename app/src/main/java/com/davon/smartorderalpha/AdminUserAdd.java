@@ -26,8 +26,8 @@ public class AdminUserAdd extends Fragment {
 
     private FirebaseAuth fAuth;
     private DatabaseReference fDatabase;
-    private EditText edtEmail, edtIC, edtName;
-    private Button btnUserAdd;
+    private EditText edtAdminUserEmail, edtAdminUserIC, edtAdminUserName;
+    private Button btnAdminUserAdd;
     private ProgressDialog progressDialog;
 
     @Nullable
@@ -44,41 +44,47 @@ public class AdminUserAdd extends Fragment {
 
         fAuth = FirebaseAuth.getInstance();
         fDatabase = FirebaseDatabase.getInstance().getReference().child("tblUser");
-        edtEmail = (EditText) v.findViewById(R.id.edtEmail);
-        edtIC = (EditText) v.findViewById(R.id.edtIC);
-        edtName = (EditText) v.findViewById(R.id.edtName);
-        btnUserAdd = (Button) v.findViewById(R.id.btnUserAdd);
+        edtAdminUserEmail = (EditText) v.findViewById(R.id.edtAdminUserEmail);
+        edtAdminUserIC = (EditText) v.findViewById(R.id.edtAdminUserIC);
+        edtAdminUserName = (EditText) v.findViewById(R.id.edtAdminUserName);
+        btnAdminUserAdd = (Button) v.findViewById(R.id.btnAdminUserAdd);
         progressDialog = new ProgressDialog(getActivity());
 
-        btnUserAdd.setOnClickListener(new View.OnClickListener() {
+        btnAdminUserAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 progressDialog.setMessage("Storing Data...");
                 progressDialog.show();
 
-                String strEmail = edtEmail.getText().toString().trim();
-                String strPassword = "abc123";
-                String strIC = edtIC.getText().toString().trim();
-                String strName = edtName.getText().toString().trim();
+                String strAdminUserEmail = edtAdminUserEmail.getText().toString().trim();
+                String strAdminUserPassword = "abc123";
 
-                if(TextUtils.isEmpty(strEmail)) {
+                final String strAdminUserIC = edtAdminUserIC.getText().toString().trim();
+                String strAdminUserName = edtAdminUserName.getText().toString().trim();
+                final String strAdminUserType = edtAdminUserName.getText().toString().trim();
+
+                if(TextUtils.isEmpty(strAdminUserEmail)) {
                     Toast.makeText(getActivity(), "Please enter email address", Toast.LENGTH_LONG).show();
                     return;
-                } else if(TextUtils.isEmpty(strIC)) {
+                } else if(TextUtils.isEmpty(strAdminUserIC)) {
                     Toast.makeText(getActivity(), "Please enter your IC number", Toast.LENGTH_LONG).show();
                     return;
-                } else if(TextUtils.isEmpty(strName)) {
+                } else if(TextUtils.isEmpty(strAdminUserName)) {
                     Toast.makeText(getActivity(), "Please enter your full name", Toast.LENGTH_LONG).show();
+                    return;
+                } else if(TextUtils.isEmpty(strAdminUserType)) {
+                    Toast.makeText(getActivity(), "Please select user type", Toast.LENGTH_LONG).show();
                     return;
                 }
 
                 final HashMap<String, String> dataMap = new HashMap<String, String>();
-                dataMap.put("userEmail",strEmail);
-                dataMap.put("userIC",strIC);
-                dataMap.put("userName",strName);
+                dataMap.put("userEmail",strAdminUserEmail);
+                dataMap.put("userIC",strAdminUserIC);
+                dataMap.put("userName",strAdminUserName);
+                dataMap.put("userType",strAdminUserType);
 
-                fAuth.createUserWithEmailAndPassword(strEmail, strPassword).addOnCompleteListener(getActivity(), new OnCompleteListener<AuthResult>() {
+                fAuth.createUserWithEmailAndPassword(strAdminUserEmail, strAdminUserPassword).addOnCompleteListener(getActivity(), new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (!task.isSuccessful()) {
@@ -86,7 +92,7 @@ public class AdminUserAdd extends Fragment {
 //                            Toast.makeText(getActivity(), "Sign Up Failed" , Toast.LENGTH_LONG).show();
                             Toast.makeText(getActivity(), "Sign Up failed." + task.getException(), Toast.LENGTH_LONG).show();
                         } else {
-                            fDatabase.push().setValue(dataMap);
+                            fDatabase.child(strAdminUserType).child(strAdminUserIC).setValue(dataMap);
                             progressDialog.dismiss();
                             Toast.makeText(getActivity(), "Sign Up Success" , Toast.LENGTH_LONG).show();
 //                            AdminUser fragmUser = new AdminUser();
