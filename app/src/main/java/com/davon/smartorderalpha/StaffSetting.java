@@ -51,11 +51,21 @@ public class StaffSetting extends Fragment {
             }
         };
 
-        btnChgPasswordStaff.setOnClickListener(new View.OnClickListener() {
+        btnLogoutStaff.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                if (view == btnLogoutStaff){
+                    progressDialog.setMessage("Log Out. Please Wait...");
+                    progressDialog.show();
+                    fAuth.signOut();
+                    startActivity(new Intent(getActivity(), LoginActivity.class));
+                }
             }
         });
+    }
+    @Override
+    public void onStart() {
+        super.onStart();
+        fAuth.addAuthStateListener(fAuthListener);
     }
 }
