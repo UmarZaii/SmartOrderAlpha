@@ -60,7 +60,8 @@ public class AdminMenuAdd extends Fragment {
                 HashMap<String, String> dataMap =  new HashMap<String, String>();
                 dataMap.put("menuName", strMenuName);
                 dataMap.put("menuPrice", strMenuPrice);
-                fDatabase.child(strMenuName).setValue(dataMap).addOnCompleteListener(new OnCompleteListener<Void>() {
+                dataMap.put("menuType", AdminMenuType.strAdminMenuTypeSelection);
+                fDatabase.child(AdminMenuType.strAdminMenuTypeSelection).child(strMenuName).setValue(dataMap).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if(task.isSuccessful()) {

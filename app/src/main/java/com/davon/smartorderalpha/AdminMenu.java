@@ -68,14 +68,14 @@ public class AdminMenu extends Fragment {
                 MenuList.class,
                 R.layout.fragment_admin_menu_row,
                 MenuViewHolder.class,
-                fDatabase
+                fDatabase.child(AdminMenuType.strAdminMenuTypeSelection)
 
         ) {
             @Override
             protected void populateViewHolder(MenuViewHolder viewHolder, final MenuList model, int position) {
 
                 viewHolder.setMenuName(model.getMenuName());
-                viewHolder.setMenuPrice(model.getMenuPrice());
+//                viewHolder.setMenuPrice(model.getMenuPrice());
                 viewHolder.fView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -116,12 +116,12 @@ public class AdminMenu extends Fragment {
 
         }
 
-        public void setMenuPrice(String menuPrice) {
-
-            TextView txtMenuPrice = (TextView)fView.findViewById(R.id.txtMenuPrice);
-            txtMenuPrice.setText(menuPrice);
-
-        }
+//        public void setMenuPrice(String menuPrice) {
+//
+//            TextView txtMenuPrice = (TextView)fView.findViewById(R.id.txtMenuPrice);
+//            txtMenuPrice.setText(menuPrice);
+//
+//        }
 
     }
 

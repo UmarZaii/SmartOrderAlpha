@@ -31,8 +31,8 @@ public class AdminMainActivity extends AppCompatActivity implements OnMenuTabCli
 
         } else if (menuItemId == R.id.btmBarMenu){
 
-            AdminMenu fragmMenu = new AdminMenu();
-            transaction.replace(R.id.activity_admin_main, fragmMenu);
+            AdminMenuType fragmMenuType = new AdminMenuType();
+            transaction.replace(R.id.activity_admin_main, fragmMenuType);
 //            transaction.addToBackStack(null);
             transaction.commit();
 
