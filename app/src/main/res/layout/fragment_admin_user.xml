@@ -21,9 +21,12 @@
         android:minWidth="300dp"
         android:layout_height="wrap_content"
         android:minHeight="300dp"
-        android:layout_marginTop="55dp"
+        android:layout_marginTop="47dp"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true">
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="211dp"
+        android:layout_marginEnd="211dp">
     </android.support.v7.widget.RecyclerView>
 
 </RelativeLayout>

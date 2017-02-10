@@ -72,8 +72,8 @@ public class AdminUser extends Fragment {
             @Override
             protected void populateViewHolder(UserViewHolder viewHolder, final UserList model, int position) {
 
-                viewHolder.setUserEmail(model.getUserEmail());
-                viewHolder.setUserIC(model.getUserIC());
+//                viewHolder.setUserEmail(model.getUserEmail());
+//                viewHolder.setUserIC(model.getUserIC());
                 viewHolder.setUserName(model.getUserName());
                 viewHolder.fView.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -109,15 +109,15 @@ public class AdminUser extends Fragment {
             fView = itemView;
         }
 
-        public void setUserEmail(String userEmail){
-            TextView txtUserEmail = (TextView) fView.findViewById(R.id.txtUserEmail);
-            txtUserEmail.setText(userEmail);
-        }
-
-        public void setUserIC(String userIC){
-            TextView txtUserIC = (TextView) fView.findViewById(R.id.txtUserIC);
-            txtUserIC.setText(userIC);
-        }
+//        public void setUserEmail(String userEmail){
+//            TextView txtUserEmail = (TextView) fView.findViewById(R.id.txtUserEmail);
+//            txtUserEmail.setText(userEmail);
+//        }
+//
+//        public void setUserIC(String userIC){
+//            TextView txtUserIC = (TextView) fView.findViewById(R.id.txtUserIC);
+//            txtUserIC.setText(userIC);
+//        }
 
         public void setUserName(String userName){
             TextView txtUserName = (TextView) fView.findViewById(R.id.txtUserName);
