@@ -22,6 +22,10 @@ public class AdminUser extends Fragment {
     private DatabaseReference databaseReference;
     private Button btnGoToAddUser;
 
+    public static String strUserEmailDetails = "";
+    public static String strUserICDetails = "";
+    public static String strUserNameDetails = "";
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -65,11 +69,28 @@ public class AdminUser extends Fragment {
                 databaseReference
         ) {
             @Override
-            protected void populateViewHolder(UserViewHolder viewHolder, UserList model, int position) {
+            protected void populateViewHolder(UserViewHolder viewHolder, final UserList model, int position) {
 
                 viewHolder.setUserEmail(model.getUserEmail());
                 viewHolder.setUserIC(model.getUserIC());
                 viewHolder.setUserName(model.getUserName());
+                viewHolder.fView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+
+                        strUserEmailDetails = model.getUserEmail();
+                        strUserICDetails = model.getUserIC();
+                        strUserNameDetails = model.getUserName();
+
+                        FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                        AdminUserDetails fragUserDetails = new AdminUserDetails();
+                        transaction.replace(R.id.activity_admin_main, fragUserDetails);
+                        transaction.addToBackStack(null);
+                        transaction.commit();
+                    }
+                });
+
+
 
             }
         };
