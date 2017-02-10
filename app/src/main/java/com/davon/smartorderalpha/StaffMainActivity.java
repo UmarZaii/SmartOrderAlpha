@@ -36,18 +36,11 @@ public class StaffMainActivity extends AppCompatActivity implements OnMenuTabCli
 
         } else if (menuItemId == R.id.btmBarUserStaff){
 
-//            AdminMenu fragmMenu = new AdminMenu();
-//            transaction.replace(R.id.activity_admin_main, fragmMenu);
-//            transaction.addToBackStack(null);
-//            transaction.commit();
-
         } else if (menuItemId == R.id.btmBarSettingStaff){
 
-//            AdminUserType fragmUserType = new AdminUserType();
-//            transaction.replace(R.id.activity_admin_main, fragmUserType);
-//            transaction.addToBackStack(null);
-//            transaction.commit();
-
+            StaffSetting fragmSettingStaff = new StaffSetting();
+            transaction.replace(R.id.activity_staff_main, fragmSettingStaff);
+            transaction.commit();
         }
 
     }
