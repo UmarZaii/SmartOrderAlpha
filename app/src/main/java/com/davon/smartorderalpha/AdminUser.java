@@ -22,9 +22,10 @@ public class AdminUser extends Fragment {
     private DatabaseReference databaseReference;
     private Button btnGoToAddUser;
 
-    public static String strUserEmailDetails = "";
-    public static String strUserICDetails = "";
-    public static String strUserNameDetails = "";
+    public static String strAdminUserEmailDetails = "";
+    public static String strAdminUserICDetails = "";
+    public static String strAdminUserNameDetails = "";
+    public static String strAdminUserTypeDetails = "";
 
     @Nullable
     @Override
@@ -66,7 +67,7 @@ public class AdminUser extends Fragment {
                 UserList.class,
                 R.layout.fragment_admin_user_row,
                 UserViewHolder.class,
-                databaseReference
+                databaseReference.child(AdminUserType.strAdminUserTypeSelection)
         ) {
             @Override
             protected void populateViewHolder(UserViewHolder viewHolder, final UserList model, int position) {
@@ -78,9 +79,10 @@ public class AdminUser extends Fragment {
                     @Override
                     public void onClick(View view) {
 
-                        strUserEmailDetails = model.getUserEmail();
-                        strUserICDetails = model.getUserIC();
-                        strUserNameDetails = model.getUserName();
+                        strAdminUserEmailDetails = model.getUserEmail();
+                        strAdminUserICDetails = model.getUserIC();
+                        strAdminUserNameDetails = model.getUserName();
+                        strAdminUserTypeDetails = model.getUserType();
 
                         FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
                         AdminUserDetails fragUserDetails = new AdminUserDetails();

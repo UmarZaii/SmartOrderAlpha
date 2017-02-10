@@ -5,14 +5,18 @@ public class UserList {
     private String userEmail;
     private String userIC;
     private String userName;
+    private String userType;
 
     public UserList(){
 
     }
-    public UserList(String userEmail, String userIC, String userName) {
+
+    public UserList(String userEmail, String userIC, String userName, String userType) {
         this.userEmail = userEmail;
         this.userIC = userIC;
         this.userName = userName;
+        this.userType = userType;
+
     }
 
     public String getUserEmail() {
@@ -39,6 +43,13 @@ public class UserList {
         this.userName = userName;
     }
 
+    public String getUserType() {
+        return userType;
+    }
+
+    public void setUserType(String userType) {
+        this.userType = userType;
+    }
 }
 
 

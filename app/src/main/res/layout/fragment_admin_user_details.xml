@@ -5,7 +5,7 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/lblUserEmailDetails"
+        android:id="@+id/lblAdminUserEmailDetails"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="User Email :"
@@ -14,7 +14,7 @@
         android:layout_marginLeft="10dp"/>
 
     <TextView
-        android:id="@+id/txtUserEmailDetails"
+        android:id="@+id/txtAdminUserEmailDetails"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="admin@gmail.com"
@@ -23,7 +23,7 @@
         android:layout_marginLeft="10dp"/>
 
     <TextView
-        android:id="@+id/lblUserICDetails"
+        android:id="@+id/lblAdminUserICDetails"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="User IC No :"
@@ -32,7 +32,7 @@
         android:layout_marginLeft="10dp"/>
 
     <TextView
-        android:id="@+id/txtUserICDetails"
+        android:id="@+id/txtAdminUserICDetails"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="960521125269"
@@ -41,7 +41,7 @@
         android:layout_marginLeft="10dp"/>
 
     <TextView
-        android:id="@+id/lblUserNameDetails"
+        android:id="@+id/lblAdminUserNameDetails"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="User Name :"
@@ -50,7 +50,24 @@
         android:layout_marginLeft="10dp"/>
 
     <TextView
-        android:id="@+id/txtUserNameDetails"
+        android:id="@+id/txtAdminUserNameDetails"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="M Syariful"
+        android:textSize="25dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="10dp"/>
+    <TextView
+        android:id="@+id/lblAdminUserTypeDetails"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="User Type :"
+        android:textSize="25dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="10dp"/>
+
+    <TextView
+        android:id="@+id/txtAdminUserTypeDetails"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="M Syariful"
@@ -59,7 +76,7 @@
         android:layout_marginLeft="10dp"/>
 s
     <Button
-        android:id="@+id/btnDelUserDetails"
+        android:id="@+id/btnDelAdminUserDetails"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"

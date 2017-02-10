@@ -62,7 +62,6 @@ public class AdminUserAdd extends Fragment {
 
                 final String strAdminUserIC = edtAdminUserIC.getText().toString().trim();
                 String strAdminUserName = edtAdminUserName.getText().toString().trim();
-                final String strAdminUserType = edtAdminUserName.getText().toString().trim();
 
                 if(TextUtils.isEmpty(strAdminUserEmail)) {
                     Toast.makeText(getActivity(), "Please enter email address", Toast.LENGTH_LONG).show();
@@ -73,16 +72,13 @@ public class AdminUserAdd extends Fragment {
                 } else if(TextUtils.isEmpty(strAdminUserName)) {
                     Toast.makeText(getActivity(), "Please enter your full name", Toast.LENGTH_LONG).show();
                     return;
-                } else if(TextUtils.isEmpty(strAdminUserType)) {
-                    Toast.makeText(getActivity(), "Please select user type", Toast.LENGTH_LONG).show();
-                    return;
                 }
 
                 final HashMap<String, String> dataMap = new HashMap<String, String>();
                 dataMap.put("userEmail",strAdminUserEmail);
                 dataMap.put("userIC",strAdminUserIC);
                 dataMap.put("userName",strAdminUserName);
-                dataMap.put("userType",strAdminUserType);
+                dataMap.put("userType",AdminUserType.strAdminUserTypeSelection);
 
                 fAuth.createUserWithEmailAndPassword(strAdminUserEmail, strAdminUserPassword).addOnCompleteListener(getActivity(), new OnCompleteListener<AuthResult>() {
                     @Override
@@ -92,7 +88,7 @@ public class AdminUserAdd extends Fragment {
 //                            Toast.makeText(getActivity(), "Sign Up Failed" , Toast.LENGTH_LONG).show();
                             Toast.makeText(getActivity(), "Sign Up failed." + task.getException(), Toast.LENGTH_LONG).show();
                         } else {
-                            fDatabase.child(strAdminUserType).child(strAdminUserIC).setValue(dataMap);
+                            fDatabase.child(AdminUserType.strAdminUserTypeSelection).child(strAdminUserIC).setValue(dataMap);
                             progressDialog.dismiss();
                             Toast.makeText(getActivity(), "Sign Up Success" , Toast.LENGTH_LONG).show();
 //                            AdminUser fragmUser = new AdminUser();

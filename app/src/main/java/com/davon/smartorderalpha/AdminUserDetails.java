@@ -12,17 +12,12 @@ import android.widget.TextView;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-/**
- * Created by mansoull on 10/2/2017.
- */
-//
-
 public class AdminUserDetails extends Fragment {
 
     private DatabaseReference fDatabase;
 
-    private TextView txtUserEmailDetails, txtUserICDetails, txtUserNameDetails;
-    private Button btnDelUserDetails;
+    private TextView txtAdminUserEmailDetails, txtAdminUserICDetails, txtAdminUserNameDetails, txtAdminUserTypeDetails;
+    private Button btnDelAdminUserDetails;
 
     @Nullable
     @Override
@@ -38,17 +33,20 @@ public class AdminUserDetails extends Fragment {
 
         fDatabase = FirebaseDatabase.getInstance().getReference().child("tblUser");
 
-        txtUserEmailDetails = (TextView) v.findViewById(R.id.txtUserEmailDetails);
-        txtUserEmailDetails.setText(AdminUser.strUserEmailDetails);
+        txtAdminUserEmailDetails = (TextView) v.findViewById(R.id.txtAdminUserEmailDetails);
+        txtAdminUserEmailDetails.setText(AdminUser.strAdminUserEmailDetails);
 
-        txtUserICDetails = (TextView) v.findViewById(R.id.txtUserICDetails);
-        txtUserICDetails.setText(AdminUser.strUserICDetails);
+        txtAdminUserICDetails = (TextView) v.findViewById(R.id.txtAdminUserICDetails);
+        txtAdminUserICDetails.setText(AdminUser.strAdminUserICDetails);
 
-        txtUserNameDetails = (TextView) v.findViewById(R.id.txtUserNameDetails);
-        txtUserNameDetails.setText(AdminUser.strUserNameDetails);
+        txtAdminUserNameDetails = (TextView) v.findViewById(R.id.txtAdminUserNameDetails);
+        txtAdminUserNameDetails.setText(AdminUser.strAdminUserNameDetails);
 
-        btnDelUserDetails = (Button) v.findViewById(R.id.btnDelUserDetails);
-        btnDelUserDetails.setOnClickListener(new View.OnClickListener() {
+        txtAdminUserTypeDetails = (TextView) v.findViewById(R.id.txtAdminUserTypeDetails);
+        txtAdminUserTypeDetails.setText(AdminUser.strAdminUserTypeDetails);
+
+        btnDelAdminUserDetails = (Button) v.findViewById(R.id.btnDelAdminUserDetails);
+        btnDelAdminUserDetails.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
