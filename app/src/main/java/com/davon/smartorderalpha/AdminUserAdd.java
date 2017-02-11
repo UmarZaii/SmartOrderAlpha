@@ -57,8 +57,8 @@ public class AdminUserAdd extends Fragment {
                 progressDialog.setMessage("Storing Data...");
                 progressDialog.show();
 
-                String strAdminUserEmail = edtAdminUserEmail.getText().toString().trim();
-                String strAdminUserPassword = "abc123";
+                final String strAdminUserEmail = edtAdminUserEmail.getText().toString().trim();
+                final String strAdminUserPassword = "abc123";
 
                 final String strAdminUserIC = edtAdminUserIC.getText().toString().trim();
                 String strAdminUserName = edtAdminUserName.getText().toString().trim();
@@ -85,35 +85,24 @@ public class AdminUserAdd extends Fragment {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (!task.isSuccessful()) {
                             progressDialog.dismiss();
-//                            Toast.makeText(getActivity(), "Sign Up Failed" , Toast.LENGTH_LONG).show();
                             Toast.makeText(getActivity(), "Sign Up failed." + task.getException(), Toast.LENGTH_LONG).show();
                         } else {
-                            fDatabase.child(AdminUserType.strAdminUserTypeSelection).child(strAdminUserIC).setValue(dataMap);
+
+                            String strAdminUserID = "";
+                            strAdminUserID = fAuth.getCurrentUser().getUid();
+
+                            fDatabase.child(AdminUserType.strAdminUserTypeSelection).child(strAdminUserID).setValue(dataMap);
+                            fDatabase.child("Auth").child(strAdminUserID).setValue(AdminUserType.strAdminUserTypeSelection);
+
                             progressDialog.dismiss();
                             Toast.makeText(getActivity(), "Sign Up Success" , Toast.LENGTH_LONG).show();
-//                            AdminUser fragmUser = new AdminUser();
-//                            transaction.replace(R.id.activity_admin_main, fragmUser);
-//                            transaction.commit();
+
                         }
                     }
                 });
-
-//                fDatabase.push().setValue(dataMap).addOnCompleteListener(new OnCompleteListener<Void>() {
-//                    @Override
-//                    public void onComplete(@NonNull Task<Void> task) {
-//                        if (task.isSuccessful()){
-//                            progressDialog.dismiss();
-//                            Toast.makeText(getActivity(), "Stored", Toast.LENGTH_LONG).show();
-//                        } else {
-//                            progressDialog.dismiss();
-//                            Toast.makeText(getActivity(), "Unsuccessfull", Toast.LENGTH_LONG).show();
-//                        }
-//                    }
-//                });
 
             }
         });
 
     }
 }
-//SHYT

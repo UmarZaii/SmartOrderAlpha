@@ -7,6 +7,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -16,15 +17,23 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
-public class LoginActivity extends AppCompatActivity{
+public class LoginActivity extends AppCompatActivity {
 
-    public static String strEmail;
+    public static String strEmail, strPassword;
+    public static String strUserType = "";
+    public static String strUserID = "";
 
     private EditText edtEmail, edtPassword;
     private Button btnLogin;
     private FirebaseAuth fAuth;
     private FirebaseAuth.AuthStateListener fAuthListener;
+    private DatabaseReference fDatabase;
     private ProgressDialog progressDialog;
 
     @Override
@@ -33,19 +42,46 @@ public class LoginActivity extends AppCompatActivity{
         setContentView(R.layout.activity_login);
 
         fAuth = FirebaseAuth.getInstance();
+        fDatabase = FirebaseDatabase.getInstance().getReference().child("tblUser").child("Auth");
+
         edtEmail = (EditText)findViewById(R.id.edtEmail);
         edtPassword = (EditText)findViewById(R.id.edtPassword);
         btnLogin = (Button)findViewById(R.id.btnLogin);
         progressDialog = new ProgressDialog(this);
 
+        if(fAuth.getCurrentUser() != null){
+            fAuth.signOut();
+        }
         fAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 if(firebaseAuth.getCurrentUser() != null){
-                    startActivity(new Intent(LoginActivity.this, AdminMainActivity.class));
+                    strUserID = fAuth.getCurrentUser().getUid();
+                    Log.v("strUserID", strUserID);
+                    fDatabase.child(strUserID).addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(DataSnapshot dataSnapshot) {
+                            LoginActivity.this.strUserType = dataSnapshot.getValue().toString();
+                            Log.v("strUserType", LoginActivity.this.strUserType);
+
+                            if(LoginActivity.this.strUserType.equals("Admin")) {
+                                startActivity(new Intent(LoginActivity.this, AdminMainActivity.class));
+                            } else if(LoginActivity.this.strUserType.equals("Staff")) {
+                                startActivity(new Intent(LoginActivity.this, StaffMainActivity.class));
+                            } else if(LoginActivity.this.strUserType.equals("Customer")) {
+                            }
+                        }
+
+                        @Override
+                        public void onCancelled(DatabaseError databaseError) {
+
+                        }
+                    });
                 }
             }
         };
+
+        Log.v("strUserType", LoginActivity.this.strUserType);
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,11 +100,9 @@ public class LoginActivity extends AppCompatActivity{
     private void signIn() {
 
         this.strEmail = edtEmail.getText().toString().trim();
+        this.strPassword = edtPassword.getText().toString().trim();
 
-        String strEmail = edtEmail.getText().toString().trim();
-        String strPassword = edtPassword.getText().toString().trim();
         progressDialog.setMessage("Login. Please Wait...");
-        progressDialog.show();
 
         if(TextUtils.isEmpty(strEmail) && TextUtils.isEmpty(strPassword)) {
             Toast.makeText(LoginActivity.this, "Both fields are empty", Toast.LENGTH_LONG).show();
@@ -77,12 +111,16 @@ public class LoginActivity extends AppCompatActivity{
         } else if(TextUtils.isEmpty(strPassword)) {
             Toast.makeText(LoginActivity.this, "Please input your password", Toast.LENGTH_LONG).show();
         } else {
+            progressDialog.show();
             fAuth.signInWithEmailAndPassword(strEmail,strPassword).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if(!task.isSuccessful()) {
-                        progressDialog.dismiss();
                         Toast.makeText(LoginActivity.this, "Sign In Error", Toast.LENGTH_LONG).show();
+                        progressDialog.dismiss();
+                    } else if(task.isSuccessful()) {
+                        Toast.makeText(LoginActivity.this, "Welcome", Toast.LENGTH_LONG).show();
+                        progressDialog.dismiss();
                     }
                 }
             });
