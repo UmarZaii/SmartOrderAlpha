@@ -35,6 +35,7 @@ public class AdminSetting extends Fragment {
     public void onActivityCreated(Bundle savedInstanceState) {
 
         super.onActivityCreated(savedInstanceState);
+        getActivity().setTitle("Setting");
         View v = getView();
 
         fAuth = FirebaseAuth.getInstance();

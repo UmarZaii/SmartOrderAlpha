@@ -25,6 +25,7 @@ public class AdminUserType extends Fragment{
     public void onActivityCreated(Bundle savedInstanceState) {
 
         super.onActivityCreated(savedInstanceState);
+        getActivity().setTitle("User");
         View v = getView();
 
         btnAdminUserTypeAdmin = (Button)v.findViewById(R.id.btnAdminUserTypeAdmin);

@@ -4,6 +4,8 @@ import android.support.v4.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+
 import com.roughike.bottombar.BottomBar;
 import com.roughike.bottombar.OnMenuTabClickListener;
 
@@ -16,6 +18,8 @@ public class AdminMainActivity extends AppCompatActivity implements OnMenuTabCli
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_main);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
         btmBarAdmin = BottomBar.attach(this, savedInstanceState);
         btmBarAdmin.setItemsFromMenu(R.menu.menu_admin, this);

@@ -36,6 +36,10 @@ public class StaffMainActivity extends AppCompatActivity implements OnMenuTabCli
 
         } else if (menuItemId == R.id.btmBarUserStaff){
 
+            StaffUser fragmUserStaff = new StaffUser();
+            transaction.replace(R.id.activity_staff_main, fragmUserStaff);
+            transaction.commit();
+
         } else if (menuItemId == R.id.btmBarSettingStaff){
 
             StaffSetting fragmSettingStaff = new StaffSetting();
