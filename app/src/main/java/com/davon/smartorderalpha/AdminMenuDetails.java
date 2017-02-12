@@ -3,7 +3,7 @@ package com.davon.smartorderalpha;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.util.Log;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,7 +18,7 @@ public class AdminMenuDetails extends Fragment {
     private DatabaseReference fDatabase;
 
     private TextView txtMenuNameDetails, txtMenuPriceDetails;
-    private Button btnDelMenuDetails;
+    private Button btnDelMenuDetails, btnGoToUpdMenuDetails;
 
     @Nullable
     @Override
@@ -46,6 +46,18 @@ public class AdminMenuDetails extends Fragment {
             @Override
             public void onClick(View v) {
                fDatabase.child(AdminMenuType.strAdminMenuTypeSelection).child(AdminMenu.strMenuNameDetails).removeValue();
+            }
+        });
+
+        btnGoToUpdMenuDetails = (Button)v.findViewById(R.id.btnGoToUpdMenuDetails);
+        btnGoToUpdMenuDetails.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                AdminMenuDetailsUpd fragmMenuDetailsUpd = new AdminMenuDetailsUpd();
+                transaction.replace(R.id.activity_admin_main, fragmMenuDetailsUpd);
+                transaction.addToBackStack(null);
+                transaction.commit();
             }
         });
 
