@@ -26,10 +26,11 @@ public class StaffUser extends Fragment {
     private DatabaseReference databaseReference;
     private Button btnStaffGoToAddUser;
 
-    public static String strAdminUserEmailDetails = "";
-    public static String strAdminUserICDetails = "";
-    public static String strAdminUserNameDetails = "";
-    public static String strAdminUserTypeDetails = "";
+    public static String strStaffUserTypeSelection = "";
+    public static String strStaffUserEmailDetails = "";
+    public static String strStaffUserICDetails = "";
+    public static String strStaffUserNameDetails = "";
+    public static String strStaffUserTypeDetails = "";
 
 
     @Nullable
@@ -54,11 +55,12 @@ public class StaffUser extends Fragment {
         btnStaffGoToAddUser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
-//                AdminUserAdd fragUser = new AdminUserAdd();
-//                transaction.replace(R.id.activity_admin_main, fragUser);
-//                transaction.addToBackStack(null);
-//                transaction.commit();
+                strStaffUserTypeSelection = "Customer";
+                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                StaffUserAdd fragStaffUser = new StaffUserAdd();
+                transaction.replace(R.id.activity_staff_main, fragStaffUser);
+                transaction.addToBackStack(null);
+                transaction.commit();
             }
         });
     }
@@ -72,26 +74,26 @@ public class StaffUser extends Fragment {
                 UserList.class,
                 R.layout.fragment_staff_user_row,
                 UserViewHolderStaff.class,
-                databaseReference.child(AdminUserType.strAdminUserTypeSelection)
+                databaseReference.child(strStaffUserTypeSelection)
         ) {
             @Override
-            protected void populateViewHolder(UserViewHolderStaff viewHolder, UserList model, int position) {
+            protected void populateViewHolder(UserViewHolderStaff viewHolder, final UserList model, int position) {
 
                 viewHolder.setUserName(model.getUserName());
                 viewHolder.fView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
 
-//                        strAdminUserEmailDetails = model.getUserEmail();
-//                        strAdminUserICDetails = model.getUserIC();
-//                        strAdminUserNameDetails = model.getUserName();
-//                        strAdminUserTypeDetails = model.getUserType();
+                        strStaffUserEmailDetails = model.getUserEmail();
+                        strStaffUserICDetails = model.getUserIC();
+                        strStaffUserNameDetails = model.getUserName();
+                        strStaffUserTypeDetails = model.getUserType();
 
-//                        FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
-//                        AdminUserDetails fragUserDetails = new AdminUserDetails();
-//                        transaction.replace(R.id.activity_staff_main, fragUserDetails);
-//                        transaction.addToBackStack(null);
-//                        transaction.commit();
+                        FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                        StaffUserDetails fragStaffUserDetails = new StaffUserDetails();
+                        transaction.replace(R.id.activity_staff_main, fragStaffUserDetails);
+                        transaction.addToBackStack(null);
+                        transaction.commit();
                     }
                 });
 
