@@ -5,6 +5,7 @@ import android.os.PersistableBundle;
 import android.support.annotation.IdRes;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 
 import com.roughike.bottombar.BottomBar;
 import com.roughike.bottombar.OnMenuTabClickListener;
@@ -21,6 +22,8 @@ public class StaffMainActivity extends AppCompatActivity implements OnMenuTabCli
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_staff_main);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
         btmBarStaff = BottomBar.attach(this, savedInstanceState);
         btmBarStaff.setItemsFromMenu(R.menu.menu_staff, this);
