@@ -6,6 +6,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,6 +30,8 @@ public class AdminUserAdd extends Fragment {
     private EditText edtAdminUserEmail, edtAdminUserIC, edtAdminUserName;
     private Button btnAdminUserAdd;
     private ProgressDialog progressDialog;
+
+    public static String strAdminUserID = "";
 
     @Nullable
     @Override
@@ -61,7 +64,7 @@ public class AdminUserAdd extends Fragment {
                 final String strAdminUserPassword = "abc123";
 
                 final String strAdminUserIC = edtAdminUserIC.getText().toString().trim();
-                String strAdminUserName = edtAdminUserName.getText().toString().trim();
+                final String strAdminUserName = edtAdminUserName.getText().toString().trim();
 
                 if(TextUtils.isEmpty(strAdminUserEmail)) {
                     Toast.makeText(getActivity(), "Please enter email address", Toast.LENGTH_LONG).show();
@@ -74,12 +77,6 @@ public class AdminUserAdd extends Fragment {
                     return;
                 }
 
-                final HashMap<String, String> dataMap = new HashMap<String, String>();
-                dataMap.put("userEmail",strAdminUserEmail);
-                dataMap.put("userIC",strAdminUserIC);
-                dataMap.put("userName",strAdminUserName);
-                dataMap.put("userType",AdminUserType.strAdminUserTypeSelection);
-
                 fAuth.createUserWithEmailAndPassword(strAdminUserEmail, strAdminUserPassword).addOnCompleteListener(getActivity(), new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
@@ -88,11 +85,22 @@ public class AdminUserAdd extends Fragment {
                             Toast.makeText(getActivity(), "Sign Up failed." + task.getException(), Toast.LENGTH_LONG).show();
                         } else {
 
-                            String strAdminUserID = "";
+                            Log.d("strAdminUID A", strAdminUserID);
+
                             strAdminUserID = fAuth.getCurrentUser().getUid();
+
+                            final HashMap<String, String> dataMap = new HashMap<String, String>();
+                            dataMap.put("userEmail", strAdminUserEmail);
+                            dataMap.put("userID", strAdminUserID);
+                            dataMap.put("userIC", strAdminUserIC);
+                            dataMap.put("userName", strAdminUserName);
+                            dataMap.put("userType", AdminUserType.strAdminUserTypeSelection);
+                            dataMap.put("userPass", strAdminUserPassword);
 
                             fDatabase.child(AdminUserType.strAdminUserTypeSelection).child(strAdminUserID).setValue(dataMap);
                             fDatabase.child("Auth").child(strAdminUserID).setValue(AdminUserType.strAdminUserTypeSelection);
+
+                            Log.d("strAdminUID B", strAdminUserID);
 
                             progressDialog.dismiss();
                             Toast.makeText(getActivity(), "Sign Up Success" , Toast.LENGTH_LONG).show();

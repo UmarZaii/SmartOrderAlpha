@@ -24,7 +24,9 @@ public class AdminUser extends Fragment {
 
     public static String strAdminUserEmailDetails = "";
     public static String strAdminUserICDetails = "";
+    public static String strAdminUserIDDetails = "";
     public static String strAdminUserNameDetails = "";
+    public static String strAdminUserPassDetails = "";
     public static String strAdminUserTypeDetails = "";
 
     @Nullable
@@ -81,7 +83,9 @@ public class AdminUser extends Fragment {
 
                         strAdminUserEmailDetails = model.getUserEmail();
                         strAdminUserICDetails = model.getUserIC();
+                        strAdminUserIDDetails = model.getUserID();
                         strAdminUserNameDetails = model.getUserName();
+                        strAdminUserPassDetails = model.getUserPass();
                         strAdminUserTypeDetails = model.getUserType();
 
                         FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();

@@ -42,7 +42,7 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         fAuth = FirebaseAuth.getInstance();
-        fDatabase = FirebaseDatabase.getInstance().getReference().child("tblUser").child("Auth");
+        fDatabase = FirebaseDatabase.getInstance().getReference().child("tblUser");
 
         edtEmail = (EditText)findViewById(R.id.edtEmail);
         edtPassword = (EditText)findViewById(R.id.edtPassword);
@@ -56,20 +56,28 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 if(firebaseAuth.getCurrentUser() != null){
+
                     strUserID = fAuth.getCurrentUser().getUid();
                     Log.v("strUserID", strUserID);
-                    fDatabase.child(strUserID).addValueEventListener(new ValueEventListener() {
+
+                    fDatabase.child("Auth").child(strUserID).addValueEventListener(new ValueEventListener() {
+
                         @Override
                         public void onDataChange(DataSnapshot dataSnapshot) {
-                            LoginActivity.this.strUserType = dataSnapshot.getValue().toString();
-                            Log.v("strUserType", LoginActivity.this.strUserType);
 
-                            if(LoginActivity.this.strUserType.equals("Admin")) {
+                            strUserType = dataSnapshot.getValue().toString();
+                            Log.v("strUserType", strUserType);
+
+                            fDatabase.child(strUserType).child(strUserID).child("userPass").setValue(strPassword);
+//                            fAuth.removeAuthStateListener();
+
+                            if(strUserType.equals("Admin")) {
                                 startActivity(new Intent(LoginActivity.this, AdminMainActivity.class));
-                            } else if(LoginActivity.this.strUserType.equals("Staff")) {
+                            } else if(strUserType.equals("Staff")) {
                                 startActivity(new Intent(LoginActivity.this, StaffMainActivity.class));
-                            } else if(LoginActivity.this.strUserType.equals("Customer")) {
+                            } else if(strUserType.equals("Customer")) {
                             }
+
                         }
 
                         @Override
@@ -80,8 +88,6 @@ public class LoginActivity extends AppCompatActivity {
                 }
             }
         };
-
-        Log.v("strUserType", LoginActivity.this.strUserType);
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override

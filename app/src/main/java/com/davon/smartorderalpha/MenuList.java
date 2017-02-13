@@ -4,12 +4,13 @@ public class MenuList {
 
     private String menuName;
     private String menuPrice;
+    private String menuType;
 
     public MenuList() {
 
     }
 
-    public MenuList(String menuName, String menuPrice) {
+    public MenuList(String menuName, String menuPrice, String menuType) {
         this.menuName = menuName;
         this.menuPrice = menuPrice;
     }
@@ -28,6 +29,14 @@ public class MenuList {
 
     public void setMenuName(String menuName) {
         this.menuName = menuName;
+    }
+
+    public String getMenuType() {
+        return menuType;
+    }
+
+    public void setMenuType(String menuType) {
+        this.menuType = menuType;
     }
 
 }
