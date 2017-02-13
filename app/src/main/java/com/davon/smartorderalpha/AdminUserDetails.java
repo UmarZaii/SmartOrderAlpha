@@ -71,6 +71,7 @@ public class AdminUserDetails extends Fragment {
                             Log.d("CREDENTIAL", "OK");
                         } else {
                             Log.d("CREDENTIAL", "NOT OK");
+                            task.getException();
                         }
                     }
                 });
