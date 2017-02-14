@@ -34,6 +34,8 @@ public class StaffUserAdd extends Fragment {
     private Button btnStaffUserAdd;
     private ProgressDialog progressDialog;
 
+    String strStaffUserID = "";
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -65,8 +67,8 @@ public class StaffUserAdd extends Fragment {
                 final String strStaffUserEmail = edtStaffUserEmail.getText().toString().trim();
                 final String strStaffUserPassword = "abc123" ;
 
-                String strStaffUserIC = edtStaffUserIC.getText().toString().trim();
-                String strStaffUserName = edtStaffUserName.getText().toString().trim();
+                final String strStaffUserIC = edtStaffUserIC.getText().toString().trim();
+                final String strStaffUserName = edtStaffUserName.getText().toString().trim();
 
                 if (TextUtils.isEmpty(strStaffUserEmail)){
                     Toast.makeText(getActivity(), "please enter your email address", Toast.LENGTH_SHORT).show();
@@ -81,12 +83,6 @@ public class StaffUserAdd extends Fragment {
                     return;
                 }
 
-                final HashMap<String, String> dataMap = new HashMap<String, String>();
-                dataMap.put("userEmail",strStaffUserEmail);
-                dataMap.put("userIC", strStaffUserIC);
-                dataMap.put("userName", strStaffUserName);
-                dataMap.put("userType", StaffUser.strStaffUserTypeSelection);
-
                 fAuth.createUserWithEmailAndPassword(strStaffUserEmail,strStaffUserPassword).addOnCompleteListener(getActivity(), new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
@@ -96,8 +92,16 @@ public class StaffUserAdd extends Fragment {
 
                         } else {
 
-                            String strStaffUserID = "";
                             strStaffUserID = fAuth.getCurrentUser().getUid();
+
+                            final HashMap<String, String> dataMap = new HashMap<String, String>();
+                            dataMap.put("userEmail",strStaffUserEmail);
+                            dataMap.put("userIC", strStaffUserIC);
+                            dataMap.put("userID", strStaffUserID);
+                            dataMap.put("userName", strStaffUserName);
+                            dataMap.put("userPass", strStaffUserPassword);
+                            dataMap.put("userType", StaffUser.strStaffUserTypeSelection);
+
 
                             fDatabase.child(StaffUser.strStaffUserTypeSelection).child(strStaffUserID).setValue(dataMap);
                             fDatabase.child("Auth").child(strStaffUserID).setValue(StaffUser.strStaffUserTypeSelection);

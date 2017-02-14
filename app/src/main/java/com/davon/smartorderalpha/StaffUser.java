@@ -29,7 +29,9 @@ public class StaffUser extends Fragment {
     public static String strStaffUserTypeSelection = "";
     public static String strStaffUserEmailDetails = "";
     public static String strStaffUserICDetails = "";
+    public static String strStaffUserIDetails = "";
     public static String strStaffUserNameDetails = "";
+    public static String strStaffUserPassDetails = "";
     public static String strStaffUserTypeDetails = "";
 
 
@@ -52,10 +54,11 @@ public class StaffUser extends Fragment {
         rvStaffUser.setLayoutManager(new LinearLayoutManager(getActivity()));
 
         btnStaffGoToAddUser = (Button) v.findViewById(R.id.btnStaffGoToAddUser);
+        strStaffUserTypeSelection = "Customer";
         btnStaffGoToAddUser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                strStaffUserTypeSelection = "Customer";
+
                 FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
                 StaffUserAdd fragStaffUser = new StaffUserAdd();
                 transaction.replace(R.id.activity_staff_main, fragStaffUser);
@@ -86,7 +89,9 @@ public class StaffUser extends Fragment {
 
                         strStaffUserEmailDetails = model.getUserEmail();
                         strStaffUserICDetails = model.getUserIC();
+                        strStaffUserIDetails = model.getUserID();
                         strStaffUserNameDetails = model.getUserName();
+                        strStaffUserPassDetails = model.getUserPass();
                         strStaffUserTypeDetails = model.getUserType();
 
                         FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
