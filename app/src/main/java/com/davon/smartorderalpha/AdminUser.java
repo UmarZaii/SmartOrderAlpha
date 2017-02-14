@@ -46,6 +46,7 @@ public class AdminUser extends Fragment {
         rvUser = (RecyclerView) v.findViewById(R.id.rvUser);
         rvUser.setHasFixedSize(true);
         rvUser.setLayoutManager(new LinearLayoutManager(getActivity()));
+        rvUser.addItemDecoration(new AllDividerItemRecycleView(getActivity()));
 
         btnGoToAddUser = (Button) v.findViewById(R.id.btnGoToAddUser);
         btnGoToAddUser.setOnClickListener(new View.OnClickListener() {

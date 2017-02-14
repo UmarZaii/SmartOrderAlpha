@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
     <TextView
@@ -7,9 +7,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="98dp"
-        android:id="@+id/lblMenuNameDetails"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:id="@+id/lblMenuNameDetails"/>
 
     <TextView
         android:hint="Lemonade"
@@ -17,8 +15,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/txtMenuNameDetails"
         android:layout_marginTop="13dp"
-        android:layout_below="@+id/lblMenuNameDetails"
-        android:layout_centerHorizontal="true" />
+        android:layout_below="@+id/lblMenuNameDetails"/>
 
     <TextView
         android:text="Menu Price :"
@@ -26,8 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:id="@+id/lblMenuPriceDetails"
-        android:layout_below="@+id/txtMenuNameDetails"
-        android:layout_centerHorizontal="true" />
+        android:layout_below="@+id/txtMenuNameDetails"/>
 
     <TextView
         android:hint="RM 1.00"
@@ -35,25 +31,18 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:id="@+id/txtMenuPriceDetails"
-        android:layout_below="@+id/lblMenuPriceDetails"
-        android:layout_centerHorizontal="true" />
+        android:layout_below="@+id/lblMenuPriceDetails"/>
 
     <Button
+        android:id="@+id/btnDelMenuDetails"
         android:text="Delete"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_alignRight="@+id/lblMenuNameDetails"
-        android:layout_alignEnd="@+id/lblMenuNameDetails"
-        android:id="@+id/btnDelMenuDetails" />
+        android:layout_height="wrap_content"/>
 
     <Button
         android:text="Update"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/btnGoToUpdMenuDetails"
-        android:layout_below="@+id/btnDelMenuDetails"
-        android:layout_alignLeft="@+id/btnDelMenuDetails"
-        android:layout_alignStart="@+id/btnDelMenuDetails" />
+        android:id="@+id/btnGoToUpdMenuDetails"/>
 
-</RelativeLayout>
+</LinearLayout>

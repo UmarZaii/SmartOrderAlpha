@@ -4,6 +4,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -43,6 +44,8 @@ public class AdminMenu extends Fragment {
         rvMenu = (RecyclerView)v.findViewById(R.id.rvMenu);
         rvMenu.setHasFixedSize(true);
         rvMenu.setLayoutManager(new LinearLayoutManager(getActivity()));
+        rvMenu.addItemDecoration(new AllDividerItemRecycleView(getActivity()));
+        rvMenu.setItemAnimator(new DefaultItemAnimator());
 
         btnGoToAddMenu = (Button)v.findViewById(R.id.btnGoToAddMenu);
         btnGoToAddMenu.setOnClickListener(new View.OnClickListener() {

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -10,23 +10,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Add User"
-        android:layout_marginTop="24dp"
-        android:layout_below="@+id/rvUser"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_marginTop="24dp" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rvUser"
-        android:layout_width="wrap_content"
-        android:minWidth="300dp"
-        android:layout_height="wrap_content"
-        android:minHeight="300dp"
-        android:layout_marginTop="47dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginRight="211dp"
-        android:layout_marginEnd="211dp">
+        android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
     </android.support.v7.widget.RecyclerView>
 
-</RelativeLayout>
+</LinearLayout>
