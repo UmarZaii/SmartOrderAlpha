@@ -3,19 +3,10 @@ package com.davon.smartorderalpha;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
-import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
-import static android.R.attr.drawable;
-import static android.R.attr.orientation;
-
-/**
- * Created by mansoull on 14/2/2017.
- */
 
 public class AllDividerItemRecycleView extends RecyclerView.ItemDecoration {
 
@@ -23,18 +14,12 @@ public class AllDividerItemRecycleView extends RecyclerView.ItemDecoration {
 
     private Drawable divider;
 
-    /**
-     * Default divider will be used
-     */
     public AllDividerItemRecycleView(Context context) {
         final TypedArray styledAttributes = context.obtainStyledAttributes(ATTRS);
         divider = styledAttributes.getDrawable(0);
         styledAttributes.recycle();
     }
 
-    /**
-     * Custom divider will be used
-     */
 //    public AllDividerItemRecycleView(Context context, int resId) {
 //        divider = ContextCompat.getDrawable(context, resId);
 //    }
