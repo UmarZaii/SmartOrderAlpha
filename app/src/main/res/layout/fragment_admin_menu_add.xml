@@ -11,43 +11,26 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Menu Name..."
-        android:ems="12"
-        android:textSize="16sp"
-        android:textAlignment="center"
-        android:minWidth="0dip"
-        android:minHeight="0dip"
+        android:textSize="20sp"
         android:id="@+id/edtMenuName"
-        android:layout_marginTop="81dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_marginTop="80dp"/>
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Menu Price..."
-        android:ems="12"
-        android:textSize="16sp"
-        android:textAlignment="center"
-        android:minWidth="0dip"
-        android:minHeight="0dip"
+        android:textSize="20sp"
         android:id="@+id/edtMenuPrice"
         android:layout_marginTop="10dp"
-        android:layout_below="@+id/edtMenuName"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_below="@+id/edtMenuName" />
 
     <Button
         android:text="Add Menu"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/btnAddMenu"
-        android:textSize="16sp"
-        android:textAlignment="center"
-        android:minWidth="0dip"
-        android:minHeight="0dip"
+        android:textSize="15sp"
         android:layout_below="@+id/edtMenuPrice"
-        android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp" />
 
 </LinearLayout>

@@ -4,6 +4,7 @@
     android:layout_height="match_parent">
     <TextView
         android:text="Menu Name :"
+        android:textSize="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="98dp"
@@ -11,6 +12,7 @@
 
     <TextView
         android:hint="Lemonade"
+        android:textSize="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/txtMenuNameDetails"
@@ -19,6 +21,7 @@
 
     <TextView
         android:text="Menu Price :"
+        android:textSize="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
@@ -27,6 +30,7 @@
 
     <TextView
         android:hint="RM 1.00"
+        android:textSize="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
@@ -34,14 +38,15 @@
         android:layout_below="@+id/lblMenuPriceDetails"/>
 
     <Button
+        android:layout_marginTop="20dp"
         android:id="@+id/btnDelMenuDetails"
         android:text="Delete"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
     <Button
         android:text="Update"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/btnGoToUpdMenuDetails"/>
 
