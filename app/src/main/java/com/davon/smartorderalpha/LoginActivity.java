@@ -76,6 +76,7 @@ public class LoginActivity extends AppCompatActivity {
                             } else if(strUserType.equals("Staff")) {
                                 startActivity(new Intent(LoginActivity.this, StaffMainActivity.class));
                             } else if(strUserType.equals("Customer")) {
+                                startActivity(new Intent(LoginActivity.this, CustMainActivity.class));
                             }
 
                         }
