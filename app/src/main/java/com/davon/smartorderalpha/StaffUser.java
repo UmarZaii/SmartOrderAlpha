@@ -52,6 +52,8 @@ public class StaffUser extends Fragment {
         rvStaffUser = (RecyclerView) v.findViewById(R.id.rvStaffUser);
         rvStaffUser.setHasFixedSize(true);
         rvStaffUser.setLayoutManager(new LinearLayoutManager(getActivity()));
+        rvStaffUser.setLayoutManager(new LinearLayoutManager(getActivity()));
+        rvStaffUser.addItemDecoration(new AllDividerItemRecycleView(getActivity()));
 
         btnStaffGoToAddUser = (Button) v.findViewById(R.id.btnStaffGoToAddUser);
         strStaffUserTypeSelection = "Customer";
