@@ -8,6 +8,7 @@
         android:layout_width="match_parent"
         android:id="@+id/txtUserName"
         android:hint="Name"
+        android:textColor="@color/elegantColorDark"
         android:textSize="20dp"/>
 
     <!--<TextView-->
