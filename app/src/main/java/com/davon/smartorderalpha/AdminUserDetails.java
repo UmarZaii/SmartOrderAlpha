@@ -64,11 +64,15 @@ public class AdminUserDetails extends Fragment {
             public void onClick(View view) {
 
                 authCredential = EmailAuthProvider.getCredential(AdminUser.strAdminUserEmailDetails, AdminUser.strAdminUserPassDetails);
+                Log.d("UID before", fAuth.getCurrentUser().getUid());
+                Log.d("UID before tostr", fAuth.getCurrentUser().getUid().toString());
                 fAuth.getCurrentUser().reauthenticate(authCredential).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if(task.isSuccessful()) {
                             Log.d("CREDENTIAL", "OK");
+                            Log.d("UID after", fAuth.getCurrentUser().getUid());
+                            Log.d("UID after tostr", fAuth.getCurrentUser().getUid().toString());
                         } else {
                             Log.d("CREDENTIAL", "NOT OK");
                             task.getException();

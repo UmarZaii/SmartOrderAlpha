@@ -32,7 +32,7 @@ public class LoginActivity extends AppCompatActivity {
     private EditText edtEmail, edtPassword;
     private Button btnLogin;
     private FirebaseAuth fAuth;
-    private FirebaseAuth.AuthStateListener fAuthListener;
+    private FirebaseAuth.AuthStateListener fAuthListenerAdmin;
     private DatabaseReference fDatabase;
     private ProgressDialog progressDialog;
 
@@ -52,7 +52,8 @@ public class LoginActivity extends AppCompatActivity {
         if(fAuth.getCurrentUser() != null){
             fAuth.signOut();
         }
-        fAuthListener = new FirebaseAuth.AuthStateListener() {
+
+        fAuthListenerAdmin = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 if(firebaseAuth.getCurrentUser() != null){
@@ -69,7 +70,6 @@ public class LoginActivity extends AppCompatActivity {
                             Log.v("strUserType", strUserType);
 
                             fDatabase.child(strUserType).child(strUserID).child("userPass").setValue(strPassword);
-//                            fAuth.removeAuthStateListener();
 
                             if(strUserType.equals("Admin")) {
                                 startActivity(new Intent(LoginActivity.this, AdminMainActivity.class));
@@ -78,6 +78,9 @@ public class LoginActivity extends AppCompatActivity {
                             } else if(strUserType.equals("Customer")) {
                                 startActivity(new Intent(LoginActivity.this, CustMainActivity.class));
                             }
+
+                            fAuth.removeAuthStateListener(fAuthListenerAdmin);
+                            finish();
 
                         }
 
@@ -101,7 +104,7 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        fAuth.addAuthStateListener(fAuthListener);
+        fAuth.addAuthStateListener(fAuthListenerAdmin);
     }
 
     private void signIn() {
@@ -132,10 +135,6 @@ public class LoginActivity extends AppCompatActivity {
                 }
             });
         }
-    }
-
-    @Override
-    public void onBackPressed() {
     }
 
 }

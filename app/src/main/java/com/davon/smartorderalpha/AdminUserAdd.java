@@ -77,6 +77,10 @@ public class AdminUserAdd extends Fragment {
                     return;
                 }
 
+                strAdminUserID = fAuth.getCurrentUser().getUid();
+
+                Log.d("strAdminUID b4", strAdminUserID);
+
                 fAuth.createUserWithEmailAndPassword(strAdminUserEmail, strAdminUserPassword).addOnCompleteListener(getActivity(), new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
@@ -85,9 +89,9 @@ public class AdminUserAdd extends Fragment {
                             Toast.makeText(getActivity(), "Sign Up failed." + task.getException(), Toast.LENGTH_LONG).show();
                         } else {
 
-                            Log.d("strAdminUID A", strAdminUserID);
-
                             strAdminUserID = fAuth.getCurrentUser().getUid();
+
+                            Log.d("strAdminUID A", strAdminUserID);
 
                             final HashMap<String, String> dataMap = new HashMap<String, String>();
                             dataMap.put("userEmail", strAdminUserEmail);
@@ -99,8 +103,6 @@ public class AdminUserAdd extends Fragment {
 
                             fDatabase.child(AdminUserType.strAdminUserTypeSelection).child(strAdminUserID).setValue(dataMap);
                             fDatabase.child("Auth").child(strAdminUserID).setValue(AdminUserType.strAdminUserTypeSelection);
-
-                            Log.d("strAdminUID B", strAdminUserID);
 
                             progressDialog.dismiss();
                             Toast.makeText(getActivity(), "Sign Up Success" , Toast.LENGTH_LONG).show();

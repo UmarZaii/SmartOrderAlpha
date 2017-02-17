@@ -43,14 +43,14 @@ public class AdminSetting extends Fragment {
         btnResetPassword = (Button)v.findViewById(R.id.btnChgPassword);
         btnLogOut = (Button)v.findViewById(R.id.btnLogout);
 
-        fAuthListener = new FirebaseAuth.AuthStateListener() {
-            @Override
-            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                if (firebaseAuth.getCurrentUser() == null){
-                    startActivity(new Intent(getActivity(), LoginActivity.class));
-                }
-            }
-        };
+//        fAuthListener = new FirebaseAuth.AuthStateListener() {
+//            @Override
+//            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+//                if (firebaseAuth.getCurrentUser() == null){
+//                    startActivity(new Intent(getActivity(), LoginActivity.class));
+//                }
+//            }
+//        };
 
         btnResetPassword.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -91,15 +91,16 @@ public class AdminSetting extends Fragment {
                     progressDialog.show();
                     fAuth.signOut();
                     startActivity(new Intent(getActivity(), LoginActivity.class));
+                    getActivity().finish();
                 }
             }
         });
 
     }
 
-    @Override
-    public void onStart() {
-        super.onStart();
-        fAuth.addAuthStateListener(fAuthListener);
-    }
+//    @Override
+//    public void onStart() {
+//        super.onStart();
+//        fAuth.addAuthStateListener(fAuthListener);
+//    }
 }
