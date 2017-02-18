@@ -13,7 +13,7 @@
 
     <TextView
         android:layout_height="match_parent"
-        android:layout_width="50dp"
+        android:layout_width="60dp"
         android:id="@+id/txtStaffOrderTableOrderAmount"
         android:hint="Amount"
         android:textColor="@color/elegantColorDark"
