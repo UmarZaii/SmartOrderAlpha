@@ -4,14 +4,14 @@
     android:layout_height="match_parent">
 
     <Button
-        android:id="@+id/btnStaffMenuManageOrder"
+        android:id="@+id/btnStaffOrderManageOrder"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:text="Manage Order "/>
 
     <Button
-        android:id="@+id/btnStaffMenuViewOrder"
+        android:id="@+id/btnStaffOrderViewOrder"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
