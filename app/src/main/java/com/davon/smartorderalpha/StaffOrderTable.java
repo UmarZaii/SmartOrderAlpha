@@ -21,6 +21,8 @@ public class StaffOrderTable extends Fragment {
     private RecyclerView rvStaffOrderTable;
     private DatabaseReference fDatabase;
 
+    public static String strOrderID = "";
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -60,16 +62,18 @@ public class StaffOrderTable extends Fragment {
             protected void populateViewHolder(TableViewHolder viewHolder, final TableList model, int position) {
 
                 viewHolder.setTableNo(model.getTableNo());
+
                 viewHolder.fView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
 
-                        //
-//                        FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
-//                        AdminMenuDetails fragmMenuDetails = new AdminMenuDetails();
-//                        transaction.replace(R.id.activity_admin_main, fragmMenuDetails);
-//                        transaction.addToBackStack(null);
-//                        transaction.commit();
+                        strOrderID = model.getOrderID();
+
+                        FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                        StaffOrderTableOrder fragmStaffOrderTableOrder = new StaffOrderTableOrder();
+                        transaction.replace(R.id.activity_staff_main, fragmStaffOrderTableOrder);
+                        transaction.addToBackStack(null);
+                        transaction.commit();
 
                     }
                 });
