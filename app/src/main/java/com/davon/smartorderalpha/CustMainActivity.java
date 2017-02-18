@@ -36,6 +36,10 @@ public class CustMainActivity extends AppCompatActivity implements OnMenuTabClic
 
         if (menuItemId == R.id.btmBarOrderCust){
 
+            CustOrder fragCustOrder = new CustOrder();
+            transaction.replace(R.id.activity_cust_main, fragCustOrder);
+            transaction.commit();
+
         } else if (menuItemId == R.id.btmBarSettingCust){
 
             CustSetting fragCustSetting = new CustSetting();

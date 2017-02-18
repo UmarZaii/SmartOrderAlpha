@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1">
+
+    <Button
+        android:id="@+id/btnStaffOrderMenuTypeAir"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_weight="0.1"
+        android:text="Air"
+        android:textSize="20dp"/>
+
+    <Button
+        android:id="@+id/btnStaffOrderMenuTypeNasi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_weight="0.1"
+        android:text="Nasi"
+        android:textSize="20dp"/>
+
+    <Button
+        android:id="@+id/btnStaffOrderMenuTypeMee"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_weight="0.1"
+        android:text="Mee"
+        android:textSize="20dp"/>
+
+    <Button
+        android:id="@+id/btnStaffOrderMenuTypeSup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_weight="0.1"
+        android:text="Sup"
+        android:textSize="20dp"/>
+
+    <Button
+        android:id="@+id/btnStaffOrderMenuTypeLauk"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_weight="0.1"
+        android:text="Lauk"
+        android:textSize="20dp"/>
+
+</LinearLayout>
