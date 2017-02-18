@@ -30,16 +30,17 @@ public class StaffMenu extends Fragment {
         View v = getView();
 
         btnStaffMenuManageOrder = (Button) v.findViewById(R.id.btnStaffMenuManageOrder);
-        btnStaffMenuManageOrder.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
-                StaffMenuManage fragStaffMenuManage = new StaffMenuManage();
-                transaction.replace(R.id.activity_staff_main, fragStaffMenuManage);
-                transaction.addToBackStack(null);
-                transaction.commit();
+//        btnStaffMenuManageOrder.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+//                StaffMenuManage fragStaffMenuManage = new StaffMenuManage();
+//                transaction.replace(R.id.activity_staff_main, fragStaffMenuManage);
+//                transaction.addToBackStack(null);
+//                transaction.commit();
+//
+//            }
+//        });
 
-            }
-        });
     }
 }
