@@ -64,6 +64,7 @@ public class StaffOrderTable extends Fragment {
                     @Override
                     public void onClick(View v) {
 
+                        //
 //                        FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
 //                        AdminMenuDetails fragmMenuDetails = new AdminMenuDetails();
 //                        transaction.replace(R.id.activity_admin_main, fragmMenuDetails);
