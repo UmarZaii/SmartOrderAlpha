@@ -47,11 +47,11 @@ public class StaffOrderTableOrder extends Fragment{
         btnStaffGoToAddOrder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
-//                AdminMenuDetails fragmMenuDetails = new AdminMenuDetails();
-//                transaction.replace(R.id.activity_admin_main, fragmMenuDetails);
-//                transaction.addToBackStack(null);
-//                transaction.commit();
+                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                StaffOrderMenuType fragmStaffOrderMenuType = new StaffOrderMenuType();
+                transaction.replace(R.id.activity_staff_main, fragmStaffOrderMenuType);
+                transaction.addToBackStack(null);
+                transaction.commit();
             }
         });
 
