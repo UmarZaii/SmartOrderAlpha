@@ -22,6 +22,9 @@ public class StaffOrderMenu extends Fragment {
     private RecyclerView rvStaffOrderMenu;
     private DatabaseReference fDatabase;
 
+    public static String strMenuName = "";
+    public static String strMenuPrice = "";
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -66,11 +69,14 @@ public class StaffOrderMenu extends Fragment {
                     @Override
                     public void onClick(View v) {
 
-//                        FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
-//                        StaffOrderTableOrder fragmStaffOrderTableOrder = new StaffOrderTableOrder();
-//                        transaction.replace(R.id.activity_staff_main, fragmStaffOrderTableOrder);
-//                        transaction.addToBackStack(null);
-//                        transaction.commit();
+                        strMenuName = model.getMenuName();
+                        strMenuPrice = model.getMenuPrice();
+
+                        FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                        StaffOrderMenuDetails fragmStaffOrderMenuDetails = new StaffOrderMenuDetails();
+                        transaction.replace(R.id.activity_staff_main, fragmStaffOrderMenuDetails);
+                        transaction.addToBackStack(null);
+                        transaction.commit();
 
                     }
                 });
