@@ -5,15 +5,17 @@
 
 
     <Button
+        android:layout_marginTop="50dp"
         android:id="@+id/btnChgPassword"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="Reset Password" />
 
     <Button
+        android:layout_marginTop="10dp"
         android:id="@+id/btnLogout"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="Log Out" />

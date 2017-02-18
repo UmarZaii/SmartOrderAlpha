@@ -49,9 +49,9 @@ public class StaffUserDetails extends Fragment {
         txtStaffUserICDetails.setText(StaffUser.strStaffUserICDetails);
 
         txtStaffUserNameDetails = (TextView) v.findViewById(R.id.txtStaffUserNameDetails);
-        txtStaffUserNameDetails.setText(StaffUser.strStaffUserEmailDetails);
+        txtStaffUserNameDetails.setText(StaffUser.strStaffUserNameDetails);
 
         txtStaffUserTypeDetails = (TextView) v.findViewById(R.id.txtStaffUserTypeDetails);
-        txtStaffUserTypeDetails.setText(StaffUser.strStaffUserEmailDetails);
+        txtStaffUserTypeDetails.setText(StaffUser.strStaffUserTypeDetails);
     }
 }
