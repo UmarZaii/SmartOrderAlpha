@@ -45,15 +45,15 @@ public class StaffSetting extends Fragment {
         btnChgPasswordStaff = (Button)v.findViewById(R.id.btnChgPasswordStaff);
         btnLogoutStaff = (Button)v.findViewById(R.id.btnLogoutStaff);
 
-        fAuthListener = new FirebaseAuth.AuthStateListener() {
-            @Override
-            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-
-                if (firebaseAuth.getCurrentUser() == null){
-                    startActivity(new Intent(getActivity(), LoginActivity.class));
-                }
-            }
-        };
+//        fAuthListener = new FirebaseAuth.AuthStateListener() {
+//            @Override
+//            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+//
+//                if (firebaseAuth.getCurrentUser() == null){
+//                    startActivity(new Intent(getActivity(), LoginActivity.class));
+//                }
+//            }
+//        };
         btnChgPasswordStaff.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -94,13 +94,14 @@ public class StaffSetting extends Fragment {
                     progressDialog.show();
                     fAuth.signOut();
                     startActivity(new Intent(getActivity(), LoginActivity.class));
+                    getActivity().finish();
                 }
             }
         });
     }
-    @Override
-    public void onStart() {
-        super.onStart();
-        fAuth.addAuthStateListener(fAuthListener);
-    }
+//    @Override
+//    public void onStart() {
+//        super.onStart();
+//        fAuth.addAuthStateListener(fAuthListener);
+//    }
 }
