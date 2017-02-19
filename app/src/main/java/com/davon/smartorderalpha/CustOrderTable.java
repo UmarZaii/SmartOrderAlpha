@@ -3,6 +3,7 @@ package com.davon.smartorderalpha;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -66,12 +67,12 @@ public class CustOrderTable extends Fragment {
                     @Override
                     public void onClick(View v) {
 
-                        //
-//                        FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
-//                        AdminMenuDetails fragmMenuDetails = new AdminMenuDetails();
-//                        transaction.replace(R.id.activity_admin_main, fragmMenuDetails);
-//                        transaction.addToBackStack(null);
-//                        transaction.commit();
+
+                        FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                        CustOrderTableOrder fragmOrderTableOrder = new CustOrderTableOrder();
+                        transaction.replace(R.id.activity_cust_main, fragmOrderTableOrder);
+                        transaction.addToBackStack(null);
+                        transaction.commit();
 
                     }
                 });
