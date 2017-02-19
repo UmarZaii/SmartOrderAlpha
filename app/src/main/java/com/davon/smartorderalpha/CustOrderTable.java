@@ -41,7 +41,7 @@ public class CustOrderTable extends Fragment {
 
         fDatabase = FirebaseDatabase.getInstance().getReference().child("tblTable");
 
-        rvCustOrderTable = (RecyclerView)v.findViewById(R.id.rvCustOrderTable);
+        rvCustOrderTable = (RecyclerView) v.findViewById(R.id.rvCustOrderTable);
         rvCustOrderTable.setHasFixedSize(true);
         rvCustOrderTable.setLayoutManager(new LinearLayoutManager(getActivity()));
         rvCustOrderTable.addItemDecoration(new AllDividerItemRecycleView(getActivity()));
@@ -50,21 +50,20 @@ public class CustOrderTable extends Fragment {
 
     @Override
     public void onStart() {
-
         super.onStart();
 
         FirebaseRecyclerAdapter<TableList, TableViewHolder> firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<TableList, TableViewHolder>(
 
                 TableList.class,
                 R.layout.fragment_cust_order_table_row,
-                CustOrderTable.TableViewHolder.class,
+                TableViewHolder.class,
                 fDatabase.orderByChild("tableStatus").equalTo("N/A")
-
         ) {
             @Override
             protected void populateViewHolder(TableViewHolder viewHolder, final TableList model, int position) {
 
                 viewHolder.setTableNo(model.getTableNo());
+
                 viewHolder.fView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -72,8 +71,8 @@ public class CustOrderTable extends Fragment {
                         strOrderID = model.getOrderID();
 
                         FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
-                        CustOrderTableOrder fragmOrderTableOrder = new CustOrderTableOrder();
-                        transaction.replace(R.id.activity_cust_main, fragmOrderTableOrder);
+                        CustOrderTableOrder fragmCustOrderTableOrder = new CustOrderTableOrder();
+                        transaction.replace(R.id.activity_cust_main, fragmCustOrderTableOrder);
                         transaction.addToBackStack(null);
                         transaction.commit();
 
@@ -82,11 +81,8 @@ public class CustOrderTable extends Fragment {
 
             }
         };
-
         rvCustOrderTable.setAdapter(firebaseRecyclerAdapter);
-
     }
-
     public static class TableViewHolder extends RecyclerView.ViewHolder {
 
         View fView;

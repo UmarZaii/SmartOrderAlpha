@@ -16,10 +16,6 @@ import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-/**
- * Created by mansoull on 19/2/2017.
- */
-
 public class CustOrderTableOrder extends Fragment {
 
     private RecyclerView rvCustOrderTableOrder;
@@ -29,7 +25,7 @@ public class CustOrderTableOrder extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_staff_order_table_order,container,false);
+        View view = inflater.inflate(R.layout.fragment_cust_order_table_order,container,false);
         return view;
     }
 
@@ -40,26 +36,20 @@ public class CustOrderTableOrder extends Fragment {
 
         fDatabase = FirebaseDatabase.getInstance().getReference().child("tblOrder");
 
-        rvCustOrderTableOrder = (RecyclerView)v.findViewById(R.id.rvCustOrderTableOrder);
+        rvCustOrderTableOrder = (RecyclerView) v.findViewById(R.id.rvCustOrderTableOrder);
         rvCustOrderTableOrder.setHasFixedSize(true);
         rvCustOrderTableOrder.setLayoutManager(new LinearLayoutManager(getActivity()));
         rvCustOrderTableOrder.addItemDecoration(new AllDividerItemRecycleView(getActivity()));
         rvCustOrderTableOrder.setItemAnimator(new DefaultItemAnimator());
 
-        btnCustGoToAddOrder = (Button)v.findViewById(R.id.btnCustGoToAddOrder);
+        btnCustGoToAddOrder = (Button) v.findViewById(R.id.btnCustGoToAddOrder);
         btnCustGoToAddOrder.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-//                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
-//                AdminMenuDetails fragmMenuDetails = new AdminMenuDetails();
-//                transaction.replace(R.id.activity_admin_main, fragmMenuDetails);
-//                transaction.addToBackStack(null);
-//                transaction.commit();
+            public void onClick(View view) {
+
             }
         });
-
     }
-
     @Override
     public void onStart() {
 
@@ -70,7 +60,7 @@ public class CustOrderTableOrder extends Fragment {
                 TableOrderList.class,
                 R.layout.fragment_cust_order_table_order_row,
                 TableOrderViewHolder.class,
-                fDatabase.child(StaffOrderTable.strOrderID).child("orderMenu")
+                fDatabase.child(CustOrderTable.strOrderID).child("orderMenu")
 
         ) {
             @Override
@@ -112,22 +102,22 @@ public class CustOrderTableOrder extends Fragment {
 
         public void setMenuName(String menuName) {
 
-            TextView txtStaffOrderTableOrderName = (TextView)fView.findViewById(R.id.txtCustOrderTableOrderName);
-            txtStaffOrderTableOrderName.setText(menuName);
+            TextView txtCustOrderTableOrderName = (TextView)fView.findViewById(R.id.txtCustOrderTableOrderName);
+            txtCustOrderTableOrderName.setText(menuName);
 
         }
 
         public void setMenuAmount(String menuAmount) {
 
-            TextView txtStaffOrderTableOrderAmount = (TextView)fView.findViewById(R.id.txtCustOrderTableOrderAmount);
-            txtStaffOrderTableOrderAmount.setText(menuAmount);
+            TextView txtCustOrderTableOrderAmount = (TextView)fView.findViewById(R.id.txtCustOrderTableOrderAmount);
+            txtCustOrderTableOrderAmount.setText(menuAmount);
 
         }
 
         public void setMenuPrice(String menuPrice) {
 
-            TextView txtStaffOrderTableOrderPrice = (TextView)fView.findViewById(R.id.txtCustOrderTableOrderPrice);
-            txtStaffOrderTableOrderPrice.setText(menuPrice);
+            TextView txtCustOrderTableOrderPrice = (TextView)fView.findViewById(R.id.txtCustOrderTableOrderPrice);
+            txtCustOrderTableOrderPrice.setText(menuPrice);
 
         }
 
