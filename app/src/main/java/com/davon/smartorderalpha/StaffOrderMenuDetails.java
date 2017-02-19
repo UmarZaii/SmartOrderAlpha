@@ -4,18 +4,25 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class StaffOrderMenuDetails extends Fragment {
 
-    TextView txtStaffOrderMenuNameDetails, txtStaffOrderMenuPriceDetails;
-    EditText edtStaffOrderMenuAmountDetails;
-    Button btnStaffOrderMenuAdd;
+    private DatabaseReference fDatabaseOrder, fDatabaseTable;
+
+    private TextView txtStaffOrderMenuNameDetails, txtStaffOrderMenuPriceDetails;
+    private EditText edtStaffOrderMenuAmountDetails;
+    private Button btnStaffOrderMenuAdd;
 
     @Nullable
     @Override
@@ -29,6 +36,9 @@ public class StaffOrderMenuDetails extends Fragment {
         super.onActivityCreated(savedInstanceState);
         View v = getView();
 
+        fDatabaseOrder = FirebaseDatabase.getInstance().getReference().child("tblOrder");
+        fDatabaseTable = FirebaseDatabase.getInstance().getReference().child("tblTable");
+
         txtStaffOrderMenuNameDetails = (TextView)v.findViewById(R.id.txtStaffOrderMenuNameDetails);
         txtStaffOrderMenuNameDetails.setText(StaffOrderMenu.strMenuName);
 
@@ -41,6 +51,21 @@ public class StaffOrderMenuDetails extends Fragment {
         btnStaffOrderMenuAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(StaffOrderTable.strOrderID == "") {
+
+
+                } else if(StaffOrderTable.strOrderID != "") {
+                    Log.v("test", StaffOrderTable.strOrderID);
+
+                    String menuAmount = edtStaffOrderMenuAmountDetails.getText().toString();
+
+                    fDatabaseOrder.child(StaffOrderTable.strOrderID).child("orderMenu").child(StaffOrderMenu.strMenuName).child("menuAmount").setValue(menuAmount);
+                    fDatabaseOrder.child(StaffOrderTable.strOrderID).child("orderMenu").child(StaffOrderMenu.strMenuName).child("menuName").setValue(StaffOrderMenu.strMenuName);
+                    fDatabaseOrder.child(StaffOrderTable.strOrderID).child("orderMenu").child(StaffOrderMenu.strMenuName).child("menuPrice").setValue(StaffOrderMenu.strMenuPrice);
+                    fDatabaseOrder.child(StaffOrderTable.strOrderID).child("orderMenu").child(StaffOrderMenu.strMenuName).child("menuStatus").setValue("not served");
+                    fDatabaseOrder.child(StaffOrderTable.strOrderID).child("orderMenu").child(StaffOrderMenu.strMenuName).child("menuType").setValue(StaffOrderMenuType.strMenuType);
+
+                }
 
             }
         });
