@@ -1,87 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/lblAdminUserEmailDetails"
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="User Email :"
-        android:textSize="25dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginLeft="10dp"/>
+        android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/txtAdminUserEmailDetails"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="admin@gmail.com"
-        android:textSize="25dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginLeft="10dp"/>
+        <TextView
+            android:id="@+id/lblAdminUserEmailDetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="User Email :"
+            android:textSize="25dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginLeft="10dp"/>
 
-    <TextView
-        android:id="@+id/lblAdminUserICDetails"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="User IC No :"
-        android:textSize="25dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginLeft="10dp"/>
+        <TextView
+            android:id="@+id/txtAdminUserEmailDetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="admin@gmail.com"
+            android:textSize="25dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="10dp"/>
 
-    <TextView
-        android:id="@+id/txtAdminUserICDetails"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="960521125269"
-        android:textSize="25dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginLeft="10dp"/>
+        <TextView
+            android:id="@+id/lblAdminUserICDetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="User IC No :"
+            android:textSize="25dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginLeft="10dp"/>
 
-    <TextView
-        android:id="@+id/lblAdminUserNameDetails"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="User Name :"
-        android:textSize="25dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginLeft="10dp"/>
+        <TextView
+            android:id="@+id/txtAdminUserICDetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="960521125269"
+            android:textSize="25dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="10dp"/>
 
-    <TextView
-        android:id="@+id/txtAdminUserNameDetails"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="M Syariful"
-        android:textSize="25dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginLeft="10dp"/>
-    <TextView
-        android:id="@+id/lblAdminUserTypeDetails"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="User Type :"
-        android:textSize="25dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginLeft="10dp"/>
+        <TextView
+            android:id="@+id/lblAdminUserNameDetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="User Name :"
+            android:textSize="25dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginLeft="10dp"/>
 
-    <TextView
-        android:id="@+id/txtAdminUserTypeDetails"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="M Syariful"
-        android:textSize="25dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginLeft="10dp"/>
-s
-    <Button
-        android:id="@+id/btnDelAdminUserDetails"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:text="delete"/>
+        <TextView
+            android:id="@+id/txtAdminUserNameDetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="M Syariful"
+            android:textSize="25dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="10dp"/>
+        <TextView
+            android:id="@+id/lblAdminUserTypeDetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="User Type :"
+            android:textSize="25dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginLeft="10dp"/>
 
-</LinearLayout>
+        <TextView
+            android:id="@+id/txtAdminUserTypeDetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="M Syariful"
+            android:textSize="25dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="10dp"/>
+    s
+        <Button
+            android:id="@+id/btnDelAdminUserDetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:text="delete"/>
+
+    </LinearLayout>
+</ScrollView>

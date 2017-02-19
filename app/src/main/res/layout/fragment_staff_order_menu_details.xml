@@ -1,63 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/lblStaffOrderMenuNameDetails"
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Menu Name"
-        android:textSize="20dp"
-        android:layout_marginTop="45dp"/>
+        android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/txtStaffOrderMenuNameDetails"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Teh"
-        android:textSize="20dp"
-        android:paddingLeft="10dp"/>
+        <TextView
+            android:id="@+id/lblStaffOrderMenuNameDetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Menu Name"
+            android:textSize="20dp"
+            android:layout_marginTop="45dp"/>
 
-
-    <TextView
-        android:id="@+id/lblStaffOrderMenuPriceDetails"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Menu Price"
-        android:textSize="20dp"
-        android:layout_marginTop="15dp"/>
-
-    <TextView
-        android:id="@+id/txtStaffOrderMenuPriceDetails"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="RM 1.20"
-        android:textSize="20dp"
-        android:paddingLeft="10dp"/>
+        <TextView
+            android:id="@+id/txtStaffOrderMenuNameDetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Teh"
+            android:textSize="20dp"
+            android:paddingLeft="10dp"/>
 
 
-    <TextView
-        android:id="@+id/lblStaffOrderMenuAmountDetails"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Amount"
-        android:textSize="20dp"
-        android:layout_marginTop="15dp"/>
+        <TextView
+            android:id="@+id/lblStaffOrderMenuPriceDetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Menu Price"
+            android:textSize="20dp"
+            android:layout_marginTop="15dp"/>
 
-    <EditText
-        android:id="@+id/edtStaffOrderMenuAmountDetails"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="input amount.."
-        android:paddingLeft="10dp"
-        android:textSize="20dp"/>
+        <TextView
+            android:id="@+id/txtStaffOrderMenuPriceDetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="RM 1.20"
+            android:textSize="20dp"
+            android:paddingLeft="10dp"/>
 
-    <Button
-        android:id="@+id/btnStaffOrderMenuAdd"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Add"
-        android:layout_marginTop="30dp"/>
 
-</LinearLayout>
+        <TextView
+            android:id="@+id/lblStaffOrderMenuAmountDetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Amount"
+            android:textSize="20dp"
+            android:layout_marginTop="15dp"/>
+
+        <EditText
+            android:id="@+id/edtStaffOrderMenuAmountDetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="input amount.."
+            android:paddingLeft="10dp"
+            android:textSize="20dp"/>
+
+        <Button
+            android:id="@+id/btnStaffOrderMenuAdd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Add"
+            android:layout_marginTop="30dp"/>
+
+    </LinearLayout>
+
+</ScrollView>
