@@ -25,6 +25,8 @@ public class CustOrderTable extends Fragment {
     private RecyclerView rvCustOrderTable;
     private DatabaseReference fDatabase;
 
+    public static String strOrderID = "";
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -67,6 +69,7 @@ public class CustOrderTable extends Fragment {
                     @Override
                     public void onClick(View v) {
 
+                        strOrderID = model.getOrderID();
 
                         FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
                         CustOrderTableOrder fragmOrderTableOrder = new CustOrderTableOrder();
