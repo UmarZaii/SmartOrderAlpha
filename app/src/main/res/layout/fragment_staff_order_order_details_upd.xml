@@ -26,22 +26,6 @@
             android:hint="Teh"/>
 
         <TextView
-            android:id="@+id/lblStaffOrderOrderAmountDetails"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:textSize="20dp"
-            android:text="Amount"/>
-
-        <TextView
-            android:id="@+id/txtStaffOrderOrderAmountDetails"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingLeft="10dp"
-            android:textSize="20dp"
-            android:hint="2"/>
-
-        <TextView
             android:id="@+id/lblStaffOrderOrderPriceDetails"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -57,19 +41,28 @@
             android:textSize="20dp"
             android:hint="RM 1.20"/>
 
+        <TextView
+            android:id="@+id/lblStaffOrderOrderAmountDetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:textSize="20dp"
+            android:text="Quantity"/>
+
+        <EditText
+            android:id="@+id/edtStaffOrderOrderQuantityDetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:textSize="20dp"
+            android:hint=""/>
+
         <Button
-            android:id="@+id/btnStaffDelOrderOrderDetails"
+            android:id="@+id/btnStaffUpdOrderOrderDetails"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="25dp"
-            android:text="Delete"/>
-
-        <Button
-            android:id="@+id/btnStaffGoToUpdOrderOrderDetails"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:text="Edit"/>
+            android:text="Update"/>
 
     </LinearLayout>
 

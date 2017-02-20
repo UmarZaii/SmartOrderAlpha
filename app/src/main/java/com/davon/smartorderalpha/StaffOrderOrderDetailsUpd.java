@@ -16,17 +16,18 @@ import android.widget.Toast;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class StaffOrderOrderDetails extends Fragment {
+public class StaffOrderOrderDetailsUpd extends Fragment {
 
     private DatabaseReference fDatabase;
 
-    private TextView txtStaffOrderOrderNameDetails, txtStaffOrderOrderAmountDetails, txtStaffOrderOrderPriceDetails;
-    private Button btnStaffDelOrderOrderDetails, btnStaffGoToUpdOrderOrderDetails;
+    private TextView txtStaffOrderOrderNameDetails, txtStaffOrderOrderPriceDetails;
+    private EditText edtStaffOrderOrderQuantityDetails;
+    private Button btnStaffUpdOrderOrderDetails;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_staff_order_order_details,container,false);
+        View view = inflater.inflate(R.layout.fragment_staff_order_order_details_upd,container,false);
         return view;
     }
 
@@ -40,33 +41,25 @@ public class StaffOrderOrderDetails extends Fragment {
         txtStaffOrderOrderNameDetails = (TextView)v.findViewById(R.id.txtStaffOrderOrderNameDetails);
         txtStaffOrderOrderNameDetails.setText(StaffOrderTableOrder.strMenuName);
 
-        txtStaffOrderOrderAmountDetails = (TextView)v.findViewById(R.id.txtStaffOrderOrderAmountDetails);
-        txtStaffOrderOrderAmountDetails.setText(StaffOrderTableOrder.strMenuAmount);
-
         txtStaffOrderOrderPriceDetails = (TextView)v.findViewById(R.id.txtStaffOrderOrderPriceDetails);
         txtStaffOrderOrderPriceDetails.setText(StaffOrderTableOrder.strMenuPrice);
 
-        btnStaffDelOrderOrderDetails = (Button)v.findViewById(R.id.btnStaffDelOrderOrderDetails);
-        btnStaffDelOrderOrderDetails.setOnClickListener(new View.OnClickListener() {
+        edtStaffOrderOrderQuantityDetails = (EditText)v.findViewById(R.id.edtStaffOrderOrderQuantityDetails);
+        edtStaffOrderOrderQuantityDetails.setText(StaffOrderTableOrder.strMenuAmount);
+
+        btnStaffUpdOrderOrderDetails = (Button)v.findViewById(R.id.btnStaffUpdOrderOrderDetails);
+        btnStaffUpdOrderOrderDetails.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                fDatabase.child(StaffOrderTable.strOrderID).child("orderMenu").child(StaffOrderTableOrder.strMenuName).removeValue();
+                String orderQuantity = edtStaffOrderOrderQuantityDetails.getText().toString();
+                Log.d("qty", orderQuantity);
+
+                fDatabase.child(StaffOrderTable.strOrderID).child("orderMenu").child(StaffOrderTableOrder.strMenuName).child("menu"+
+                        "Amount").setValue(orderQuantity);
 
                 FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
                 StaffOrderTableOrder fragmStaffOrderTableOrder = new StaffOrderTableOrder();
                 transaction.replace(R.id.activity_staff_main, fragmStaffOrderTableOrder);
-                transaction.commit();
-            }
-        });
-
-        btnStaffGoToUpdOrderOrderDetails = (Button)v.findViewById(R.id.btnStaffGoToUpdOrderOrderDetails);
-        btnStaffGoToUpdOrderOrderDetails.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
-                StaffOrderOrderDetailsUpd fragmStaffOrderOrderDetailsUpd = new StaffOrderOrderDetailsUpd();
-                transaction.replace(R.id.activity_staff_main, fragmStaffOrderOrderDetailsUpd);
-                transaction.addToBackStack(null);
                 transaction.commit();
             }
         });

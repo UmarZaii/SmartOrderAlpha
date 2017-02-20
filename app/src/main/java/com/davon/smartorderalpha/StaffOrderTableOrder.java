@@ -93,7 +93,7 @@ public class StaffOrderTableOrder extends Fragment{
 
                         FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
                         StaffOrderOrderDetails fragmStaffOrderOrderDetails = new StaffOrderOrderDetails();
-                        transaction.replace(R.id.activity_admin_main, fragmStaffOrderOrderDetails);
+                        transaction.replace(R.id.activity_staff_main, fragmStaffOrderOrderDetails);
                         transaction.addToBackStack(null);
                         transaction.commit();
 
