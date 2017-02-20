@@ -58,7 +58,7 @@ public class StaffOrderOrderDetails extends Fragment {
         btnStaffUpdOrderOrderDetails.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                //update
             }
         });
 
