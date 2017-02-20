@@ -35,22 +35,22 @@ public class StaffOrderOrderDetails extends Fragment {
         super.onActivityCreated(savedInstanceState);
         View v = getView();
 
-        fDatabase = FirebaseDatabase.getInstance().getReference();
+        fDatabase = FirebaseDatabase.getInstance().getReference().child("tblOrder");
 
         txtStaffOrderOrderNameDetails = (TextView)v.findViewById(R.id.txtStaffOrderOrderNameDetails);
-//        txtStaffOrderOrderNameDetails.setText();
+        txtStaffOrderOrderNameDetails.setText(StaffOrderTableOrder.strMenuName);
 
         txtStaffOrderOrderAmountDetails = (TextView)v.findViewById(R.id.txtStaffOrderOrderAmountDetails);
-//        txtStaffOrderOrderAmountDetails.setText();
+        txtStaffOrderOrderAmountDetails.setText(StaffOrderTableOrder.strMenuAmount);
 
         txtStaffOrderOrderPriceDetails = (TextView)v.findViewById(R.id.txtStaffOrderOrderPriceDetails);
-//        txtStaffOrderOrderPriceDetails.setText();
+        txtStaffOrderOrderPriceDetails.setText(StaffOrderTableOrder.strMenuPrice);
 
         btnStaffDelOrderOrderDetails = (Button)v.findViewById(R.id.btnStaffDelOrderOrderDetails);
         btnStaffDelOrderOrderDetails.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                fDatabase.child(StaffOrderTable.strOrderID).child("orderMenu").child(StaffOrderTableOrder.strMenuName).removeValue();
             }
         });
 

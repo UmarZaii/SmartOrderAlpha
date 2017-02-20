@@ -23,6 +23,10 @@ public class StaffOrderTableOrder extends Fragment{
     private DatabaseReference fDatabase;
     private Button btnStaffPayOrder, btnStaffGoToAddOrder;
 
+    public static String strMenuName = "";
+    public static String strMenuPrice = "";
+    public static String strMenuAmount = "";
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -82,6 +86,10 @@ public class StaffOrderTableOrder extends Fragment{
                 viewHolder.fView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+
+                        strMenuName = model.getMenuName();
+                        strMenuAmount = model.getMenuAmount();
+                        strMenuPrice = model.getMenuPrice();
 
                         FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
                         StaffOrderOrderDetails fragmStaffOrderOrderDetails = new StaffOrderOrderDetails();
