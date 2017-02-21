@@ -53,6 +53,12 @@ public class AdminMenuDetailsUpd extends Fragment {
 
                 fDatabase.child(AdminMenuType.strAdminMenuTypeSelection).child(AdminMenu.strMenuNameDetails).child("menuName").setValue(strMenuNameUpdDetails);
                 fDatabase.child(AdminMenuType.strAdminMenuTypeSelection).child(AdminMenu.strMenuNameDetails).child("menuPrice").setValue(strMenuPriceUpdDetails);
+
+                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                AdminMenu fragmAdminMenu = new AdminMenu();
+                transaction.replace(R.id.activity_admin_main, fragmAdminMenu);
+                transaction.addToBackStack(null);
+                transaction.commit();
             }
         });
 
