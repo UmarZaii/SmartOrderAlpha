@@ -46,6 +46,11 @@ public class AdminMenuDetails extends Fragment {
             @Override
             public void onClick(View v) {
                fDatabase.child(AdminMenuType.strAdminMenuTypeSelection).child(AdminMenu.strMenuNameDetails).removeValue();
+
+                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                AdminMenu fragmAdminMenu = new AdminMenu();
+                transaction.replace(R.id.activity_admin_main, fragmAdminMenu);
+                transaction.commit();
             }
         });
 
