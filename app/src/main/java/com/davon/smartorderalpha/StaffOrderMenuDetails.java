@@ -84,14 +84,13 @@ public class StaffOrderMenuDetails extends Fragment {
 
                     fDatabaseOrder.child("lastOrderID").setValue(intNewOrderID.toString());
                     fDatabaseOrder.child(intNewOrderID.toString()).child("orderID").setValue(intNewOrderID.toString());
-                    fDatabaseOrder.child(intNewOrderID.toString()).child("orderStatus").setValue("not paid");
+                    fDatabaseOrder.child(intNewOrderID.toString()).child("orderStatus").setValue("New");
                     fDatabaseOrder.child(intNewOrderID.toString()).child("tableNo").setValue(StaffOrderTable.strTableNo);
                     fDatabaseOrder.child(intNewOrderID.toString()).child("userID").setValue(userID);
 
                     fDatabaseOrder.child(intNewOrderID.toString()).child("orderMenu").child(StaffOrderMenu.strMenuName).child("menuAmount").setValue(menuAmount);
                     fDatabaseOrder.child(intNewOrderID.toString()).child("orderMenu").child(StaffOrderMenu.strMenuName).child("menuName").setValue(StaffOrderMenu.strMenuName);
                     fDatabaseOrder.child(intNewOrderID.toString()).child("orderMenu").child(StaffOrderMenu.strMenuName).child("menuPrice").setValue(StaffOrderMenu.strMenuPrice);
-                    fDatabaseOrder.child(intNewOrderID.toString()).child("orderMenu").child(StaffOrderMenu.strMenuName).child("menuStatus").setValue("not served");
                     fDatabaseOrder.child(intNewOrderID.toString()).child("orderMenu").child(StaffOrderMenu.strMenuName).child("menuType").setValue(StaffOrderMenuType.strMenuType);
 
                     fDatabaseTable.child(StaffOrderTable.strTableNo).child("orderID").addValueEventListener(new ValueEventListener() {
@@ -117,7 +116,6 @@ public class StaffOrderMenuDetails extends Fragment {
                     fDatabaseOrder.child(StaffOrderTable.strOrderID).child("orderMenu").child(StaffOrderMenu.strMenuName).child("menuAmount").setValue(menuAmount);
                     fDatabaseOrder.child(StaffOrderTable.strOrderID).child("orderMenu").child(StaffOrderMenu.strMenuName).child("menuName").setValue(StaffOrderMenu.strMenuName);
                     fDatabaseOrder.child(StaffOrderTable.strOrderID).child("orderMenu").child(StaffOrderMenu.strMenuName).child("menuPrice").setValue(StaffOrderMenu.strMenuPrice);
-                    fDatabaseOrder.child(StaffOrderTable.strOrderID).child("orderMenu").child(StaffOrderMenu.strMenuName).child("menuStatus").setValue("not served");
                     fDatabaseOrder.child(StaffOrderTable.strOrderID).child("orderMenu").child(StaffOrderMenu.strMenuName).child("menuType").setValue(StaffOrderMenuType.strMenuType);
 
                     FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();

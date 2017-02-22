@@ -11,7 +11,7 @@ import android.widget.Button;
 
 public class StaffOrder extends Fragment{
 
-    private Button btnStaffOrderManageOrder;
+    private Button btnStaffOrderManageOrder, btnStaffOrderViewOrder;
 
     @Nullable
     @Override
@@ -34,6 +34,13 @@ public class StaffOrder extends Fragment{
                 transaction.replace(R.id.activity_staff_main, fragStaffOrderTable);
                 transaction.addToBackStack(null);
                 transaction.commit();
+            }
+        });
+
+        btnStaffOrderViewOrder = (Button) v.findViewById(R.id.btnStaffOrderViewOrder);
+        btnStaffOrderViewOrder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
             }
         });
