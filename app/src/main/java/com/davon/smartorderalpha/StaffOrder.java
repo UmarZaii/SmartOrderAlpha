@@ -41,7 +41,11 @@ public class StaffOrder extends Fragment{
         btnStaffOrderViewOrder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                StaffOrderViewTable fragStaffOrderViewTable = new StaffOrderViewTable();
+                transaction.replace(R.id.activity_staff_main, fragStaffOrderViewTable);
+                transaction.addToBackStack(null);
+                transaction.commit();
             }
         });
 

@@ -17,7 +17,7 @@ import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class StaffOrderTableOrder extends Fragment{
+public class StaffOrderTableOrder extends Fragment {
 
     private RecyclerView rvStaffOrderTableOrder;
     private DatabaseReference fDatabase;
