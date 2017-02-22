@@ -13,8 +13,11 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class StaffOrderTable extends Fragment {
 
@@ -22,6 +25,7 @@ public class StaffOrderTable extends Fragment {
     private DatabaseReference fDatabase;
 
     public static String strOrderID = "";
+    public static String strTableNo = "";
 
     @Nullable
     @Override
@@ -55,7 +59,8 @@ public class StaffOrderTable extends Fragment {
                 TableList.class,
                 R.layout.fragment_staff_order_table_row,
                 TableViewHolder.class,
-                fDatabase.orderByChild("tableStatus").equalTo("N/A")
+                fDatabase
+//                fDatabase.orderByChild("tableStatus").equalTo("N/A")
 
         ) {
             @Override
@@ -68,6 +73,7 @@ public class StaffOrderTable extends Fragment {
                     public void onClick(View v) {
 
                         strOrderID = model.getOrderID();
+                        strTableNo = model.getTableNo();
 
                         FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
                         StaffOrderTableOrder fragmStaffOrderTableOrder = new StaffOrderTableOrder();
