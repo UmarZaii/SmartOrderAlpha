@@ -16,7 +16,8 @@
                 android:text="Order Name"
                 android:textSize="20dp"
                 android:layout_marginLeft="5dp"
-                android:paddingRight="60dp"/>
+                android:paddingRight="60dp"
+                android:paddingBottom="20dp"/>
 
             <TextView
                 android:id="@+id/txtCustOrderQuantity"
@@ -24,7 +25,8 @@
                 android:layout_height="wrap_content"
                 android:text="Quantity"
                 android:textSize="20dp"
-                android:layout_marginLeft="40dp"/>
+                android:layout_marginLeft="40dp"
+                android:paddingBottom="20dp"/>
 
             <TextView
                 android:id="@+id/txtCustOrderPrice"
@@ -32,7 +34,8 @@
                 android:layout_height="wrap_content"
                 android:text="Price(RM)"
                 android:textSize="20dp"
-                android:layout_marginLeft="20dp"/>
+                android:layout_marginLeft="20dp"
+                android:paddingBottom="20dp"/>
 
         </TableRow>
 
