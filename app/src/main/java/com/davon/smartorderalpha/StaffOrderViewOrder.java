@@ -22,6 +22,7 @@ public class StaffOrderViewOrder extends Fragment {
     private RecyclerView rvStaffOrderViewOrder;
     private DatabaseReference fDatabase;
     private Button btnStaffPrepareOrder, btnStaffServingOrder;
+    private TextView statusPrepareServing;
 
     public static String strMenuName = "";
     public static String strMenuPrice = "";
@@ -47,10 +48,15 @@ public class StaffOrderViewOrder extends Fragment {
         rvStaffOrderViewOrder.addItemDecoration(new AllDividerItemRecycleView(getActivity()));
         rvStaffOrderViewOrder.setItemAnimator(new DefaultItemAnimator());
 
+        statusPrepareServing = (TextView)v.findViewById(R.id.statusPrepareServing);
+
         btnStaffPrepareOrder = (Button)v.findViewById(R.id.btnStaffPrepareOrder);
         btnStaffPrepareOrder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                fDatabase.child(StaffOrderViewTable.strOrderID).child("orderStatus").setValue("Preparing");
+                statusPrepareServing.setText("Preparing");
 
             }
         });
@@ -59,6 +65,14 @@ public class StaffOrderViewOrder extends Fragment {
         btnStaffServingOrder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                fDatabase.child(StaffOrderViewTable.strOrderID).child("orderStatus").setValue("Serving");
+                statusPrepareServing.setText("Serving");
+
+                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                StaffOrderViewTable fragmStaffOrderViewTable = new StaffOrderViewTable();
+                transaction.replace(R.id.activity_staff_main, fragmStaffOrderViewTable);
+                transaction.commit();
 
             }
         });
