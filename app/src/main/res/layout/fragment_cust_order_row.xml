@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TableRow>
+
+            <TextView
+                android:id="@+id/txtCustOrderName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Order Name"
+                android:textSize="20dp"
+                android:layout_marginLeft="5dp"
+                android:paddingRight="60dp"/>
+
+            <TextView
+                android:id="@+id/txtCustOrderQuantity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Quantity"
+                android:textSize="20dp"
+                android:layout_marginLeft="40dp"/>
+
+            <TextView
+                android:id="@+id/txtCustOrderPrice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Price(RM)"
+                android:textSize="20dp"
+                android:layout_marginLeft="20dp"/>
+
+        </TableRow>
+
+    </TableLayout>
+
+</LinearLayout>
