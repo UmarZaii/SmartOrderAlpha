@@ -22,7 +22,6 @@
             android:id="@+id/txtAdminUserEmailDetails"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="admin@gmail.com"
             android:textSize="25dp"
             android:layout_marginTop="15dp"
             android:layout_marginLeft="10dp"/>
@@ -40,7 +39,6 @@
             android:id="@+id/txtAdminUserICDetails"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="960521125269"
             android:textSize="25dp"
             android:layout_marginTop="15dp"
             android:layout_marginLeft="10dp"/>
@@ -58,7 +56,6 @@
             android:id="@+id/txtAdminUserNameDetails"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="M Syariful"
             android:textSize="25dp"
             android:layout_marginTop="15dp"
             android:layout_marginLeft="10dp"/>
@@ -75,7 +72,6 @@
             android:id="@+id/txtAdminUserTypeDetails"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="M Syariful"
             android:textSize="25dp"
             android:layout_marginTop="15dp"
             android:layout_marginLeft="10dp"/>
