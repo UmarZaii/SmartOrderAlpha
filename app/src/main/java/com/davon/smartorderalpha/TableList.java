@@ -3,6 +3,7 @@ package com.davon.smartorderalpha;
 public class TableList {
 
     private String orderID;
+    private String staffView;
     private String tableNo;
     private String tableStatus;
 
@@ -10,10 +11,11 @@ public class TableList {
 
     }
 
-    public TableList(String orderID, String tableNo, String tableStatus) {
+    public TableList(String orderID, String staffView, String tableStatus, String tableNo) {
         this.orderID = orderID;
-        this.tableNo = tableNo;
+        this.staffView = staffView;
         this.tableStatus = tableStatus;
+        this.tableNo = tableNo;
     }
 
     public String getOrderID() {
@@ -22,6 +24,14 @@ public class TableList {
 
     public void setOrderID(String orderID) {
         this.orderID = orderID;
+    }
+
+    public String getStaffView() {
+        return staffView;
+    }
+
+    public void setStaffView(String staffView) {
+        this.staffView = staffView;
     }
 
     public String getTableNo() {

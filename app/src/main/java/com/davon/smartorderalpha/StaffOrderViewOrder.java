@@ -7,6 +7,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,19 +15,21 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class StaffOrderViewOrder extends Fragment {
 
     private RecyclerView rvStaffOrderViewOrder;
-    private DatabaseReference fDatabase;
+    private DatabaseReference fDatabaseOrder, fDatabaseTable;
     private Button btnStaffPrepareOrder, btnStaffServingOrder;
     private TextView statusPrepareServing;
 
-    public static String strMenuName = "";
-    public static String strMenuPrice = "";
-    public static String strMenuAmount = "";
+    public static String strOrderStatus = "";
+    public static String strStaffView = "abc";
 
     @Nullable
     @Override
@@ -40,13 +43,26 @@ public class StaffOrderViewOrder extends Fragment {
         super.onActivityCreated(savedInstanceState);
         View v = getView();
 
-        fDatabase = FirebaseDatabase.getInstance().getReference().child("tblOrder");
+        fDatabaseOrder = FirebaseDatabase.getInstance().getReference().child("tblOrder");
 
         rvStaffOrderViewOrder = (RecyclerView)v.findViewById(R.id.rvStaffOrderViewOrder);
         rvStaffOrderViewOrder.setHasFixedSize(true);
         rvStaffOrderViewOrder.setLayoutManager(new LinearLayoutManager(getActivity()));
         rvStaffOrderViewOrder.addItemDecoration(new AllDividerItemRecycleView(getActivity()));
         rvStaffOrderViewOrder.setItemAnimator(new DefaultItemAnimator());
+
+        fDatabaseOrder.child(StaffOrderViewTable.strOrderID).child("orderStatus").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                strOrderStatus = dataSnapshot.getValue().toString();
+                statusPrepareServing.setText(strOrderStatus);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
 
         statusPrepareServing = (TextView)v.findViewById(R.id.statusPrepareServing);
 
@@ -55,8 +71,7 @@ public class StaffOrderViewOrder extends Fragment {
             @Override
             public void onClick(View v) {
 
-                fDatabase.child(StaffOrderViewTable.strOrderID).child("orderStatus").setValue("Preparing");
-                statusPrepareServing.setText("Preparing");
+                fDatabaseOrder.child(StaffOrderViewTable.strOrderID).child("orderStatus").setValue("Preparing");
 
             }
         });
@@ -66,8 +81,9 @@ public class StaffOrderViewOrder extends Fragment {
             @Override
             public void onClick(View v) {
 
-                fDatabase.child(StaffOrderViewTable.strOrderID).child("orderStatus").setValue("Serving");
-                statusPrepareServing.setText("Serving");
+                strStaffView = "xyz";
+                fDatabaseOrder.child(StaffOrderViewTable.strOrderID).child("orderStatus").setValue("Serving");
+//                fDatabaseTable.child(StaffOrderViewTable.strTableNo).child("staffView").setValue("Serving");
 
                 FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
                 StaffOrderViewTable fragmStaffOrderViewTable = new StaffOrderViewTable();
@@ -89,7 +105,7 @@ public class StaffOrderViewOrder extends Fragment {
                 TableOrderList.class,
                 R.layout.fragment_staff_order_view_order_row,
                 TableOrderViewHolder.class,
-                fDatabase.child(StaffOrderViewTable.strOrderID).child("orderMenu")
+                fDatabaseOrder.child(StaffOrderViewTable.strOrderID).child("orderMenu")
 
         ) {
             @Override

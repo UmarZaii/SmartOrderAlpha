@@ -7,6 +7,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,6 +23,7 @@ public class StaffOrderViewTable extends Fragment {
     private DatabaseReference fDatabase;
 
     public static String strOrderID = "";
+    public static String strTableNo = "";
 
     @Nullable
     @Override
@@ -43,6 +45,13 @@ public class StaffOrderViewTable extends Fragment {
         rvStaffOrderTable.addItemDecoration(new AllDividerItemRecycleView(getActivity()));
         rvStaffOrderTable.setItemAnimator(new DefaultItemAnimator());
 
+        if (StaffOrderViewOrder.strStaffView.equals("xyz")) {
+
+            fDatabase.child(strTableNo).child("staffView").setValue("Serving");
+            StaffOrderViewOrder.strStaffView = "abc";
+
+        }
+
     }
 
     @Override
@@ -55,7 +64,7 @@ public class StaffOrderViewTable extends Fragment {
                 TableList.class,
                 R.layout.fragment_staff_order_view_table_row,
                 TableViewHolder.class,
-                fDatabase.orderByChild("orderID").startAt("1001").endAt("9999")
+                fDatabase.orderByChild("staffView").startAt("1001").endAt("9999")
 //                fDatabase.orderByChild("tableStatus").equalTo("N/A")
 
         ) {
@@ -69,6 +78,10 @@ public class StaffOrderViewTable extends Fragment {
                     public void onClick(View v) {
 
                         strOrderID = model.getOrderID();
+                        strTableNo = model.getTableNo();
+
+                        Log.d("strTableNo", strOrderID);
+                        Log.d("strTableNo", strTableNo);
 
                         FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
                         StaffOrderViewOrder fragmStaffOrderViewOrder = new StaffOrderViewOrder();
