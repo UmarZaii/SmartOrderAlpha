@@ -7,6 +7,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +17,11 @@ import android.widget.Toast;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 /**
  * Created by mansoull on 15/2/2017.
@@ -24,9 +30,12 @@ import com.google.firebase.auth.FirebaseAuth;
 public class CustSetting extends Fragment {
 
     private Button btnChgPasswordCust, btnLogoutCust;
+    private DatabaseReference fDatabase;
     private FirebaseAuth fAuth;
     private FirebaseAuth.AuthStateListener fAuthListener;
     private ProgressDialog progressDialog;
+
+    public static String strOrderID = "";
 
     @Nullable
     @Override
@@ -42,9 +51,26 @@ public class CustSetting extends Fragment {
         final View v = getView();
 
         fAuth = FirebaseAuth.getInstance();
+        fDatabase = FirebaseDatabase.getInstance().getReference().child("tblOrder");
         progressDialog = new ProgressDialog(getActivity());
         btnChgPasswordCust = (Button) v.findViewById(R.id.btnChgPasswordCust);
         btnLogoutCust = (Button) v.findViewById(R.id.btnLogoutCust);
+
+        String userID = fAuth.getCurrentUser().getUid().toString();
+        Log.v("userID", userID);
+
+        fDatabase.child("userView").child(userID).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                strOrderID = dataSnapshot.getValue().toString();
+                Log.v("OrderID", strOrderID);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
 
 //        fAuthListener = new FirebaseAuth.AuthStateListener() {
 //            @Override

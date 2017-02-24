@@ -2,13 +2,13 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/btmBarOrderCust"
-        android:icon="@drawable/ic_action_menu"
-        android:title="Order" />
-
-    <item
         android:id="@+id/btmBarSettingCust"
         android:icon="@drawable/ic_action_settings"
         android:title="Setting" />
+
+    <item
+        android:id="@+id/btmBarOrderCust"
+        android:icon="@drawable/ic_action_menu"
+        android:title="Order" />
 
 </menu>

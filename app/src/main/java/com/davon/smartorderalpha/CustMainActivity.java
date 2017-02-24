@@ -10,10 +10,6 @@ import android.support.v7.widget.Toolbar;
 import com.roughike.bottombar.BottomBar;
 import com.roughike.bottombar.OnMenuTabClickListener;
 
-/**
- * Created by mansoull on 15/2/2017.
- */
-
 public class CustMainActivity extends AppCompatActivity implements OnMenuTabClickListener {
 
     private BottomBar btmBarCust;
@@ -36,9 +32,9 @@ public class CustMainActivity extends AppCompatActivity implements OnMenuTabClic
 
         if (menuItemId == R.id.btmBarOrderCust){
 
-//            CustOrder fragCustOrder = new CustOrder();
-//            transaction.replace(R.id.activity_cust_main, fragCustOrder);
-//            transaction.commit();
+            CustOrder fragCustOrder = new CustOrder();
+            transaction.replace(R.id.activity_cust_main, fragCustOrder);
+            transaction.commit();
 
         } else if (menuItemId == R.id.btmBarSettingCust){
 
