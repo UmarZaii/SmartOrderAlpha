@@ -3,6 +3,7 @@ package com.davon.smartorderalpha;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -21,6 +22,8 @@ public class CustOrder extends Fragment {
     private RecyclerView rvCustOrder;
     private DatabaseReference fDatabase;
     private Button btnCustOrderCancel, btnCustOrderAdd, btnCustOrderBook;
+
+    public static String strTableNo = "";
 
     @Nullable
     @Override
@@ -46,7 +49,11 @@ public class CustOrder extends Fragment {
         btnCustOrderBook.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                CustOrderTable fragmCustOrderTable = new CustOrderTable();
+                transaction.replace(R.id.activity_cust_main, fragmCustOrderTable);
+                transaction.addToBackStack(null);
+                transaction.commit();
             }
         });
 
