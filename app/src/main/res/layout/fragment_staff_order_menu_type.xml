@@ -16,66 +16,90 @@
             android:layout_height="wrap_content">
 
             <TextView
+                android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Menu Utama"
-                android:textSize="20dp"/>
+                android:textAlignment="center"
+                android:textSize="25dp"/>
 
             <Button
                 android:id="@+id/btnStaffOrderMenuTypeAir"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="50dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
                 android:text="Minuman"
-                android:textSize="20dp"/>
+                android:textSize="18dp"
+                android:textStyle="bold"/>
 
             <Button
                 android:id="@+id/btnStaffOrderMenuTypeNasi"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
                 android:text="Nasi"
-                android:textSize="20dp"/>
+                android:textSize="18dp"
+                android:textStyle="bold"/>
 
             <Button
                 android:id="@+id/btnStaffOrderMenuTypeMee"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
                 android:text="Mee/Bihun/Kuey Teow"
-                android:textSize="20dp"/>
+                android:textSize="18dp"
+                android:textStyle="bold"/>
 
             <Button
                 android:id="@+id/btnStaffOrderMenuTypeSup"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
                 android:text="Sup/Tom Yam"
-                android:textSize="20dp"/>
+                android:textSize="18dp"
+                android:textStyle="bold"/>
 
             <Button
                 android:id="@+id/btnStaffOrderMenuTypeLauk"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
                 android:text="Ayam/Daging/Sotong/Udang"
-                android:textSize="20dp"/>
+                android:textSize="18dp"
+                android:textStyle="bold"/>
 
             <Button
                 android:id="@+id/btnStaffOrderMenuTypeSayur"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
                 android:text="Sayur"
-                android:textSize="20dp"/>
+                android:textSize="18dp"
+                android:textStyle="bold"/>
 
             <Button
                 android:id="@+id/btnStaffOrderMenuTypeTelur"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
+                android:layout_marginBottom="30dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
                 android:text="Telur"
-                android:textSize="20dp"/>
+                android:textSize="18dp"
+                android:textStyle="bold"/>
 
         </TableLayout>
 
@@ -84,11 +108,12 @@
             android:layout_height="wrap_content">
 
             <TextView
+                android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Menu Special"
-                android:textSize="20dp"
-                android:layout_marginTop="40dp"/>
+                android:textSize="25dp"
+                android:textAlignment="center"/>
 
             <Button
                 android:id="@+id/btnStaffOrderMenuTypePagi"
@@ -96,31 +121,42 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:text="set Pagi"
-                android:textSize="20dp"/>
+                android:textSize="18dp"
+                android:textStyle="bold"/>
 
             <Button
                 android:id="@+id/btnStaffOrderMenuTypeTengahari"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
                 android:text="Set Tengahari"
-                android:textSize="20dp"/>
+                android:textSize="18dp"
+                android:textStyle="bold"/>
 
             <Button
                 android:id="@+id/btnStaffOrderMenuTypePetang"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
                 android:text="Set Petang"
-                android:textSize="20dp"/>
+                android:textSize="18dp"
+                android:textStyle="bold"/>
 
             <Button
                 android:id="@+id/btnStaffOrderMenuTypeMalam"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
+                android:layout_marginBottom="30dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
                 android:text="Set Malam"
-                android:textSize="20dp"/>
+                android:textSize="18dp"
+                android:textStyle="bold"/>
 
         </TableLayout>
 
