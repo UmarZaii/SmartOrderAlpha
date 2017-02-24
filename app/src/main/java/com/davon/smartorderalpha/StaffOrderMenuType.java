@@ -12,6 +12,8 @@ import android.widget.Button;
 public class StaffOrderMenuType extends Fragment {
 
     private Button btnStaffOrderMenuTypeAir, btnStaffOrderMenuTypeNasi, btnStaffOrderMenuTypeMee, btnStaffOrderMenuTypeSup, btnStaffOrderMenuTypeLauk;
+    private Button btnStaffOrderMenuTypeSayur, btnStaffOrderMenuTypeTelur, btnStaffOrderMenuTypePagi, btnStaffOrderMenuTypeTengahari;
+    private Button btnStaffOrderMenuTypePetang, btnStaffOrderMenuTypeMalam;
 
     public static String strMenuType = "";
 
@@ -88,6 +90,90 @@ public class StaffOrderMenuType extends Fragment {
             @Override
             public void onClick(View v) {
                 strMenuType = "Lauk";
+
+                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                StaffOrderMenu fragmStaffOrderMenu = new StaffOrderMenu();
+                transaction.replace(R.id.activity_staff_main, fragmStaffOrderMenu);
+                transaction.addToBackStack(null);
+                transaction.commit();
+            }
+        });
+
+        btnStaffOrderMenuTypeSayur = (Button)v.findViewById(R.id.btnStaffOrderMenuTypeSayur);
+        btnStaffOrderMenuTypeSayur.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                strMenuType = "Sayur";
+
+                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                StaffOrderMenu fragmStaffOrderMenu = new StaffOrderMenu();
+                transaction.replace(R.id.activity_staff_main, fragmStaffOrderMenu);
+                transaction.addToBackStack(null);
+                transaction.commit();
+            }
+        });
+
+        btnStaffOrderMenuTypeTelur = (Button)v.findViewById(R.id.btnStaffOrderMenuTypeTelur);
+        btnStaffOrderMenuTypeTelur.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                strMenuType = "Telur";
+
+                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                StaffOrderMenu fragmStaffOrderMenu = new StaffOrderMenu();
+                transaction.replace(R.id.activity_staff_main, fragmStaffOrderMenu);
+                transaction.addToBackStack(null);
+                transaction.commit();
+            }
+        });
+
+        btnStaffOrderMenuTypePagi = (Button)v.findViewById(R.id.btnStaffOrderMenuTypePagi);
+        btnStaffOrderMenuTypePagi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                strMenuType = "Pagi";
+
+                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                StaffOrderMenu fragmStaffOrderMenu = new StaffOrderMenu();
+                transaction.replace(R.id.activity_staff_main, fragmStaffOrderMenu);
+                transaction.addToBackStack(null);
+                transaction.commit();
+            }
+        });
+
+        btnStaffOrderMenuTypeTengahari = (Button)v.findViewById(R.id.btnStaffOrderMenuTypeTengahari);
+        btnStaffOrderMenuTypeTengahari.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                strMenuType = "Tengahari";
+
+                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                StaffOrderMenu fragmStaffOrderMenu = new StaffOrderMenu();
+                transaction.replace(R.id.activity_staff_main, fragmStaffOrderMenu);
+                transaction.addToBackStack(null);
+                transaction.commit();
+            }
+        });
+
+        btnStaffOrderMenuTypePetang = (Button)v.findViewById(R.id.btnStaffOrderMenuTypePetang);
+        btnStaffOrderMenuTypePetang.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                strMenuType = "Petang";
+
+                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                StaffOrderMenu fragmStaffOrderMenu = new StaffOrderMenu();
+                transaction.replace(R.id.activity_staff_main, fragmStaffOrderMenu);
+                transaction.addToBackStack(null);
+                transaction.commit();
+            }
+        });
+
+        btnStaffOrderMenuTypeMalam = (Button)v.findViewById(R.id.btnStaffOrderMenuTypeMalam);
+        btnStaffOrderMenuTypeMalam.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                strMenuType = "Malam";
 
                 FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
                 StaffOrderMenu fragmStaffOrderMenu = new StaffOrderMenu();

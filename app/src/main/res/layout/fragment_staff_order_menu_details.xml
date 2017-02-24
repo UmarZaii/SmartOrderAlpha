@@ -21,7 +21,6 @@
             android:id="@+id/txtStaffOrderMenuNameDetails"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Teh"
             android:textSize="20dp"
             android:paddingLeft="10dp"/>
 
@@ -38,7 +37,6 @@
             android:id="@+id/txtStaffOrderMenuPriceDetails"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="RM 1.20"
             android:textSize="20dp"
             android:paddingLeft="10dp"/>
 
