@@ -14,7 +14,9 @@
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:text="Book"
-            android:textStyle="bold"/>
+            android:textColor="#ffffff"
+            android:textStyle="bold"
+            android:background="@color/primaryColor"/>
 
     </FrameLayout>
 
@@ -26,22 +28,26 @@
         <Button
             android:id="@+id/btnCustOrderAdd"
             android:text="Add"
+            android:textColor="#ffffff"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:layout_marginLeft="20dp"
-            android:layout_marginRight="240dp"/>
+            android:layout_marginRight="240dp"
+            android:background="@color/successColor"/>
 
         <Button
             android:id="@+id/btnCustOrderCancel"
             android:text="Cancel"
+            android:textColor="#ffffff"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:layout_marginLeft="240dp"
-            android:layout_marginRight="20dp"/>
+            android:layout_marginRight="20dp"
+            android:background="@color/dangerColor"/>
 
     </FrameLayout>
 
