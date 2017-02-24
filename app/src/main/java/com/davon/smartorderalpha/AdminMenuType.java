@@ -12,7 +12,8 @@ import android.widget.Button;
 
 public class AdminMenuType extends Fragment {
 
-    private Button btnAdminMenuTypeAir, btnAdminMenuTypeNasi, btnAdminMenuTypeMee, btnAdminMenuTypeSup, btnAdminMenuTypeLauk;
+    private Button btnAdminMenuTypeAir, btnAdminMenuTypeNasi, btnAdminMenuTypeMee, btnAdminMenuTypeSup, btnAdminMenuTypeLauk, btnAdminMenuTypeSayur;
+    private Button btnAdminMenuTypeTelur, btnAdminMenuTypePagi, btnAdminMenuTypeTengahari, btnAdminMenuTypePetang, btnAdminMenuTypeMalam;
     public static String strAdminMenuTypeSelection = "";
 
     @Nullable
@@ -89,6 +90,90 @@ public class AdminMenuType extends Fragment {
             @Override
             public void onClick(View view) {
                 strAdminMenuTypeSelection = "Lauk";
+                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                AdminMenu fragMenu = new AdminMenu();
+                transaction.replace(R.id.activity_admin_main, fragMenu);
+                transaction.addToBackStack(null);
+                transaction.commit();
+
+            }
+        });
+
+        btnAdminMenuTypeSayur = (Button) v.findViewById(R.id.btnAdminMenuTypeSayur);
+        btnAdminMenuTypeSayur.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                strAdminMenuTypeSelection = "Sayur";
+                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                AdminMenu fragMenu = new AdminMenu();
+                transaction.replace(R.id.activity_admin_main, fragMenu);
+                transaction.addToBackStack(null);
+                transaction.commit();
+
+            }
+        });
+
+        btnAdminMenuTypeTelur = (Button) v.findViewById(R.id.btnAdminMenuTypeTelur);
+        btnAdminMenuTypeTelur.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                strAdminMenuTypeSelection = "Telur";
+                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                AdminMenu fragMenu = new AdminMenu();
+                transaction.replace(R.id.activity_admin_main, fragMenu);
+                transaction.addToBackStack(null);
+                transaction.commit();
+
+            }
+        });
+
+        btnAdminMenuTypePagi = (Button) v.findViewById(R.id.btnAdminMenuTypePagi);
+        btnAdminMenuTypePagi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                strAdminMenuTypeSelection = "Pagi";
+                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                AdminMenu fragMenu = new AdminMenu();
+                transaction.replace(R.id.activity_admin_main, fragMenu);
+                transaction.addToBackStack(null);
+                transaction.commit();
+
+            }
+        });
+
+        btnAdminMenuTypeTengahari = (Button) v.findViewById(R.id.btnAdminMenuTypeTengahari);
+        btnAdminMenuTypeTengahari.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                strAdminMenuTypeSelection = "Tengahari";
+                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                AdminMenu fragMenu = new AdminMenu();
+                transaction.replace(R.id.activity_admin_main, fragMenu);
+                transaction.addToBackStack(null);
+                transaction.commit();
+
+            }
+        });
+
+        btnAdminMenuTypePetang = (Button) v.findViewById(R.id.btnAdminMenuTypePetang);
+        btnAdminMenuTypePetang.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                strAdminMenuTypeSelection = "Petang";
+                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                AdminMenu fragMenu = new AdminMenu();
+                transaction.replace(R.id.activity_admin_main, fragMenu);
+                transaction.addToBackStack(null);
+                transaction.commit();
+
+            }
+        });
+
+        btnAdminMenuTypeMalam = (Button) v.findViewById(R.id.btnAdminMenuTypeMalam);
+        btnAdminMenuTypeMalam.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                strAdminMenuTypeSelection = "Malam";
                 FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
                 AdminMenu fragMenu = new AdminMenu();
                 transaction.replace(R.id.activity_admin_main, fragMenu);

@@ -10,12 +10,12 @@
     android:weightSum="1">
 
     <FrameLayout
-        android:background="@drawable/round"
+        android:background="@drawable/green_border"
         android:layout_width="match_parent"
         android:layout_height="80dp">
 
         <Button
-            android:background="@color/successColor"
+            android:background="@drawable/green_btn_border"
             android:text="Add Menu"
             android:textColor="#ffffff"
             android:textStyle="bold"
@@ -31,7 +31,7 @@
     </FrameLayout>
 
     <FrameLayout
-        android:background="@drawable/round"
+        android:background="@drawable/green_border"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:paddingBottom="@dimen/activity_vertical_margin"
