@@ -82,6 +82,7 @@ public class StaffOrderMenuDetails extends Fragment {
 
                     fDatabaseTable.child(StaffOrderTable.strTableNo).child("orderID").setValue(intNewOrderID.toString());
                     fDatabaseTable.child(StaffOrderTable.strTableNo).child("staffView").setValue(intNewOrderID.toString());
+                    fDatabaseTable.child(StaffOrderTable.strTableNo).child("tableStatus").setValue("N/A");
 
                     fDatabaseOrder.child("lastOrderID").setValue(intNewOrderID.toString());
                     fDatabaseOrder.child(intNewOrderID.toString()).child("orderID").setValue(intNewOrderID.toString());
