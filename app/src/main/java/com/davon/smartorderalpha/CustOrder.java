@@ -84,7 +84,11 @@ public class CustOrder extends Fragment {
         btnCustOrderAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                CustOrderMenuType fragmCustOrderMenuType = new CustOrderMenuType();
+                transaction.replace(R.id.activity_cust_main, fragmCustOrderMenuType);
+                transaction.addToBackStack(null);
+                transaction.commit();
             }
         });
 
