@@ -16,20 +16,23 @@
         android:layout_height="match_parent">
 
         <TableLayout
-            android:layout_marginTop="20dp"
-            android:background="@drawable/border"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/activity_border_purplewhite"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <TextView
-                android:layout_marginTop="10dp"
+                android:background="@drawable/activity_purple_header"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Tambah Pengguna"
                 android:textAlignment="center"
-                android:textSize="25dp"/>
+                android:textStyle="italic"
+                android:textColor="@color/white"
+                android:textSize="30dp"/>
 
             <Button
+                android:background="@drawable/activity_button_center"
                 android:id="@+id/btnAdminUserTypeAdmin"
                 android:text="Admin"
                 android:layout_width="match_parent"
@@ -40,6 +43,7 @@
                 android:textSize="20dp"/>
 
             <Button
+                android:background="@drawable/activity_button_center"
                 android:id="@+id/btnAdminUserTypeStaff"
                 android:text="Staff"
                 android:layout_width="match_parent"
@@ -50,6 +54,7 @@
                 android:textSize="20dp"/>
 
             <Button
+                android:background="@drawable/activity_button_center"
                 android:id="@+id/btnAdminUserTypeCust"
                 android:text="Pelanggan"
                 android:layout_width="match_parent"

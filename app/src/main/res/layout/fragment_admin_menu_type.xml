@@ -16,19 +16,21 @@
         android:orientation="vertical">
 
         <TableLayout
-            android:background="@drawable/border"
+            android:background="@drawable/activity_border_purplewhite"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <TextView
-                android:layout_marginTop="10dp"
+                android:background="@drawable/activity_purple_header"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Menu Utama"
+                android:textColor="#FFFFFF"
                 android:textAlignment="center"
                 android:textSize="25dp"/>
 
             <Button
+                android:background="@drawable/activity_button_center"
                 android:id="@+id/btnAdminMenuTypeAir"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -40,6 +42,7 @@
                 android:textStyle="bold"/>
 
             <Button
+                android:background="@drawable/activity_button_center"
                 android:id="@+id/btnAdminMenuTypeNasi"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -51,6 +54,7 @@
                 android:textStyle="bold"/>
 
             <Button
+                android:background="@drawable/activity_button_center"
                 android:id="@+id/btnAdminMenuTypeMee"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -62,6 +66,7 @@
                 android:textStyle="bold"/>
 
             <Button
+                android:background="@drawable/activity_button_center"
                 android:id="@+id/btnAdminMenuTypeSup"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -73,6 +78,7 @@
                 android:textStyle="bold"/>
 
             <Button
+                android:background="@drawable/activity_button_center"
                 android:id="@+id/btnAdminMenuTypeLauk"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -84,6 +90,7 @@
                 android:textStyle="bold"/>
 
             <Button
+                android:background="@drawable/activity_button_center"
                 android:id="@+id/btnAdminMenuTypeSayur"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -95,6 +102,7 @@
                 android:textStyle="bold"/>
 
             <Button
+                android:background="@drawable/activity_button_center"
                 android:id="@+id/btnAdminMenuTypeTelur"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -109,20 +117,22 @@
         </TableLayout>
 
         <TableLayout
-            android:background="@drawable/border"
+            android:background="@drawable/activity_border_purplewhite"
             android:layout_marginTop="50dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <TextView
-                android:layout_marginTop="10dp"
+                android:background="@drawable/activity_purple_header"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Menu Special"
+                android:textColor="#FFFFFF"
                 android:textSize="25dp"
                 android:textAlignment="center"/>
 
             <Button
+                android:background="@drawable/activity_button_center"
                 android:id="@+id/btnAdminMenuTypePagi"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -134,6 +144,7 @@
                 android:textStyle="bold"/>
 
             <Button
+                android:background="@drawable/activity_button_center"
                 android:id="@+id/btnAdminMenuTypeTengahari"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -145,6 +156,7 @@
                 android:textStyle="bold"/>
 
             <Button
+                android:background="@drawable/activity_button_center"
                 android:id="@+id/btnAdminMenuTypePetang"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -156,6 +168,7 @@
                 android:textStyle="bold"/>
 
             <Button
+                android:background="@drawable/activity_button_center"
                 android:id="@+id/btnAdminMenuTypeMalam"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

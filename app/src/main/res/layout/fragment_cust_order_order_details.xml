@@ -11,7 +11,7 @@
         android:layout_height="wrap_content">
         .
         <TextView
-            android:id="@+id/lblStaffOrderOrderNameDetails"
+            android:id="@+id/lblCustOrderOrderNameDetails"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="45dp"
@@ -19,15 +19,29 @@
             android:text="Menu Name"/>
 
         <TextView
-            android:id="@+id/txtStaffOrderOrderNameDetails"
+            android:id="@+id/txtCustOrderOrderNameDetails"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingLeft="10dp"
-            android:textSize="20dp"
-            android:hint="Teh"/>
+            android:textSize="20dp"/>
 
         <TextView
-            android:id="@+id/lblStaffOrderOrderPriceDetails"
+            android:id="@+id/lblCustOrderOrderAmountDetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:textSize="20dp"
+            android:text="Amount"/>
+
+        <TextView
+            android:id="@+id/txtCustOrderOrderAmountDetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:textSize="20dp"/>
+
+        <TextView
+            android:id="@+id/lblCustOrderOrderPriceDetails"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
@@ -35,35 +49,25 @@
             android:text="Price"/>
 
         <TextView
-            android:id="@+id/txtStaffOrderOrderPriceDetails"
+            android:id="@+id/txtCustOrderOrderPriceDetails"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingLeft="10dp"
-            android:textSize="20dp"
-            android:hint="RM 1.20"/>
-
-        <TextView
-            android:id="@+id/lblStaffOrderOrderAmountDetails"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:textSize="20dp"
-            android:text="Quantity"/>
-
-        <EditText
-            android:id="@+id/edtStaffOrderOrderQuantityDetails"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingLeft="10dp"
-            android:textSize="20dp"
-            android:hint=""/>
+            android:textSize="20dp"/>
 
         <Button
-            android:id="@+id/btnStaffUpdOrderOrderDetails"
+            android:id="@+id/btnCustDelOrderOrderDetails"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="25dp"
-            android:text="Update"/>
+            android:text="Delete"/>
+
+        <Button
+            android:id="@+id/btnCustGoToUpdOrderOrderDetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="Edit"/>
 
     </LinearLayout>
 
