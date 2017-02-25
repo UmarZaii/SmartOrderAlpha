@@ -29,7 +29,7 @@ import java.util.HashMap;
 public class StaffUserAdd extends Fragment {
 
     private FirebaseAuth fAuth;
-    private DatabaseReference fDatabase;
+    private DatabaseReference fDatabase, fDatabaseOrder;
     private EditText edtStaffUserEmail, edtStaffUserIC, edtStaffUserName;
     private Button btnStaffUserAdd;
     private ProgressDialog progressDialog;
@@ -50,6 +50,7 @@ public class StaffUserAdd extends Fragment {
 
         fAuth = FirebaseAuth.getInstance();
         fDatabase = FirebaseDatabase.getInstance().getReference().child("tblUser");
+        fDatabaseOrder = FirebaseDatabase.getInstance().getReference().child("tblOrder");
 
         edtStaffUserEmail = (EditText) v.findViewById(R.id.edtStaffUserEmail);
         edtStaffUserIC = (EditText) v.findViewById(R.id.edtStaffUserIC);
@@ -102,6 +103,9 @@ public class StaffUserAdd extends Fragment {
                             dataMap.put("userPass", strStaffUserPassword);
                             dataMap.put("userType", StaffUser.strStaffUserTypeSelection);
 
+                            if (StaffUser.strStaffUserTypeSelection.equals("Customer")) {
+                                fDatabaseOrder.child("userView").child(strStaffUserID).setValue("empty");
+                            }
 
                             fDatabase.child(StaffUser.strStaffUserTypeSelection).child(strStaffUserID).setValue(dataMap);
                             fDatabase.child("Auth").child(strStaffUserID).setValue(StaffUser.strStaffUserTypeSelection);

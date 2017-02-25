@@ -26,7 +26,7 @@ import java.util.HashMap;
 public class AdminUserAdd extends Fragment {
 
     private FirebaseAuth fAuth;
-    private DatabaseReference fDatabase;
+    private DatabaseReference fDatabase, fDatabaseOrder;
     private EditText edtAdminUserEmail, edtAdminUserIC, edtAdminUserName;
     private Button btnAdminUserAdd;
     private ProgressDialog progressDialog;
@@ -47,6 +47,7 @@ public class AdminUserAdd extends Fragment {
 
         fAuth = FirebaseAuth.getInstance();
         fDatabase = FirebaseDatabase.getInstance().getReference().child("tblUser");
+        fDatabaseOrder = FirebaseDatabase.getInstance().getReference().child("tblOrder");
         edtAdminUserEmail = (EditText) v.findViewById(R.id.edtAdminUserEmail);
         edtAdminUserIC = (EditText) v.findViewById(R.id.edtAdminUserIC);
         edtAdminUserName = (EditText) v.findViewById(R.id.edtAdminUserName);
@@ -100,6 +101,10 @@ public class AdminUserAdd extends Fragment {
                             dataMap.put("userName", strAdminUserName);
                             dataMap.put("userType", AdminUserType.strAdminUserTypeSelection);
                             dataMap.put("userPass", strAdminUserPassword);
+
+                            if (AdminUserType.strAdminUserTypeSelection.equals("Customer")) {
+                                fDatabaseOrder.child("userView").child(strAdminUserID).setValue("empty");
+                            }
 
                             fDatabase.child(AdminUserType.strAdminUserTypeSelection).child(strAdminUserID).setValue(dataMap);
                             fDatabase.child("Auth").child(strAdminUserID).setValue(AdminUserType.strAdminUserTypeSelection);

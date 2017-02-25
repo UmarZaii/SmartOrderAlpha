@@ -14,14 +14,18 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class CustOrder extends Fragment {
 
     private RecyclerView rvCustOrder;
     private DatabaseReference fDatabase;
     private Button btnCustOrderCancel, btnCustOrderAdd, btnCustOrderBook;
+    private TextView txtCustOrderStatus;
 
     public static String strTableNo = "";
 
@@ -44,6 +48,25 @@ public class CustOrder extends Fragment {
         rvCustOrder.setLayoutManager(new LinearLayoutManager(getActivity()));
         rvCustOrder.addItemDecoration(new AllDividerItemRecycleView(getActivity()));
         rvCustOrder.setItemAnimator(new DefaultItemAnimator());
+
+        txtCustOrderStatus = (TextView)v.findViewById(R.id.txtCustOrderStatus);
+
+        if (!CustSetting.strUserView.equals("empty")) {
+            fDatabase.child(CustSetting.strOrderID).child("orderStatus").addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    String strOrderStatus = dataSnapshot.getValue().toString();
+                    txtCustOrderStatus.setText(strOrderStatus);
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+
+                }
+            });
+        } else {
+            txtCustOrderStatus.setText("No Order");
+        }
 
         btnCustOrderBook = (Button)v.findViewById(R.id.btnCustOrderBook);
         btnCustOrderBook.setOnClickListener(new View.OnClickListener() {
