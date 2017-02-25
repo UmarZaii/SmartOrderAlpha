@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:scrollbars="none"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Menu Utama"
+                android:textAlignment="center"
+                android:textSize="25dp"/>
+
+            <Button
+                android:id="@+id/btnCustOrderMenuTypeAir"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:text="Minuman"
+                android:textSize="18dp"
+                android:textStyle="bold"/>
+
+            <Button
+                android:id="@+id/btnCustOrderMenuTypeNasi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:text="Nasi"
+                android:textSize="18dp"
+                android:textStyle="bold"/>
+
+            <Button
+                android:id="@+id/btnCustOrderMenuTypeMee"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:text="Mee/Bihun/Kuey Teow"
+                android:textSize="18dp"
+                android:textStyle="bold"/>
+
+            <Button
+                android:id="@+id/btnCustOrderMenuTypeSup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:text="Sup/Tom Yam"
+                android:textSize="18dp"
+                android:textStyle="bold"/>
+
+            <Button
+                android:id="@+id/btnCustOrderMenuTypeLauk"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:text="Ayam/Daging/Sotong/Udang"
+                android:textSize="18dp"
+                android:textStyle="bold"/>
+
+            <Button
+                android:id="@+id/btnCustOrderMenuTypeSayur"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:text="Sayur"
+                android:textSize="18dp"
+                android:textStyle="bold"/>
+
+            <Button
+                android:id="@+id/btnCustOrderMenuTypeTelur"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="30dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:text="Telur"
+                android:textSize="18dp"
+                android:textStyle="bold"/>
+
+        </TableLayout>
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Menu Special"
+                android:textSize="25dp"
+                android:textAlignment="center"/>
+
+            <Button
+                android:id="@+id/btnCustOrderMenuTypePagi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="set Pagi"
+                android:textSize="18dp"
+                android:textStyle="bold"/>
+
+            <Button
+                android:id="@+id/btnCustOrderMenuTypeTengahari"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:text="Set Tengahari"
+                android:textSize="18dp"
+                android:textStyle="bold"/>
+
+            <Button
+                android:id="@+id/btnCustOrderMenuTypePetang"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:text="Set Petang"
+                android:textSize="18dp"
+                android:textStyle="bold"/>
+
+            <Button
+                android:id="@+id/btnCustOrderMenuTypeMalam"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="30dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:text="Set Malam"
+                android:textSize="18dp"
+                android:textStyle="bold"/>
+
+        </TableLayout>
+
+
+
+    </LinearLayout>
+
+</ScrollView>

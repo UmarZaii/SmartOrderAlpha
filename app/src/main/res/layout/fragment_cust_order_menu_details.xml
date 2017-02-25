@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/lblCustOrderMenuNameDetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Menu Name"
+            android:textSize="20dp"
+            android:layout_marginTop="45dp"/>
+
+        <TextView
+            android:id="@+id/txtCustOrderMenuNameDetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:paddingLeft="10dp"/>
+
+
+        <TextView
+            android:id="@+id/lblCustOrderMenuPriceDetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Menu Price"
+            android:textSize="20dp"
+            android:layout_marginTop="15dp"/>
+
+        <TextView
+            android:id="@+id/txtCustOrderMenuPriceDetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:paddingLeft="10dp"/>
+
+
+        <TextView
+            android:id="@+id/lblCustOrderMenuAmountDetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Amount"
+            android:textSize="20dp"
+            android:layout_marginTop="15dp"/>
+
+        <EditText
+            android:id="@+id/edtCustOrderMenuAmountDetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="input amount.."
+            android:paddingLeft="10dp"
+            android:textSize="20dp"/>
+
+        <Button
+            android:id="@+id/btnCustOrderMenuAdd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Add"
+            android:layout_marginTop="30dp"/>
+
+    </LinearLayout>
+
+</ScrollView>
