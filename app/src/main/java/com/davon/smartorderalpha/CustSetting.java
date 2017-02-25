@@ -35,7 +35,9 @@ public class CustSetting extends Fragment {
     private FirebaseAuth.AuthStateListener fAuthListener;
     private ProgressDialog progressDialog;
 
+    public static String strUserID = "";
     public static String strOrderID = "";
+    public static String strUserView = "";
 
     @Nullable
     @Override
@@ -56,14 +58,26 @@ public class CustSetting extends Fragment {
         btnChgPasswordCust = (Button) v.findViewById(R.id.btnChgPasswordCust);
         btnLogoutCust = (Button) v.findViewById(R.id.btnLogoutCust);
 
-        String userID = fAuth.getCurrentUser().getUid().toString();
-        Log.v("userID", userID);
+        strUserID = fAuth.getCurrentUser().getUid().toString();
+        Log.v("userID", strUserID);
 
-        fDatabase.child("userView").child(userID).addValueEventListener(new ValueEventListener() {
+        fDatabase.child("userView").child(strUserID).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 strOrderID = dataSnapshot.getValue().toString();
                 Log.v("OrderID", strOrderID);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+        fDatabase.child("userView").child(strUserID).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                strUserView = dataSnapshot.getValue().toString();
             }
 
             @Override
