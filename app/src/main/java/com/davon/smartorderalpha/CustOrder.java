@@ -1,5 +1,9 @@
 package com.davon.smartorderalpha;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -7,6 +11,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -121,6 +126,39 @@ public class CustOrder extends Fragment {
                 viewHolder.setMenuName(model.getMenuName());
                 viewHolder.setMenuAmount(model.getMenuAmount());
                 viewHolder.setMenuPrice(model.getMenuPrice());
+
+                viewHolder.fView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                        final CharSequence[] dialogitem = {"Update Order", "Delete Order"};
+                        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                        builder.setTitle("Choose");
+                        builder.setItems(dialogitem, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int item) {
+                                switch(item){
+                                    case 0 :
+                                        Log.v("Update", model.getMenuName());
+                                        break;
+                                    case 1 :
+                                        Log.v("Delete", model.getMenuName());
+                                        break;
+                                }
+                            }
+                        });
+                        builder.create().show();
+
+//                        strMenuName = model.getMenuName();
+//                        strMenuPrice = model.getMenuPrice();
+
+//                        FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+//                        CustOrderMenuDetails fragmCustOrderMenuDetails = new CustOrderMenuDetails();
+//                        transaction.replace(R.id.activity_cust_main, fragmCustOrderMenuDetails);
+//                        transaction.addToBackStack(null);
+//                        transaction.commit();
+
+                    }
+                });
 
             }
         };
