@@ -2,6 +2,7 @@ package com.davon.smartorderalpha;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.annotation.StringDef;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -24,10 +25,13 @@ public class StaffOrderTableOrder extends Fragment {
     private RecyclerView rvStaffOrderTableOrder;
     private DatabaseReference fDatabaseOrder, fDatabaseTable;
     private Button btnStaffCancelOrder, btnStaffPayOrder, btnStaffGoToAddOrder;
+    private TextView txtCustOrderTableOrderRM;
 
     public static String strMenuName = "";
     public static String strMenuPrice = "";
     public static String strMenuAmount = "";
+
+    public static Double dbTotalPriceAll = 0.00;
 
     @Nullable
     @Override
@@ -43,6 +47,8 @@ public class StaffOrderTableOrder extends Fragment {
 
         fDatabaseOrder = FirebaseDatabase.getInstance().getReference().child("tblOrder");
         fDatabaseTable = FirebaseDatabase.getInstance().getReference().child("tblTable");
+
+        txtCustOrderTableOrderRM = (TextView)v.findViewById(R.id.txtCustOrderTableOrderRM);
 
         rvStaffOrderTableOrder = (RecyclerView)v.findViewById(R.id.rvStaffOrderTableOrder);
         rvStaffOrderTableOrder.setHasFixedSize(true);
@@ -118,6 +124,13 @@ public class StaffOrderTableOrder extends Fragment {
                 Double dbMenuAmount = Double.parseDouble(menuAmount);
                 Log.v("menuPrice DB", dbMenuPrice.toString());
                 Log.v("menuAmount DB", dbMenuAmount.toString());
+                Log.v("menuPrice DB2", String.format("%.2f", dbMenuPrice).toString());
+                Log.v("menuAmount DB2", String.format("%.2f", dbMenuAmount).toString());
+
+                Double dbTotalPriceEach = dbMenuPrice * dbMenuAmount;
+                dbTotalPriceAll = dbTotalPriceAll + dbTotalPriceEach;
+
+                txtCustOrderTableOrderRM.setText(String.format("%.2f", dbTotalPriceAll).toString());
 
                 viewHolder.fView.setOnClickListener(new View.OnClickListener() {
                     @Override
