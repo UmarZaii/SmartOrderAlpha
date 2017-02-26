@@ -4,9 +4,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <FrameLayout
+    <TableLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/btnStaffDelAddOrder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cancel"/>
 
         <Button
             android:id="@+id/btnStaffGoToAddOrder"
@@ -34,7 +40,7 @@
             android:textColor="#ffffff"
             android:background="@color/primaryColor"/>
 
-    </FrameLayout>
+    </TableLayout>
 
 
     <TableLayout

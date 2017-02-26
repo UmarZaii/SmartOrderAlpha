@@ -58,44 +58,44 @@ public class AdminUserDetails extends Fragment {
         txtAdminUserTypeDetails = (TextView) v.findViewById(R.id.txtAdminUserTypeDetails);
         txtAdminUserTypeDetails.setText(AdminUser.strAdminUserTypeDetails);
 
-        btnDelAdminUserDetails = (Button) v.findViewById(R.id.btnDelAdminUserDetails);
-        btnDelAdminUserDetails.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                authCredential = EmailAuthProvider.getCredential(AdminUser.strAdminUserEmailDetails, AdminUser.strAdminUserPassDetails);
-                Log.d("UID before", fAuth.getCurrentUser().getUid());
-                Log.d("UID before tostr", fAuth.getCurrentUser().getUid().toString());
-                fAuth.getCurrentUser().reauthenticate(authCredential).addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        if(task.isSuccessful()) {
-                            Log.d("CREDENTIAL", "OK");
-                            Log.d("UID after", fAuth.getCurrentUser().getUid());
-                            Log.d("UID after tostr", fAuth.getCurrentUser().getUid().toString());
-                        } else {
-                            Log.d("CREDENTIAL", "NOT OK");
-                            task.getException();
-                        }
-                    }
-                });
-
-//                fAuth.getCurrentUser().delete().addOnCompleteListener(new OnCompleteListener<Void>() {
+//        btnDelAdminUserDetails = (Button) v.findViewById(R.id.btnDelAdminUserDetails);
+//        btnDelAdminUserDetails.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//
+//                authCredential = EmailAuthProvider.getCredential(AdminUser.strAdminUserEmailDetails, AdminUser.strAdminUserPassDetails);
+//                Log.d("UID before", fAuth.getCurrentUser().getUid());
+//                Log.d("UID before tostr", fAuth.getCurrentUser().getUid().toString());
+//                fAuth.getCurrentUser().reauthenticate(authCredential).addOnCompleteListener(new OnCompleteListener<Void>() {
 //                    @Override
 //                    public void onComplete(@NonNull Task<Void> task) {
 //                        if(task.isSuccessful()) {
-//                            Log.d("TESTING", "OK");
-//                            fDatabase.child(AdminUserType.strAdminUserTypeSelection).child(AdminUser.strAdminUserIDDetails).removeValue();
-//                            fDatabase.child("Auth").child(AdminUser.strAdminUserIDDetails).removeValue();
+//                            Log.d("CREDENTIAL", "OK");
+//                            Log.d("UID after", fAuth.getCurrentUser().getUid());
+//                            Log.d("UID after tostr", fAuth.getCurrentUser().getUid().toString());
 //                        } else {
-//                            Log.d("TESTING", "NOT OK");
+//                            Log.d("CREDENTIAL", "NOT OK");
 //                            task.getException();
 //                        }
-//
 //                    }
 //                });
-
-            }
-        });
+//
+////                fAuth.getCurrentUser().delete().addOnCompleteListener(new OnCompleteListener<Void>() {
+////                    @Override
+////                    public void onComplete(@NonNull Task<Void> task) {
+////                        if(task.isSuccessful()) {
+////                            Log.d("TESTING", "OK");
+////                            fDatabase.child(AdminUserType.strAdminUserTypeSelection).child(AdminUser.strAdminUserIDDetails).removeValue();
+////                            fDatabase.child("Auth").child(AdminUser.strAdminUserIDDetails).removeValue();
+////                        } else {
+////                            Log.d("TESTING", "NOT OK");
+////                            task.getException();
+////                        }
+////
+////                    }
+////                });
+//
+//            }
+//        });
     }
 }

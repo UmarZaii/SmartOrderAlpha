@@ -85,7 +85,7 @@
         </TableLayout>
 
         <Button
-            android:background="@drawable/activity_red_btn"
+            android:background="@drawable/activity_btn_red"
             android:layout_marginTop="20dp"
             android:id="@+id/btnDelMenuDetails"
             android:text="Delete"
