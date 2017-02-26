@@ -38,6 +38,7 @@ public class CustSetting extends Fragment {
     public static String strUserID = "";
     public static String strOrderID = "";
     public static String strUserView = "";
+    public static String strOrderStatus = "";
 
     @Nullable
     @Override
@@ -78,6 +79,18 @@ public class CustSetting extends Fragment {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 strUserView = dataSnapshot.getValue().toString();
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+        fDatabase.child(strUserView).child("orderStatus").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                strOrderStatus = dataSnapshot.getValue().toString();
             }
 
             @Override

@@ -17,6 +17,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DataSnapshot;
@@ -31,6 +32,10 @@ public class CustOrder extends Fragment {
     private DatabaseReference fDatabase;
     private Button btnCustOrderCancel, btnCustOrderAdd, btnCustOrderBook;
     private TextView txtCustOrderStatus;
+
+    public static String strOrderName = "";
+    public static String strOrderPrice = "";
+    public static String strOrderAmount = "";
 
     public static String strTableNo = "";
 
@@ -131,6 +136,10 @@ public class CustOrder extends Fragment {
                     @Override
                     public void onClick(View v) {
 
+                        strOrderName = model.getMenuName();
+                        strOrderPrice = model.getMenuPrice();
+                        strOrderAmount = model.getMenuAmount();
+
                         final CharSequence[] dialogitem = {"Update Order", "Delete Order"};
                         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
                         builder.setTitle("Choose");
@@ -139,23 +148,34 @@ public class CustOrder extends Fragment {
                                 switch(item){
                                     case 0 :
                                         Log.v("Update", model.getMenuName());
+                                        Log.v("strOrderStatus", CustSetting.strOrderStatus);
+                                        if (CustSetting.strOrderStatus.equals("New Order")) {
+                                            FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                                            CustOrderOrderDetailsUpd fragmCustOrderOrderDetailsUpd = new CustOrderOrderDetailsUpd();
+                                            transaction.replace(R.id.activity_cust_main, fragmCustOrderOrderDetailsUpd);
+                                            transaction.addToBackStack(null);
+                                            transaction.commit();
+                                        } else if (CustSetting.strOrderStatus.equals("Preparing")) {
+                                            Toast.makeText(getActivity(), "Your orders are being prepared", Toast.LENGTH_SHORT).show();
+                                        } else if (CustSetting.strOrderStatus.equals("Serving")) {
+                                            Toast.makeText(getActivity(), "Your orders has been served", Toast.LENGTH_SHORT).show();
+                                        }
                                         break;
                                     case 1 :
                                         Log.v("Delete", model.getMenuName());
+                                        Log.v("strOrderStatus", CustSetting.strOrderStatus);
+                                        if (CustSetting.strOrderStatus.equals("New Order")) {
+                                            fDatabase.child(CustSetting.strOrderID).child("orderMenu").child(strOrderName).removeValue();
+                                        } else if (CustSetting.strOrderStatus.equals("Preparing")) {
+                                            Toast.makeText(getActivity(), "Your orders are being prepared", Toast.LENGTH_SHORT).show();
+                                        } else if (CustSetting.strOrderStatus.equals("Serving")) {
+                                            Toast.makeText(getActivity(), "Your orders has been served", Toast.LENGTH_SHORT).show();
+                                        }
                                         break;
                                 }
                             }
                         });
                         builder.create().show();
-
-//                        strMenuName = model.getMenuName();
-//                        strMenuPrice = model.getMenuPrice();
-
-//                        FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
-//                        CustOrderMenuDetails fragmCustOrderMenuDetails = new CustOrderMenuDetails();
-//                        transaction.replace(R.id.activity_cust_main, fragmCustOrderMenuDetails);
-//                        transaction.addToBackStack(null);
-//                        transaction.commit();
 
                     }
                 });
