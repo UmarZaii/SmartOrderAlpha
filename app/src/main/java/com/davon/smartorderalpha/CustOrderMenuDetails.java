@@ -76,7 +76,7 @@ public class CustOrderMenuDetails extends Fragment {
                 String menuAmount = edtCustOrderMenuAmountDetails.getText().toString();
 
                 //Two people book same table in same time
-                if (CustOrder.strTableStatus.equals("AV")) {
+                if (CustOrder.strTableStatus.equals("AV") || CustSetting.strUserView.equals(CustSetting.tblOrderID)) {
 
                     if(CustSetting.strUserView.equals("empty")) {
 

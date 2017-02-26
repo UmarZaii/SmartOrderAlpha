@@ -135,7 +135,10 @@ public class CustOrder extends Fragment {
             public void onClick(View v) {
                 if (!strTableNo.equals("")) {
                     //Two people book same table in same time
-                    if (strTableStatus.equals("AV")) {
+                    Log.v("strTableStatus", strTableStatus);
+                    Log.v("tblOrderID", CustSetting.tblOrderID);
+                    Log.v("strUserView", CustSetting.strUserView);
+                    if (strTableStatus.equals("AV") || CustSetting.strUserView.equals(CustSetting.tblOrderID)) {
                         Log.v("strTableNo", strTableNo);
                         FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
                         CustOrderMenuType fragmCustOrderMenuType = new CustOrderMenuType();

@@ -30,13 +30,15 @@ import com.google.firebase.database.ValueEventListener;
 public class CustSetting extends Fragment {
 
     private Button btnChgPasswordCust, btnLogoutCust;
-    private DatabaseReference fDatabaseOrder;
+    private DatabaseReference fDatabaseOrder, fDatabaseTable;
     private FirebaseAuth fAuth;
     private FirebaseAuth.AuthStateListener fAuthListener;
     private ProgressDialog progressDialog;
 
     public static String strUserID = "";
     public static String strOrderID = "";
+    public static String tblOrderID = "";
+    public static String strOrderTableNo = "";
     public static String strUserView = "";
     public static String strOrderStatus = "";
 
@@ -55,6 +57,7 @@ public class CustSetting extends Fragment {
 
         fAuth = FirebaseAuth.getInstance();
         fDatabaseOrder = FirebaseDatabase.getInstance().getReference().child("tblOrder");
+        fDatabaseTable = FirebaseDatabase.getInstance().getReference().child("tblTable");
         progressDialog = new ProgressDialog(getActivity());
         btnChgPasswordCust = (Button) v.findViewById(R.id.btnChgPasswordCust);
         btnLogoutCust = (Button) v.findViewById(R.id.btnLogoutCust);
@@ -75,22 +78,33 @@ public class CustSetting extends Fragment {
             }
         });
 
+
         fDatabaseOrder.child("userView").child(strUserID).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 strUserView = dataSnapshot.getValue().toString();
-                Log.v("UserView gftvt", "test");
-                Log.v("UserView x", strUserView);
 
                 if (!strUserView.equals("empty")) {
-                    fDatabaseOrder.child(strUserView).child("orderStatus").addValueEventListener(new ValueEventListener() {
+                    fDatabaseOrder.child(strUserView).child("tableNo").addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(DataSnapshot dataSnapshot) {
-                            Log.v("strUserView y",strUserView);
                             if (!strUserView.equals("empty")) {
-                                strOrderStatus = dataSnapshot.getValue().toString();
+                                strOrderTableNo = dataSnapshot.getValue().toString();
+
+                                fDatabaseTable.child(strOrderTableNo).child("orderID").addValueEventListener(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(DataSnapshot dataSnapshot) {
+                                        tblOrderID = dataSnapshot.getValue().toString();
+                                        Log.v("OrderID", tblOrderID);
+                                    }
+
+                                    @Override
+                                    public void onCancelled(DatabaseError databaseError) {
+
+                                    }
+                                });
                             }
-                            Log.v("OrderStatus", strOrderStatus);
+                            Log.v("OrderTableNo", strOrderTableNo);
                         }
 
                         @Override
@@ -99,6 +113,23 @@ public class CustSetting extends Fragment {
                         }
                     });
                 }
+
+                if (!strUserView.equals("empty")) {
+                    fDatabaseOrder.child(strUserView).child("orderStatus").addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(DataSnapshot dataSnapshot) {
+                            if (!strUserView.equals("empty")) {
+                                strOrderStatus = dataSnapshot.getValue().toString();
+                            }
+                        }
+
+                        @Override
+                        public void onCancelled(DatabaseError databaseError) {
+
+                        }
+                    });
+                }
+
             }
 
             @Override
