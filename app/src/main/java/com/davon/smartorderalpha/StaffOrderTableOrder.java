@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
@@ -20,8 +21,8 @@ import com.google.firebase.database.FirebaseDatabase;
 public class StaffOrderTableOrder extends Fragment {
 
     private RecyclerView rvStaffOrderTableOrder;
-    private DatabaseReference fDatabase;
-    private Button btnStaffPayOrder, btnStaffGoToAddOrder;
+    private DatabaseReference fDatabaseOrder, fDatabaseTable;
+    private Button btnStaffCancelOrder, btnStaffPayOrder, btnStaffGoToAddOrder;
 
     public static String strMenuName = "";
     public static String strMenuPrice = "";
@@ -39,7 +40,8 @@ public class StaffOrderTableOrder extends Fragment {
         super.onActivityCreated(savedInstanceState);
         View v = getView();
 
-        fDatabase = FirebaseDatabase.getInstance().getReference().child("tblOrder");
+        fDatabaseOrder = FirebaseDatabase.getInstance().getReference().child("tblOrder");
+        fDatabaseTable = FirebaseDatabase.getInstance().getReference().child("tblTable");
 
         rvStaffOrderTableOrder = (RecyclerView)v.findViewById(R.id.rvStaffOrderTableOrder);
         rvStaffOrderTableOrder.setHasFixedSize(true);
@@ -59,6 +61,23 @@ public class StaffOrderTableOrder extends Fragment {
             }
         });
 
+        btnStaffCancelOrder = (Button)v.findViewById(R.id.btnStaffCancelOrder);
+        btnStaffCancelOrder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if (!StaffOrderTable.strOrderID.equals("empty")) {
+                    fDatabaseTable.child(StaffOrderTable.strTableNo).child("orderID").setValue("empty");
+                    fDatabaseTable.child(StaffOrderTable.strTableNo).child("staffView").setValue("empty");
+                    fDatabaseTable.child(StaffOrderTable.strTableNo).child("tableStatus").setValue("AV");
+                    fDatabaseOrder.child(StaffOrderTable.strOrderID).removeValue();
+                } else {
+                    Toast.makeText(getActivity(), "This table does not have any order", Toast.LENGTH_LONG).show();
+                }
+
+            }
+        });
+
         btnStaffPayOrder = (Button)v.findViewById(R.id.btnStaffPayOrder);
 
     }
@@ -73,7 +92,7 @@ public class StaffOrderTableOrder extends Fragment {
                 TableOrderList.class,
                 R.layout.fragment_staff_order_table_order_row,
                 TableOrderViewHolder.class,
-                fDatabase.child(StaffOrderTable.strOrderID).child("orderMenu")
+                fDatabaseOrder.child(StaffOrderTable.strOrderID).child("orderMenu")
 
         ) {
             @Override
