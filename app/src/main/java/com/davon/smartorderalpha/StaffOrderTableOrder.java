@@ -79,6 +79,12 @@ public class StaffOrderTableOrder extends Fragment {
         });
 
         btnStaffPayOrder = (Button)v.findViewById(R.id.btnStaffPayOrder);
+        btnStaffPayOrder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
 
     }
 
