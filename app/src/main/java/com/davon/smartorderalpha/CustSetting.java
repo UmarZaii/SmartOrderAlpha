@@ -81,18 +81,20 @@ public class CustSetting extends Fragment {
                 strUserView = dataSnapshot.getValue().toString();
                 Log.v("UserView", strUserView);
 
-                fDatabaseOrder.child(strUserView).child("orderStatus").addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
-                        strOrderStatus = dataSnapshot.getValue().toString();
-                        Log.v("OrderStatus", strOrderStatus);
-                    }
+                if (!strUserView.equals("empty")) {
+                    fDatabaseOrder.child(strUserView).child("orderStatus").addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(DataSnapshot dataSnapshot) {
+                            strOrderStatus = dataSnapshot.getValue().toString();
+                            Log.v("OrderStatus", strOrderStatus);
+                        }
 
-                    @Override
-                    public void onCancelled(DatabaseError databaseError) {
+                        @Override
+                        public void onCancelled(DatabaseError databaseError) {
 
-                    }
-                });
+                        }
+                    });
+                }
             }
 
             @Override
@@ -101,19 +103,20 @@ public class CustSetting extends Fragment {
             }
         });
 
-//        Log.v("UserViewA", strUserView);
-//        fDatabaseOrder.child(strUserView).child("orderStatus").addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(DataSnapshot dataSnapshot) {
-//                strOrderStatus = dataSnapshot.getValue().toString();
-//                Log.v("OrderStatus", strOrderStatus);
-//            }
+//        if (!strUserView.equals("empty")) {
+//            fDatabaseOrder.child(strUserView).child("orderStatus").addValueEventListener(new ValueEventListener() {
+//                @Override
+//                public void onDataChange(DataSnapshot dataSnapshot) {
+//                    strOrderStatus = dataSnapshot.getValue().toString();
+//                    Log.v("OrderStatus", strOrderStatus);
+//                }
 //
-//            @Override
-//            public void onCancelled(DatabaseError databaseError) {
+//                @Override
+//                public void onCancelled(DatabaseError databaseError) {
 //
-//            }
-//        });
+//                }
+//            });
+//        }
 
 //        fAuthListener = new FirebaseAuth.AuthStateListener() {
 //            @Override
