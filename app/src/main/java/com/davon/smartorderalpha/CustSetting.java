@@ -30,7 +30,7 @@ import com.google.firebase.database.ValueEventListener;
 public class CustSetting extends Fragment {
 
     private Button btnChgPasswordCust, btnLogoutCust;
-    private DatabaseReference fDatabase;
+    private DatabaseReference fDatabaseOrder;
     private FirebaseAuth fAuth;
     private FirebaseAuth.AuthStateListener fAuthListener;
     private ProgressDialog progressDialog;
@@ -54,7 +54,7 @@ public class CustSetting extends Fragment {
         final View v = getView();
 
         fAuth = FirebaseAuth.getInstance();
-        fDatabase = FirebaseDatabase.getInstance().getReference().child("tblOrder");
+        fDatabaseOrder = FirebaseDatabase.getInstance().getReference().child("tblOrder");
         progressDialog = new ProgressDialog(getActivity());
         btnChgPasswordCust = (Button) v.findViewById(R.id.btnChgPasswordCust);
         btnLogoutCust = (Button) v.findViewById(R.id.btnLogoutCust);
@@ -62,7 +62,7 @@ public class CustSetting extends Fragment {
         strUserID = fAuth.getCurrentUser().getUid().toString();
         Log.v("userID", strUserID);
 
-        fDatabase.child("userView").child(strUserID).addValueEventListener(new ValueEventListener() {
+        fDatabaseOrder.child("userView").child(strUserID).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 strOrderID = dataSnapshot.getValue().toString();
@@ -75,10 +75,24 @@ public class CustSetting extends Fragment {
             }
         });
 
-        fDatabase.child("userView").child(strUserID).addValueEventListener(new ValueEventListener() {
+        fDatabaseOrder.child("userView").child(strUserID).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 strUserView = dataSnapshot.getValue().toString();
+                Log.v("UserView", strUserView);
+
+                fDatabaseOrder.child(strUserView).child("orderStatus").addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        strOrderStatus = dataSnapshot.getValue().toString();
+                        Log.v("OrderStatus", strOrderStatus);
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+
+                    }
+                });
             }
 
             @Override
@@ -87,17 +101,19 @@ public class CustSetting extends Fragment {
             }
         });
 
-        fDatabase.child(strUserView).child("orderStatus").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                strOrderStatus = dataSnapshot.getValue().toString();
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
+//        Log.v("UserViewA", strUserView);
+//        fDatabaseOrder.child(strUserView).child("orderStatus").addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(DataSnapshot dataSnapshot) {
+//                strOrderStatus = dataSnapshot.getValue().toString();
+//                Log.v("OrderStatus", strOrderStatus);
+//            }
+//
+//            @Override
+//            public void onCancelled(DatabaseError databaseError) {
+//
+//            }
+//        });
 
 //        fAuthListener = new FirebaseAuth.AuthStateListener() {
 //            @Override
