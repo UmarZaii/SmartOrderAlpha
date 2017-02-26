@@ -117,13 +117,9 @@ public class StaffOrderTableOrder extends Fragment {
 
                 String menuPrice = model.getMenuPrice();
                 String menuAmount = model.getMenuAmount();
-                Log.v("menuPrice", menuPrice);
-                Log.v("menuAmount", menuAmount);
-
                 Double dbMenuPrice = Double.parseDouble(menuPrice);
                 Double dbMenuAmount = Double.parseDouble(menuAmount);
-                Log.v("menuPrice DB", dbMenuPrice.toString());
-                Log.v("menuAmount DB", dbMenuAmount.toString());
+                
                 Log.v("menuPrice DB2", String.format("%.2f", dbMenuPrice).toString());
                 Log.v("menuAmount DB2", String.format("%.2f", dbMenuAmount).toString());
 
