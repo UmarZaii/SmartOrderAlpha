@@ -123,7 +123,17 @@ public class CustOrder extends Fragment {
         btnCustOrderCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                fDatabaseTable.child()
+
+                if (!CustSetting.strUserView.equals("empty")) {
+                    fDatabaseTable.child(strTableNo).child("orderID").setValue("empty");
+                    fDatabaseTable.child(strTableNo).child("staffView").setValue("empty");
+                    fDatabaseTable.child(strTableNo).child("tableStatus").setValue("AV");
+                    fDatabaseOrder.child(CustSetting.strUserView).removeValue();
+                    fDatabaseOrder.child("userView").child(CustSetting.strUserID).setValue("empty");
+                } else {
+                    Toast.makeText(getActivity(), "You don't have any order yet", Toast.LENGTH_SHORT).show();
+                }
+
             }
         });
 
