@@ -56,6 +56,7 @@ public class StaffOrderTableOrder extends Fragment {
         fDatabaseUser = FirebaseDatabase.getInstance().getReference().child("tblUser");
 
         txtCustOrderTableOrderRM = (TextView)v.findViewById(R.id.txtCustOrderTableOrderRM);
+        dbTotalPriceAll = 0.00;
 
         rvStaffOrderTableOrder = (RecyclerView)v.findViewById(R.id.rvStaffOrderTableOrder);
         rvStaffOrderTableOrder.setHasFixedSize(true);
