@@ -79,13 +79,17 @@ public class CustSetting extends Fragment {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 strUserView = dataSnapshot.getValue().toString();
-                Log.v("UserView", strUserView);
+                Log.v("UserView gftvt", "test");
+                Log.v("UserView x", strUserView);
 
                 if (!strUserView.equals("empty")) {
                     fDatabaseOrder.child(strUserView).child("orderStatus").addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(DataSnapshot dataSnapshot) {
-                            strOrderStatus = dataSnapshot.getValue().toString();
+                            Log.v("strUserView y",strUserView);
+                            if (!strUserView.equals("empty")) {
+                                strOrderStatus = dataSnapshot.getValue().toString();
+                            }
                             Log.v("OrderStatus", strOrderStatus);
                         }
 

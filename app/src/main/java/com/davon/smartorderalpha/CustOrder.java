@@ -62,24 +62,31 @@ public class CustOrder extends Fragment {
 
         txtCustOrderStatus = (TextView)v.findViewById(R.id.txtCustOrderStatus);
 
-        fDatabaseOrder.child(CustSetting.strOrderID).child("tableNo").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                strTableNo = dataSnapshot.getValue().toString();
-            }
+        if (!CustSetting.strUserView.equals("empty")) {
+            fDatabaseOrder.child(CustSetting.strUserView).child("tableNo").addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    if (!CustSetting.strUserView.equals("empty")) {
+                        Log.v("strUserView", CustSetting.strUserView );
+                        strTableNo = dataSnapshot.getValue().toString();
+                    }
+                }
 
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
 
-            }
-        });
+                }
+            });
+        }
 
         if (!CustSetting.strUserView.equals("empty")) {
             fDatabaseOrder.child(CustSetting.strOrderID).child("orderStatus").addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
-                    String strOrderStatus = dataSnapshot.getValue().toString();
-                    txtCustOrderStatus.setText(strOrderStatus);
+                    if (!CustSetting.strUserView.equals("empty")) {
+                        String strOrderStatus = dataSnapshot.getValue().toString();
+                        txtCustOrderStatus.setText(strOrderStatus);
+                    }
                 }
 
                 @Override
@@ -111,7 +118,8 @@ public class CustOrder extends Fragment {
         btnCustOrderAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (!strTableNo.equals("") || !strTableNo.equals(null)) {
+                if (!strTableNo.equals("")) {
+                    Log.v("strTableNo", strTableNo);
                     FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
                     CustOrderMenuType fragmCustOrderMenuType = new CustOrderMenuType();
                     transaction.replace(R.id.activity_cust_main, fragmCustOrderMenuType);
@@ -134,6 +142,8 @@ public class CustOrder extends Fragment {
                     fDatabaseTable.child(strTableNo).child("tableStatus").setValue("AV");
                     fDatabaseOrder.child(CustSetting.strUserView).removeValue();
                     fDatabaseOrder.child("userView").child(CustSetting.strUserID).setValue("empty");
+                    CustSetting.strUserView = "empty";
+                    strTableNo = "";
                 } else {
                     Toast.makeText(getActivity(), "You don't have any order yet", Toast.LENGTH_SHORT).show();
                 }
