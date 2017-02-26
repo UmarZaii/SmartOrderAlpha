@@ -17,15 +17,21 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class StaffOrderTableOrder extends Fragment {
 
     private RecyclerView rvStaffOrderTableOrder;
-    private DatabaseReference fDatabaseOrder, fDatabaseTable;
+    private DatabaseReference fDatabaseOrder, fDatabaseTable, fDatabaseUser;
     private Button btnStaffCancelOrder, btnStaffPayOrder, btnStaffGoToAddOrder;
     private TextView txtCustOrderTableOrderRM;
+
+    public static String strUserID = "";
+    public static String strUserType = "";
 
     public static String strMenuName = "";
     public static String strMenuPrice = "";
@@ -47,6 +53,7 @@ public class StaffOrderTableOrder extends Fragment {
 
         fDatabaseOrder = FirebaseDatabase.getInstance().getReference().child("tblOrder");
         fDatabaseTable = FirebaseDatabase.getInstance().getReference().child("tblTable");
+        fDatabaseUser = FirebaseDatabase.getInstance().getReference().child("tblUser");
 
         txtCustOrderTableOrderRM = (TextView)v.findViewById(R.id.txtCustOrderTableOrderRM);
 
@@ -55,6 +62,32 @@ public class StaffOrderTableOrder extends Fragment {
         rvStaffOrderTableOrder.setLayoutManager(new LinearLayoutManager(getActivity()));
         rvStaffOrderTableOrder.addItemDecoration(new AllDividerItemRecycleView(getActivity()));
         rvStaffOrderTableOrder.setItemAnimator(new DefaultItemAnimator());
+
+        fDatabaseOrder.child(StaffOrderTable.strOrderID).child("userID").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                strUserID = dataSnapshot.getValue().toString();
+                Log.v("strUserID", strUserID);
+
+                fDatabaseUser.child("Auth").child(strUserID).addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        strUserType = dataSnapshot.getValue().toString();
+                        Log.v("strUserType", strUserType);
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+
+                    }
+                });
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
 
         btnStaffGoToAddOrder = (Button)v.findViewById(R.id.btnStaffGoToAddOrder);
         btnStaffGoToAddOrder.setOnClickListener(new View.OnClickListener() {
@@ -90,6 +123,20 @@ public class StaffOrderTableOrder extends Fragment {
             @Override
             public void onClick(View v) {
 
+                if (!StaffOrderTable.strOrderID.equals("empty")) {
+
+                    fDatabaseTable.child(StaffOrderTable.strTableNo).child("orderID").setValue("empty");
+                    fDatabaseTable.child(StaffOrderTable.strTableNo).child("staffView").setValue("empty");
+                    fDatabaseTable.child(StaffOrderTable.strTableNo).child("tableStatus").setValue("AV");
+                    fDatabaseOrder.child(StaffOrderTable.strOrderID).child("orderStatus").setValue("Paid");
+                    if (strUserType.equals("Customer")) {
+                        fDatabaseOrder.child("userView").child(strUserID).setValue("empty");
+                    }
+
+                } else {
+                    Toast.makeText(getActivity(), "You have no order to pay for...", Toast.LENGTH_LONG).show();
+                }
+
             }
         });
 
@@ -119,7 +166,7 @@ public class StaffOrderTableOrder extends Fragment {
                 String menuAmount = model.getMenuAmount();
                 Double dbMenuPrice = Double.parseDouble(menuPrice);
                 Double dbMenuAmount = Double.parseDouble(menuAmount);
-                
+
                 Log.v("menuPrice DB2", String.format("%.2f", dbMenuPrice).toString());
                 Log.v("menuAmount DB2", String.format("%.2f", dbMenuAmount).toString());
 
