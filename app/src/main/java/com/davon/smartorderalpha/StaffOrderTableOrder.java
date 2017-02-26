@@ -7,6 +7,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -107,6 +108,11 @@ public class StaffOrderTableOrder extends Fragment {
                 viewHolder.setMenuName(model.getMenuName());
                 viewHolder.setMenuAmount(model.getMenuAmount());
                 viewHolder.setMenuPrice(model.getMenuPrice());
+
+                String menuPrice = model.getMenuPrice();
+                String menuAmount = model.getMenuAmount();
+                Log.v("menuPrice", menuPrice);
+                Log.v("menuAmount", menuAmount);
 
                 viewHolder.fView.setOnClickListener(new View.OnClickListener() {
                     @Override
