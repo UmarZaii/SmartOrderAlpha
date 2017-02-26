@@ -28,18 +28,18 @@
                 android:textColor="@color/white"
                 android:textStyle="italic"
                 android:textAlignment="center"
-                android:textSize="30dp"/>
+                android:textSize="20dp"/>
 
             <TableRow
                 android:background="@drawable/activity_tablerow_top"
-                android:padding="15dp">
+                android:padding="10dp">
 
                 <TextView
                     android:background="@drawable/activity_table_cell"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Email"
-                    android:textSize="20dp"
+                    android:textSize="12dp"
                     android:textColor="@color/elegantColorDark"
                     android:paddingRight="20dp"/>
 
@@ -48,22 +48,22 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Sila masukkan email"
-                    android:textSize="18dp"
+                    android:textSize="12dp"
                     android:paddingLeft="20dp"
-                    android:paddingRight="80dp"
+                    android:paddingRight="20dp"
                     android:layout_marginLeft="20dp"/>
 
             </TableRow>
             <TableRow
                 android:background="@drawable/activity_tablerow_top"
-                android:padding="15dp">
+                android:padding="10dp">
 
                 <TextView
                     android:background="@drawable/activity_table_cell"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="No. IC"
-                    android:textSize="20dp"
+                    android:textSize="12dp"
                     android:textColor="@color/elegantColorDark"
                     android:paddingRight="20dp"/>
 
@@ -72,7 +72,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Sila masukkan no IC"
-                    android:textSize="18dp"
+                    android:textSize="12dp"
                     android:paddingLeft="20dp"
                     android:paddingRight="80dp"
                     android:layout_marginLeft="20dp"/>
@@ -80,14 +80,14 @@
             </TableRow>
             <TableRow
                 android:background="@drawable/activity_tablerow_last"
-                android:padding="15dp">
+                android:padding="10dp">
 
                 <TextView
                     android:background="@drawable/activity_table_cell"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Nama"
-                    android:textSize="20dp"
+                    android:textSize="12dp"
                     android:textColor="@color/elegantColorDark"
                     android:paddingRight="20dp"/>
 
@@ -96,7 +96,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Sila masukkan nama"
-                    android:textSize="18dp"
+                    android:textSize="12dp"
                     android:paddingLeft="20dp"
                     android:paddingRight="80dp"
                     android:layout_marginLeft="20dp"/>

@@ -13,8 +13,7 @@
         android:id="@+id/txtStaffOrderTableOrderName"
         android:hint="OrderName"
         android:textColor="@color/elegantColorDark"
-        android:textSize="12dp"
-        android:paddingTop="15dp"/>
+        android:textSize="12dp"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -23,7 +22,6 @@
         android:hint="Amount"
         android:textColor="@color/elegantColorDark"
         android:textSize="12dp"
-        android:paddingTop="5dp"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"/>
 
@@ -34,7 +32,6 @@
         android:hint="OrderPrice"
         android:textColor="@color/elegantColorDark"
         android:textSize="12dp"
-        android:paddingTop="5dp"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"/>
 

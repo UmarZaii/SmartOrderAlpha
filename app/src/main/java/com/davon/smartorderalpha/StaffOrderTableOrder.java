@@ -63,6 +63,7 @@ public class StaffOrderTableOrder extends Fragment {
         rvStaffOrderTableOrder.addItemDecoration(new AllDividerItemRecycleView(getActivity()));
         rvStaffOrderTableOrder.setItemAnimator(new DefaultItemAnimator());
 
+        Log.v("strOrderID", StaffOrderTable.strOrderID);
         fDatabaseOrder.child(StaffOrderTable.strOrderID).child("userID").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {

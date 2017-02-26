@@ -28,11 +28,11 @@
                 android:textColor="@color/white"
                 android:textStyle="italic"
                 android:textAlignment="center"
-                android:textSize="30dp"/>
+                android:textSize="20dp"/>
 
             <TableRow
                 android:background="@drawable/activity_tablerow_top"
-                android:padding="15dp">
+                android:padding="10dp">
 
                 <TextView
                     android:background="@drawable/activity_table_cell"
@@ -40,7 +40,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Email"
-                    android:textSize="20dp"
+                    android:textSize="12dp"
                     android:textColor="@color/elegantColorDark"
                     android:paddingRight="20dp"/>
 
@@ -49,14 +49,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="test@gmail.com"
-                    android:textSize="18dp"
+                    android:textSize="12dp"
                     android:paddingLeft="20dp"/>
 
             </TableRow>
 
             <TableRow
                 android:background="@drawable/activity_tablerow_top"
-                android:padding="15dp">
+                android:padding="10dp">
 
                 <TextView
                     android:background="@drawable/activity_table_cell"
@@ -64,7 +64,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="No. IC"
-                    android:textSize="20dp"
+                    android:textSize="12dp"
                     android:textColor="@color/elegantColorDark"
                     android:paddingRight="20dp"/>
 
@@ -73,14 +73,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="96010407092536"
-                    android:textSize="18dp"
+                    android:textSize="12dp"
                     android:paddingLeft="20dp"/>
 
             </TableRow>
 
             <TableRow
                 android:background="@drawable/activity_tablerow_top"
-                android:padding="15dp">
+                android:padding="10dp">
 
                 <TextView
                     android:background="@drawable/activity_table_cell"
@@ -88,7 +88,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Nama"
-                    android:textSize="20dp"
+                    android:textSize="12dp"
                     android:textColor="@color/elegantColorDark"
                     android:paddingRight="20dp"/>
 
@@ -97,22 +97,22 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Wan Arip"
-                    android:textSize="18dp"
+                    android:textSize="12dp"
                     android:paddingLeft="20dp"/>
 
             </TableRow>
 
             <TableRow
                 android:background="@drawable/activity_tablerow_last"
-                android:padding="15dp">
+                android:padding="10dp">
 
                 <TextView
                     android:background="@drawable/activity_table_cell"
                     android:id="@+id/lblStaffUserTypeDetails"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Jenis Pengguna"
-                    android:textSize="20dp"
+                    android:text="Jenis"
+                    android:textSize="12dp"
                     android:textColor="@color/elegantColorDark"
                     android:paddingRight="20dp"/>
 
@@ -121,8 +121,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Customer"
-                    android:textSize="20dp"
-                    android:layout_marginLeft="10dp"/>
+                    android:textSize="12dp"
+                    android:paddingLeft="20dp"/>
 
             </TableRow>
 

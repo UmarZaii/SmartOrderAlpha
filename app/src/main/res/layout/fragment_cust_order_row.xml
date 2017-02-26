@@ -1,44 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <TableLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <TableRow>
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="10dp"
+    android:layout_marginBottom="10dp"
+    android:paddingLeft="15dp"
+    android:paddingRight="15dp">
 
             <TextView
                 android:id="@+id/txtCustOrderName"
-                android:layout_width="match_parent"
+                android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:text="Order Name"
-                android:textSize="20dp"
-                android:layout_marginLeft="5dp"
-                android:paddingRight="60dp"
-                android:paddingBottom="20dp"/>
+                android:hint="OrderName"
+                android:textColor="@color/elegantColorDark"
+                android:textSize="12dp"/>
 
             <TextView
                 android:id="@+id/txtCustOrderQuantity"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Quantity"
-                android:textSize="20dp"
-                android:layout_marginLeft="40dp"
-                android:paddingBottom="20dp"/>
+                android:textColor="@color/elegantColorDark"
+                android:textSize="12dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"/>
 
             <TextView
                 android:id="@+id/txtCustOrderPrice"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Price(RM)"
-                android:textSize="20dp"
-                android:layout_marginLeft="40dp"
-                android:paddingBottom="20dp"/>
-
-        </TableRow>
-
-    </TableLayout>
+                android:textColor="@color/elegantColorDark"
+                android:textSize="12dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"/>
 
 </LinearLayout>
