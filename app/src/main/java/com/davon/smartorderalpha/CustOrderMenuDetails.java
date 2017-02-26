@@ -75,59 +75,67 @@ public class CustOrderMenuDetails extends Fragment {
 
                 String menuAmount = edtCustOrderMenuAmountDetails.getText().toString();
 
-                if(CustSetting.strUserView.equals("empty")) {
+                //Two people book same table in same time
+                if (CustOrder.strTableStatus.equals("AV")) {
 
-                    String userID = fAuth.getCurrentUser().getUid().toString();
-                    Integer intNewOrderID = Integer.parseInt(strLastOrderID) + 1;
+                    if(CustSetting.strUserView.equals("empty")) {
 
-                    fDatabaseTable.child(CustOrder.strTableNo).child("orderID").setValue(intNewOrderID.toString());
-                    fDatabaseTable.child(CustOrder.strTableNo).child("staffView").setValue(intNewOrderID.toString());
-                    fDatabaseTable.child(CustOrder.strTableNo).child("tableStatus").setValue("N/A");
+                        String userID = fAuth.getCurrentUser().getUid().toString();
+                        Integer intNewOrderID = Integer.parseInt(strLastOrderID) + 1;
 
-                    fDatabaseOrder.child("userView").child(userID).setValue(intNewOrderID.toString());
-                    fDatabaseOrder.child("lastOrderID").setValue(intNewOrderID.toString());
-                    fDatabaseOrder.child(intNewOrderID.toString()).child("orderID").setValue(intNewOrderID.toString());
-                    fDatabaseOrder.child(intNewOrderID.toString()).child("orderStatus").setValue("New Order");
-                    fDatabaseOrder.child(intNewOrderID.toString()).child("tableNo").setValue(CustOrder.strTableNo);
-                    fDatabaseOrder.child(intNewOrderID.toString()).child("userID").setValue(userID);
+                        fDatabaseTable.child(CustOrder.strTableNo).child("orderID").setValue(intNewOrderID.toString());
+                        fDatabaseTable.child(CustOrder.strTableNo).child("staffView").setValue(intNewOrderID.toString());
+                        fDatabaseTable.child(CustOrder.strTableNo).child("tableStatus").setValue("N/A");
 
-                    fDatabaseOrder.child(intNewOrderID.toString()).child("orderMenu").child(CustOrderMenu.strMenuName).child("menuAmount").setValue(menuAmount);
-                    fDatabaseOrder.child(intNewOrderID.toString()).child("orderMenu").child(CustOrderMenu.strMenuName).child("menuName").setValue(CustOrderMenu.strMenuName);
-                    fDatabaseOrder.child(intNewOrderID.toString()).child("orderMenu").child(CustOrderMenu.strMenuName).child("menuPrice").setValue(CustOrderMenu.strMenuPrice);
-                    fDatabaseOrder.child(intNewOrderID.toString()).child("orderMenu").child(CustOrderMenu.strMenuName).child("menuType").setValue(CustOrderMenuType.strMenuType);
+                        fDatabaseOrder.child("userView").child(userID).setValue(intNewOrderID.toString());
+                        fDatabaseOrder.child("lastOrderID").setValue(intNewOrderID.toString());
+                        fDatabaseOrder.child(intNewOrderID.toString()).child("orderID").setValue(intNewOrderID.toString());
+                        fDatabaseOrder.child(intNewOrderID.toString()).child("orderStatus").setValue("New Order");
+                        fDatabaseOrder.child(intNewOrderID.toString()).child("tableNo").setValue(CustOrder.strTableNo);
+                        fDatabaseOrder.child(intNewOrderID.toString()).child("userID").setValue(userID);
 
-                    fDatabaseOrder.child("userView").child(userID).addValueEventListener(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(DataSnapshot dataSnapshot) {
-                            CustSetting.strUserView = dataSnapshot.getValue().toString();
-                            Log.v("getUserView", CustSetting.strUserView);
+                        fDatabaseOrder.child(intNewOrderID.toString()).child("orderMenu").child(CustOrderMenu.strMenuName).child("menuAmount").setValue(menuAmount);
+                        fDatabaseOrder.child(intNewOrderID.toString()).child("orderMenu").child(CustOrderMenu.strMenuName).child("menuName").setValue(CustOrderMenu.strMenuName);
+                        fDatabaseOrder.child(intNewOrderID.toString()).child("orderMenu").child(CustOrderMenu.strMenuName).child("menuPrice").setValue(CustOrderMenu.strMenuPrice);
+                        fDatabaseOrder.child(intNewOrderID.toString()).child("orderMenu").child(CustOrderMenu.strMenuName).child("menuType").setValue(CustOrderMenuType.strMenuType);
 
-                            FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
-                            CustOrder fragmCustOrder = new CustOrder();
-                            transaction.replace(R.id.activity_cust_main, fragmCustOrder);
-                            transaction.commit();
-                        }
+                        fDatabaseOrder.child("userView").child(userID).addValueEventListener(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(DataSnapshot dataSnapshot) {
+                                CustSetting.strUserView = dataSnapshot.getValue().toString();
+                                Log.v("getUserView", CustSetting.strUserView);
 
-                        @Override
-                        public void onCancelled(DatabaseError databaseError) {
+                                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                                CustOrder fragmCustOrder = new CustOrder();
+                                transaction.replace(R.id.activity_cust_main, fragmCustOrder);
+                                transaction.commit();
+                            }
 
-                        }
-                    });
+                            @Override
+                            public void onCancelled(DatabaseError databaseError) {
 
-                } else if(!CustSetting.strUserView.equals("empty")) {
+                            }
+                        });
 
-                    Log.v("strOrderID", CustSetting.strOrderID);
+                    } else if(!CustSetting.strUserView.equals("empty")) {
 
-                    fDatabaseOrder.child(CustSetting.strOrderID).child("orderMenu").child(CustOrderMenu.strMenuName).child("menuAmount").setValue(menuAmount);
-                    fDatabaseOrder.child(CustSetting.strOrderID).child("orderMenu").child(CustOrderMenu.strMenuName).child("menuName").setValue(CustOrderMenu.strMenuName);
-                    fDatabaseOrder.child(CustSetting.strOrderID).child("orderMenu").child(CustOrderMenu.strMenuName).child("menuPrice").setValue(CustOrderMenu.strMenuPrice);
-                    fDatabaseOrder.child(CustSetting.strOrderID).child("orderMenu").child(CustOrderMenu.strMenuName).child("menuType").setValue(CustOrderMenuType.strMenuType);
+                        Log.v("strOrderID", CustSetting.strOrderID);
 
-                    FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
-                    CustOrder fragmCustOrder = new CustOrder();
-                    transaction.replace(R.id.activity_cust_main, fragmCustOrder);
-                    transaction.commit();
+                        fDatabaseOrder.child(CustSetting.strOrderID).child("orderMenu").child(CustOrderMenu.strMenuName).child("menuAmount").setValue(menuAmount);
+                        fDatabaseOrder.child(CustSetting.strOrderID).child("orderMenu").child(CustOrderMenu.strMenuName).child("menuName").setValue(CustOrderMenu.strMenuName);
+                        fDatabaseOrder.child(CustSetting.strOrderID).child("orderMenu").child(CustOrderMenu.strMenuName).child("menuPrice").setValue(CustOrderMenu.strMenuPrice);
+                        fDatabaseOrder.child(CustSetting.strOrderID).child("orderMenu").child(CustOrderMenu.strMenuName).child("menuType").setValue(CustOrderMenuType.strMenuType);
 
+                        FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                        CustOrder fragmCustOrder = new CustOrder();
+                        transaction.replace(R.id.activity_cust_main, fragmCustOrder);
+                        transaction.commit();
+
+                    }
+
+                } else {
+                    Toast.makeText(getActivity(), "Someone else have book this table", Toast.LENGTH_SHORT).show();
+                    CustOrder.strTableNo = "";
                 }
 
             }
