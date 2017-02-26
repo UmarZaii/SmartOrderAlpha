@@ -65,31 +65,37 @@ public class StaffOrderTableOrder extends Fragment {
         rvStaffOrderTableOrder.setItemAnimator(new DefaultItemAnimator());
 
         Log.v("strOrderID", StaffOrderTable.strOrderID);
-        fDatabaseOrder.child(StaffOrderTable.strOrderID).child("userID").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                strUserID = dataSnapshot.getValue().toString();
-                Log.v("strUserID", strUserID);
+        if (!StaffOrderTable.strOrderID.equals("empty")) {
 
-                fDatabaseUser.child("Auth").child(strUserID).addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
-                        strUserType = dataSnapshot.getValue().toString();
-                        Log.v("strUserType", strUserType);
-                    }
 
-                    @Override
-                    public void onCancelled(DatabaseError databaseError) {
+            Log.v("strOrderID a", StaffOrderTable.strOrderID);
+            fDatabaseOrder.child(StaffOrderTable.strOrderID).child("userID").addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    strUserID = dataSnapshot.getValue().toString();
+                    Log.v("strUserID", strUserID);
 
-                    }
-                });
-            }
+                    fDatabaseUser.child("Auth").child(strUserID).addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(DataSnapshot dataSnapshot) {
+                            strUserType = dataSnapshot.getValue().toString();
+                            Log.v("strUserType", strUserType);
+                        }
 
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
+                        @Override
+                        public void onCancelled(DatabaseError databaseError) {
 
-            }
-        });
+                        }
+                    });
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+
+                }
+            });
+
+        }
 
         btnStaffGoToAddOrder = (Button)v.findViewById(R.id.btnStaffGoToAddOrder);
         btnStaffGoToAddOrder.setOnClickListener(new View.OnClickListener() {

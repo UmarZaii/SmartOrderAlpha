@@ -49,7 +49,7 @@
             android:background="@drawable/activity_border_purplewhite"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp">
+            android:layout_marginTop="10dp">
 
             <TextView
                 android:background="@drawable/activity_header_purple"
@@ -97,8 +97,7 @@
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         android:id="@+id/rvStaffOrderTableOrder"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:padding="10dp">
+        android:layout_height="200dp">
     </android.support.v7.widget.RecyclerView>
 
     <TableLayout
