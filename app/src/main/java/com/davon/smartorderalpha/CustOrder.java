@@ -38,6 +38,7 @@ public class CustOrder extends Fragment {
     public static String strOrderAmount = "";
 
     public static String strTableNo = "";
+    public static String strTableStatus = "";
 
     @Nullable
     @Override
@@ -61,6 +62,20 @@ public class CustOrder extends Fragment {
         rvCustOrder.setItemAnimator(new DefaultItemAnimator());
 
         txtCustOrderStatus = (TextView)v.findViewById(R.id.txtCustOrderStatus);
+
+        if (!strTableNo.equals("")) {
+            fDatabaseTable.child(strTableNo).child("tableStatus").addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    strTableStatus = dataSnapshot.getValue().toString();
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+
+                }
+            });
+        }
 
         if (!CustSetting.strUserView.equals("empty")) {
             fDatabaseOrder.child(CustSetting.strUserView).child("tableNo").addValueEventListener(new ValueEventListener() {
@@ -119,12 +134,17 @@ public class CustOrder extends Fragment {
             @Override
             public void onClick(View v) {
                 if (!strTableNo.equals("")) {
-                    Log.v("strTableNo", strTableNo);
-                    FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
-                    CustOrderMenuType fragmCustOrderMenuType = new CustOrderMenuType();
-                    transaction.replace(R.id.activity_cust_main, fragmCustOrderMenuType);
-                    transaction.addToBackStack(null);
-                    transaction.commit();
+                    if (strTableStatus.equals("AV")) {
+                        Log.v("strTableNo", strTableNo);
+                        FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                        CustOrderMenuType fragmCustOrderMenuType = new CustOrderMenuType();
+                        transaction.replace(R.id.activity_cust_main, fragmCustOrderMenuType);
+                        transaction.addToBackStack(null);
+                        transaction.commit();
+                    } else {
+                        Toast.makeText(getActivity(), "Someone else have book this table", Toast.LENGTH_SHORT).show();
+                        strTableNo = "";
+                    }
                 } else {
                     Toast.makeText(getActivity(), "Please choose a table first", Toast.LENGTH_SHORT).show();
                 }
