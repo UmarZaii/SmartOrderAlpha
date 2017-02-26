@@ -29,7 +29,7 @@ import com.google.firebase.database.ValueEventListener;
 public class CustOrder extends Fragment {
 
     private RecyclerView rvCustOrder;
-    private DatabaseReference fDatabase;
+    private DatabaseReference fDatabaseTable, fDatabaseOrder;
     private Button btnCustOrderCancel, btnCustOrderAdd, btnCustOrderBook;
     private TextView txtCustOrderStatus;
 
@@ -51,7 +51,8 @@ public class CustOrder extends Fragment {
         super.onActivityCreated(savedInstanceState);
         View v = getView();
 
-        fDatabase = FirebaseDatabase.getInstance().getReference().child("tblOrder");
+        fDatabaseOrder = FirebaseDatabase.getInstance().getReference().child("tblOrder");
+        fDatabaseTable = FirebaseDatabase.getInstance().getReference().child("tblTable");
 
         rvCustOrder = (RecyclerView)v.findViewById(R.id.rvCustOrder);
         rvCustOrder.setHasFixedSize(true);
@@ -61,8 +62,20 @@ public class CustOrder extends Fragment {
 
         txtCustOrderStatus = (TextView)v.findViewById(R.id.txtCustOrderStatus);
 
+        fDatabaseOrder.child(CustSetting.strOrderID).child("tableNo").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                strTableNo = dataSnapshot.getValue().toString();
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
         if (!CustSetting.strUserView.equals("empty")) {
-            fDatabase.child(CustSetting.strOrderID).child("orderStatus").addValueEventListener(new ValueEventListener() {
+            fDatabaseOrder.child(CustSetting.strOrderID).child("orderStatus").addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
                     String strOrderStatus = dataSnapshot.getValue().toString();
@@ -82,11 +95,15 @@ public class CustOrder extends Fragment {
         btnCustOrderBook.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
-                CustOrderTable fragmCustOrderTable = new CustOrderTable();
-                transaction.replace(R.id.activity_cust_main, fragmCustOrderTable);
-                transaction.addToBackStack(null);
-                transaction.commit();
+                if (CustSetting.strUserView.equals("empty")) {
+                    FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                    CustOrderTable fragmCustOrderTable = new CustOrderTable();
+                    transaction.replace(R.id.activity_cust_main, fragmCustOrderTable);
+                    transaction.addToBackStack(null);
+                    transaction.commit();
+                } else {
+                    Toast.makeText(getActivity(), "You already have an order", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
@@ -106,7 +123,7 @@ public class CustOrder extends Fragment {
         btnCustOrderCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+//                fDatabaseTable.child()
             }
         });
 
@@ -122,7 +139,7 @@ public class CustOrder extends Fragment {
                 TableOrderList.class,
                 R.layout.fragment_cust_order_row,
                 TableOrderViewHolder.class,
-                fDatabase.child(CustSetting.strOrderID).child("orderMenu")
+                fDatabaseOrder.child(CustSetting.strOrderID).child("orderMenu")
 
         ) {
             @Override
@@ -165,7 +182,7 @@ public class CustOrder extends Fragment {
                                         Log.v("Delete", model.getMenuName());
                                         Log.v("strOrderStatus", CustSetting.strOrderStatus);
                                         if (CustSetting.strOrderStatus.equals("New Order")) {
-                                            fDatabase.child(CustSetting.strOrderID).child("orderMenu").child(strOrderName).removeValue();
+                                            fDatabaseOrder.child(CustSetting.strOrderID).child("orderMenu").child(strOrderName).removeValue();
                                         } else if (CustSetting.strOrderStatus.equals("Preparing")) {
                                             Toast.makeText(getActivity(), "Your orders are being prepared", Toast.LENGTH_SHORT).show();
                                         } else if (CustSetting.strOrderStatus.equals("Serving")) {
