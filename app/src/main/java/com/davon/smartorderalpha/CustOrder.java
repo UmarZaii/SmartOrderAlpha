@@ -134,6 +134,7 @@ public class CustOrder extends Fragment {
             @Override
             public void onClick(View v) {
                 if (!strTableNo.equals("")) {
+                    //Two people book same table in same time
                     if (strTableStatus.equals("AV")) {
                         Log.v("strTableNo", strTableNo);
                         FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
