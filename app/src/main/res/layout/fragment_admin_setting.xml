@@ -1,31 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#FFFFFF">
-
-    <ImageView
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:scrollbars="none"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:src="@drawable/singgang2"
-        android:adjustViewBounds="true"
-        android:id="@+id/imageView" />
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/singgang2"
+            android:adjustViewBounds="true"
+            android:id="@+id/imageView" />
 
 
-    <Button
-        android:layout_marginTop="50dp"
-        android:id="@+id/btnChgPassword"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="Reset Password" />
+        <Button
+            android:background="@drawable/activity_btn_yellow"
+            android:layout_marginTop="50dp"
+            android:id="@+id/btnChgPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Reset Password"
+            android:textColor="@color/warningColorDark1"/>
 
-    <Button
-        android:layout_marginTop="10dp"
-        android:id="@+id/btnLogout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="Log Out" />
+        <Button
+            android:background="@drawable/activity_btn_red"
+            android:layout_marginTop="10dp"
+            android:id="@+id/btnLogout"
+            android:textColor="@color/dangerColorDark1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Log Out" />
 
-</LinearLayout>
+    </LinearLayout>
+</ScrollView>

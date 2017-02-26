@@ -4,17 +4,23 @@
     android:layout_height="match_parent">
 
     <Button
+        android:background="@drawable/activity_btn_purple"
         android:id="@+id/btnStaffOrderManageOrder"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
-        android:text="Manage Order "/>
+        android:text="Manage Order "
+        android:textStyle="bold"
+        android:textColor="@color/secondaryColorDark1"/>
 
     <Button
+        android:background="@drawable/activity_btn_purple"
         android:id="@+id/btnStaffOrderViewOrder"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
-        android:text="View Order "/>
+        android:text="View Order "
+        android:textStyle="bold"
+        android:textColor="@color/secondaryColorDark1"/>
 
 </LinearLayout>

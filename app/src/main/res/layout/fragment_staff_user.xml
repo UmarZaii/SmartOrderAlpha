@@ -1,21 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
         <Button
+            android:background="@drawable/green_btn_border"
             android:id="@+id/btnStaffGoToAddUser"
             android:layout_marginTop="20dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="add customer user"/>
+            android:text="add customer user"
+            android:textStyle="bold"
+            android:textColor="@color/white"/>
 
-    <android.support.v7.widget.RecyclerView
-        android:layout_marginTop="5dp"
-        android:id="@+id/rvStaffUser"
+    <TableLayout
+        android:background="@drawable/activity_border_whitewhite"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        />
+        android:layout_marginTop="25dp">
+
+        <android.support.v7.widget.RecyclerView
+            android:layout_marginTop="5dp"
+            android:id="@+id/rvStaffUser"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
+
+    </TableLayout>
+
 
 </LinearLayout>

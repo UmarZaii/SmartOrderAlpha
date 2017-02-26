@@ -1,77 +1,100 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
+    android:scrollbars="none"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <LinearLayout
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/lblStaffUserEmailDetails"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="User Email:"
-        android:textSize="20dp"
-        android:layout_marginTop="20dp"/>
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/txtStaffUserEmailDetails"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="test@gmail.com"
-        android:textSize="20dp"
-        android:layout_marginLeft="10dp"/>
+            <TableRow>
 
-    <TextView
-        android:id="@+id/lblStaffUserICDetails"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="User IC:"
-        android:textSize="20dp"
-        android:layout_marginTop="25dp"/>
+                <TextView
+                    android:id="@+id/lblStaffUserEmailDetails"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="User Email:"
+                    android:textSize="20dp"/>
 
-    <TextView
-        android:id="@+id/txtStaffUserICDetails"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="96010407092536"
-        android:textSize="20dp"
-        android:layout_marginLeft="10dp"/>
+                <TextView
+                    android:id="@+id/txtStaffUserEmailDetails"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="test@gmail.com"
+                    android:textSize="20dp"
+                    android:layout_marginLeft="10dp"/>
 
-    <TextView
-        android:id="@+id/lblStaffUserNameDetails"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="User Name:"
-        android:textSize="20dp"
-        android:layout_marginTop="25dp"/>
+            </TableRow>
 
-    <TextView
-        android:id="@+id/txtStaffUserNameDetails"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Wan Arip"
-        android:textSize="20dp"
-        android:layout_marginLeft="10dp"/>
+            <TableRow>
 
-    <TextView
-        android:id="@+id/lblStaffUserTypeDetails"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="User Type:"
-        android:textSize="20dp"
-        android:layout_marginTop="25dp"/>
+                <TextView
+                    android:id="@+id/lblStaffUserICDetails"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="User IC:"
+                    android:textSize="20dp"/>
 
-    <TextView
-        android:id="@+id/txtStaffUserTypeDetails"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Customer"
-        android:textSize="20dp"
-        android:layout_marginLeft="10dp"/>
+                <TextView
+                    android:id="@+id/txtStaffUserICDetails"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="96010407092536"
+                    android:textSize="20dp"/>
+
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:id="@+id/lblStaffUserNameDetails"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="User Name:"
+                    android:textSize="20dp"/>
+
+                <TextView
+                    android:id="@+id/txtStaffUserNameDetails"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Wan Arip"
+                    android:textSize="20dp"
+                    android:layout_marginLeft="10dp"/>
+
+            </TableRow>
+
+            <TableRow>
+
+                <TextView
+                    android:id="@+id/lblStaffUserTypeDetails"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="User Type:"
+                    android:textSize="20dp"/>
+
+                <TextView
+                    android:id="@+id/txtStaffUserTypeDetails"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Customer"
+                    android:textSize="20dp"
+                    android:layout_marginLeft="10dp"/>
+
+            </TableRow>
+
+        </TableLayout>
+
 
     <Button
         android:layout_width="match_parent"
