@@ -21,7 +21,7 @@
             android:layout_height="wrap_content">
 
             <TextView
-                android:background="@drawable/activity_purple_header"
+                android:background="@drawable/activity_header_purple"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Menu Utama"
@@ -123,7 +123,7 @@
             android:layout_height="wrap_content">
 
             <TextView
-                android:background="@drawable/activity_purple_header"
+                android:background="@drawable/activity_header_purple"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Menu Special"

@@ -15,73 +15,106 @@
         android:layout_height="wrap_content">
 
         <TableLayout
+            android:background="@drawable/activity_border_purplewhite"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp">
 
-            <TableRow>
+            <TextView
+                android:background="@drawable/activity_header_purple"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Profil Pengguna"
+                android:textColor="@color/white"
+                android:textStyle="italic"
+                android:textAlignment="center"
+                android:textSize="30dp"/>
+
+            <TableRow
+                android:background="@drawable/activity_tablerow_top"
+                android:padding="15dp">
 
                 <TextView
+                    android:background="@drawable/activity_table_cell"
                     android:id="@+id/lblStaffUserEmailDetails"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="User Email:"
-                    android:textSize="20dp"/>
+                    android:text="Email"
+                    android:textSize="20dp"
+                    android:textColor="@color/elegantColorDark"
+                    android:paddingRight="20dp"/>
 
                 <TextView
                     android:id="@+id/txtStaffUserEmailDetails"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="test@gmail.com"
-                    android:textSize="20dp"
-                    android:layout_marginLeft="10dp"/>
+                    android:textSize="18dp"
+                    android:paddingLeft="20dp"/>
 
             </TableRow>
 
-            <TableRow>
+            <TableRow
+                android:background="@drawable/activity_tablerow_top"
+                android:padding="15dp">
 
                 <TextView
+                    android:background="@drawable/activity_table_cell"
                     android:id="@+id/lblStaffUserICDetails"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="User IC:"
-                    android:textSize="20dp"/>
+                    android:text="No. IC"
+                    android:textSize="20dp"
+                    android:textColor="@color/elegantColorDark"
+                    android:paddingRight="20dp"/>
 
                 <TextView
                     android:id="@+id/txtStaffUserICDetails"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="96010407092536"
-                    android:textSize="20dp"/>
+                    android:textSize="18dp"
+                    android:paddingLeft="20dp"/>
 
             </TableRow>
 
-            <TableRow>
+            <TableRow
+                android:background="@drawable/activity_tablerow_top"
+                android:padding="15dp">
 
                 <TextView
+                    android:background="@drawable/activity_table_cell"
                     android:id="@+id/lblStaffUserNameDetails"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="User Name:"
-                    android:textSize="20dp"/>
+                    android:text="Nama"
+                    android:textSize="20dp"
+                    android:textColor="@color/elegantColorDark"
+                    android:paddingRight="20dp"/>
 
                 <TextView
                     android:id="@+id/txtStaffUserNameDetails"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Wan Arip"
-                    android:textSize="20dp"
-                    android:layout_marginLeft="10dp"/>
+                    android:textSize="18dp"
+                    android:paddingLeft="20dp"/>
 
             </TableRow>
 
-            <TableRow>
+            <TableRow
+                android:background="@drawable/activity_tablerow_last"
+                android:padding="15dp">
 
                 <TextView
+                    android:background="@drawable/activity_table_cell"
                     android:id="@+id/lblStaffUserTypeDetails"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="User Type:"
-                    android:textSize="20dp"/>
+                    android:text="Jenis Pengguna"
+                    android:textSize="20dp"
+                    android:textColor="@color/elegantColorDark"
+                    android:paddingRight="20dp"/>
 
                 <TextView
                     android:id="@+id/txtStaffUserTypeDetails"
@@ -96,11 +129,11 @@
         </TableLayout>
 
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Delete"
-        android:layout_marginTop="25dp"/>
+    <!--<Button-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="Delete"-->
+        <!--android:layout_marginTop="25dp"/>-->
 
     </LinearLayout>
 

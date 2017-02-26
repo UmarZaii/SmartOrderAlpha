@@ -62,17 +62,19 @@ public class CustOrder extends Fragment {
 
         txtCustOrderStatus = (TextView)v.findViewById(R.id.txtCustOrderStatus);
 
-        fDatabaseOrder.child(CustSetting.strOrderID).child("tableNo").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                strTableNo = dataSnapshot.getValue().toString();
-            }
+        if (!CustSetting.strOrderID.equals("empty")) {
+            fDatabaseOrder.child(CustSetting.strOrderID).child("tableNo").addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    strTableNo = dataSnapshot.getValue().toString();
+                }
 
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
 
-            }
-        });
+                }
+            });
+        }
 
         if (!CustSetting.strUserView.equals("empty")) {
             fDatabaseOrder.child(CustSetting.strOrderID).child("orderStatus").addValueEventListener(new ValueEventListener() {
@@ -111,11 +113,15 @@ public class CustOrder extends Fragment {
         btnCustOrderAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
-                CustOrderMenuType fragmCustOrderMenuType = new CustOrderMenuType();
-                transaction.replace(R.id.activity_cust_main, fragmCustOrderMenuType);
-                transaction.addToBackStack(null);
-                transaction.commit();
+                if (!strTableNo.equals("")) {
+                    FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                    CustOrderMenuType fragmCustOrderMenuType = new CustOrderMenuType();
+                    transaction.replace(R.id.activity_cust_main, fragmCustOrderMenuType);
+                    transaction.addToBackStack(null);
+                    transaction.commit();
+                } else {
+                    Toast.makeText(getActivity(), "Please choose a table", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
