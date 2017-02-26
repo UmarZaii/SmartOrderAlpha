@@ -114,6 +114,11 @@ public class StaffOrderTableOrder extends Fragment {
                 Log.v("menuPrice", menuPrice);
                 Log.v("menuAmount", menuAmount);
 
+                Double dbMenuPrice = Double.parseDouble(menuPrice);
+                Double dbMenuAmount = Double.parseDouble(menuAmount);
+                Log.v("menuPrice DB", dbMenuPrice.toString());
+                Log.v("menuAmount DB", dbMenuAmount.toString());
+
                 viewHolder.fView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
