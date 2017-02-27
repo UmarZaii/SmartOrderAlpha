@@ -31,9 +31,10 @@ public class AdminMainActivity extends AppCompatActivity implements OnMenuTabCli
 
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
 
-        if (menuItemId == R.id.btmBarHome){
-
-        } else if (menuItemId == R.id.btmBarMenu){
+//        if (menuItemId == R.id.btmBarHome){
+//
+//        } else
+        if (menuItemId == R.id.btmBarMenu){
 
             AdminMenuType fragmMenuType = new AdminMenuType();
             transaction.replace(R.id.activity_admin_main, fragmMenuType);

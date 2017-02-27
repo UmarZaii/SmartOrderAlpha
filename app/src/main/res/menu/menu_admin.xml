@@ -2,11 +2,6 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/btmBarHome"
-        android:icon="@drawable/ic_action_home"
-        android:title="Home" />
-
-    <item
         android:id="@+id/btmBarMenu"
         android:icon="@drawable/ic_action_menu"
         android:title="Menu" />
