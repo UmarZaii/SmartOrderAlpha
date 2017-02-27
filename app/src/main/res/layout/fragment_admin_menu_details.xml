@@ -27,27 +27,27 @@
                 android:layout_height="wrap_content"
                 android:text="Nama menu dan harga"
                 android:textAlignment="center"
-                android:textSize="25dp"
+                android:textSize="20dp"
                 android:textStyle="italic"
                 android:textColor="@color/white"/>
 
             <TableRow
                 android:background="@drawable/activity_tablerow_top"
-                android:padding="15dp">
+                android:padding="10dp">
 
                 <TextView
                     android:background="@drawable/activity_table_cell"
                     android:paddingRight="20dp"
-                    android:text="Menu Name"
+                    android:text="Nama"
                     android:textColor="@color/elegantColorDark"
-                    android:textSize="20dp"
+                    android:textSize="12dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/lblMenuNameDetails"/>
 
                 <TextView
                     android:hint="20dp"
-                    android:textSize="18dp"
+                    android:textSize="12dp"
                     android:paddingLeft="20dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -58,14 +58,14 @@
 
             <TableRow
                 android:background="@drawable/activity_tablerow_last"
-                android:padding="15dp">
+                android:padding="10dp">
 
                 <TextView
                     android:background="@drawable/activity_table_cell"
                     android:paddingRight="20dp"
-                    android:text="Price (RM)"
+                    android:text="Harga(RM)"
                     android:textColor="@color/elegantColorDark"
-                    android:textSize="20dp"
+                    android:textSize="12dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/lblMenuPriceDetails"
@@ -73,7 +73,7 @@
 
                 <TextView
                     android:hint="20dp"
-                    android:textSize="18dp"
+                    android:textSize="12dp"
                     android:paddingLeft="20dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

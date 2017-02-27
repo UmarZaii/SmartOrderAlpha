@@ -25,11 +25,11 @@
                 android:background="@drawable/activity_header_purple"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Tambah Pengguna"
+                android:text="Daftar Pengguna"
                 android:textAlignment="center"
                 android:textStyle="italic"
                 android:textColor="@color/white"
-                android:textSize="30dp"/>
+                android:textSize="20dp"/>
 
             <Button
                 android:background="@drawable/activity_button_center"
@@ -40,7 +40,7 @@
                 android:layout_marginTop="50dp"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
-                android:textSize="20dp"/>
+                android:textSize="15dp"/>
 
             <Button
                 android:background="@drawable/activity_button_center"
@@ -51,7 +51,7 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
-                android:textSize="20dp"/>
+                android:textSize="15dp"/>
 
             <Button
                 android:background="@drawable/activity_button_center"
@@ -63,7 +63,7 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
                 android:layout_marginBottom="50dp"
-                android:textSize="20dp"/>
+                android:textSize="15dp"/>
 
         </TableLayout>
 

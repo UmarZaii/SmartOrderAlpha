@@ -25,7 +25,7 @@
                 android:background="@drawable/activity_header_purple"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Nama menu dan harga"
+                android:text="Masukan bilangan makanan"
                 android:textAlignment="center"
                 android:textSize="20dp"
                 android:textStyle="italic"
@@ -41,7 +41,7 @@
                     android:id="@+id/lblCustOrderMenuNameDetails"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Menu Name"
+                    android:text="Nama"
                     android:textSize="12dp"
                     android:paddingRight="20dp"/>
 
@@ -63,7 +63,7 @@
                     android:id="@+id/lblCustOrderMenuPriceDetails"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Menu Price"
+                    android:text="Harga(RM)"
                     android:textSize="12dp"
                     android:paddingRight="20dp"/>
 
@@ -85,7 +85,7 @@
                     android:id="@+id/lblCustOrderMenuAmountDetails"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Amount"
+                    android:text="Bilangan"
                     android:textSize="12dp"
                     android:paddingRight="20dp"/>
 
@@ -93,7 +93,7 @@
                     android:id="@+id/edtCustOrderMenuAmountDetails"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:hint="input amount.."
+                    android:hint="masuk bil..."
                     android:textSize="12dp"
                     android:paddingLeft="20dp"/>
 
