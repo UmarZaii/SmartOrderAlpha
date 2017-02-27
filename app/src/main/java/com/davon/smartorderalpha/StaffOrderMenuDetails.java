@@ -78,12 +78,14 @@ public class StaffOrderMenuDetails extends Fragment {
                 if(StaffOrderTable.strOrderID.equals("empty")) {
 
                     String userID = fAuth.getCurrentUser().getUid().toString();
+                    Log.v("strLastOrderID", strLastOrderID);
                     Integer intNewOrderID = Integer.parseInt(strLastOrderID) + 1;
 
                     fDatabaseTable.child(StaffOrderTable.strTableNo).child("orderID").setValue(intNewOrderID.toString());
                     fDatabaseTable.child(StaffOrderTable.strTableNo).child("staffView").setValue(intNewOrderID.toString());
                     fDatabaseTable.child(StaffOrderTable.strTableNo).child("tableStatus").setValue("N/A");
 
+                    Log.v("neworderint", intNewOrderID.toString());
                     fDatabaseOrder.child("lastOrderID").setValue(intNewOrderID.toString());
                     fDatabaseOrder.child(intNewOrderID.toString()).child("orderID").setValue(intNewOrderID.toString());
                     fDatabaseOrder.child(intNewOrderID.toString()).child("orderStatus").setValue("New Order");

@@ -25,7 +25,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Menu Utama"
-                android:textColor="#FFFFFF"
+                android:textColor="@color/white"
                 android:textAlignment="center"
                 android:textSize="25dp"/>
 
@@ -127,7 +127,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Menu Special"
-                android:textColor="#FFFFFF"
+                android:textColor="@color/white"
                 android:textSize="25dp"
                 android:textAlignment="center"/>
 

@@ -1,34 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <FrameLayout
+    <TableLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp">
+        <TableRow>
 
-        <Button
-            android:id="@+id/btnStaffPrepareOrder"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="0dp"
-            android:layout_marginLeft="40dp"
-            android:layout_marginRight="220dp"
-            android:text="Prepare"/>
+            <Button
+                android:id="@+id/btnStaffPrepareOrder"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Prepare"
+                android:background="@color/warningColor"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:layout_marginRight="80dp"
+                android:paddingLeft="30dp"
+                android:paddingRight="30dp"/>
 
-        <Button
-            android:id="@+id/btnStaffServingOrder"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
-            android:layout_marginLeft="220dp"
-            android:layout_marginRight="40dp"
-            android:text="Serving"/>
+            <Button
+                android:id="@+id/btnStaffServingOrder"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Serving"
+                android:textStyle="bold"
+                android:background="@color/successColor"
+                android:textColor="@color/white"
+                android:paddingLeft="30dp"
+                android:paddingRight="30dp"/>
 
-    </FrameLayout>
+        </TableRow>
+
+    </TableLayout>
 
     <FrameLayout
         android:layout_marginTop="10dp"
@@ -40,7 +51,7 @@
             android:layout_height="wrap_content"
             android:text="Status"
             android:textStyle="bold"
-            android:textSize="20dp"
+            android:textSize="12dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:layout_marginLeft="50dp"/>
@@ -50,63 +61,64 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="orderStatus"
-            android:textSize="20dp"
+            android:textSize="12dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:layout_marginLeft="120dp"/>
 
     </FrameLayout>
 
-
-
     <TableLayout
+        android:background="@drawable/activity_border_purplewhite"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp">
 
         <TextView
+            android:background="@drawable/activity_header_purple"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Order List"
-            android:textColor="@color/colorPrimaryDark"
+            android:text="Senarai pesanan"
+            android:textColor="@color/white"
+            android:textStyle="italic"
             android:textAlignment="center"
-            android:textSize="25sp"
-            android:textStyle="bold"/>
+            android:textSize="20dp"/>
 
         <TableRow
-            android:layout_marginTop="10dp"
-            android:background="@color/colorPrimary">
+            android:background="@drawable/activity_tablerow_last"
+            android:padding="10dp">
             <TextView
-                android:layout_width="180dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Order Name"
-                android:layout_marginLeft="5dp"
-                android:textColor="#ffffff"
-                android:textSize="25sp"
-                android:textStyle="bold"/>
+                android:text="Nama pesanan"
+                android:textSize="12dp"
+                android:textStyle="bold"
+                android:paddingRight="100dp"/>
 
             <TextView
-                android:layout_width="100dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Amount"
-                android:textColor="#ffffff"
-                android:textSize="25sp"
-                android:textStyle="bold"/>
+                android:text="Bil"
+                android:textSize="12dp"
+                android:textStyle="bold"
+                android:paddingRight="25dp"
+                android:paddingLeft="15dp"/>
 
             <TextView
-                android:layout_width="110dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Price"
-                android:textColor="#ffffff"
-                android:textSize="25sp"
-                android:textStyle="bold"/>
+                android:text="Harga(RM)"
+                android:textSize="12dp"
+                android:textStyle="bold"
+                android:paddingRight="5dp"
+                android:paddingLeft="5dp"/>
         </TableRow>
 
     </TableLayout>
 
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rvStaffOrderViewOrder"
-        android:layout_marginTop="5dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
     </android.support.v7.widget.RecyclerView>
