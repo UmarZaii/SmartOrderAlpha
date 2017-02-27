@@ -140,6 +140,10 @@ public class StaffOrderTableOrder extends Fragment {
                     if (strUserType.equals("Customer")) {
                         fDatabaseOrder.child("userView").child(strUserID).setValue("empty");
                     }
+                    FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                    StaffOrderTable fragmStaffOrderTable = new StaffOrderTable();
+                    transaction.replace(R.id.activity_staff_main, fragmStaffOrderTable);
+                    transaction.commit();
 
                 } else {
                     Toast.makeText(getActivity(), "You have no order to pay for...", Toast.LENGTH_LONG).show();
