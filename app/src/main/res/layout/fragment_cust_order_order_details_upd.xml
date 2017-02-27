@@ -6,64 +6,108 @@
     android:layout_height="match_parent">
 
     <LinearLayout
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        .
-        <TextView
-            android:id="@+id/lblCustOrderOrderNameDetailsUpd"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="45dp"
-            android:textSize="20dp"
-            android:text="Menu Name"/>
 
-        <TextView
-            android:id="@+id/txtCustOrderOrderNameDetailsUpd"
+        <TableLayout
+            android:background="@drawable/activity_border_whitewhite"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingLeft="10dp"
-            android:textSize="20dp"
-            android:hint="Teh"/>
+            android:layout_marginTop="50dp"
+            android:layout_marginBottom="25dp">
 
-        <TextView
-            android:id="@+id/lblCustOrderOrderPriceDetailsUpd"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:textSize="20dp"
-            android:text="Price"/>
+            <TextView
+                android:background="@drawable/activity_header_purple"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Nama menu dan harga"
+                android:textAlignment="center"
+                android:textSize="20dp"
+                android:textStyle="italic"
+                android:textColor="@color/white"/>
 
-        <TextView
-            android:id="@+id/txtCustOrderOrderPriceDetailsUpd"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingLeft="10dp"
-            android:textSize="20dp"
-            android:hint="RM 1.20"/>
+            <TableRow
+                android:background="@drawable/activity_tablerow_top"
+                android:padding="10dp">
 
-        <TextView
-            android:id="@+id/lblCustOrderOrderAmountDetailsUpd"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:textSize="20dp"
-            android:text="Quantity"/>
+                <TextView
+                    android:background="@drawable/activity_table_cell"
+                    android:id="@+id/lblCustOrderOrderNameDetailsUpd"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="12dp"
+                    android:textColor="@color/elegantColorDark"
+                    android:text="Nama"
+                    android:paddingRight="20dp"/>
 
-        <EditText
-            android:id="@+id/edtCustOrderOrderQuantityDetailsUpd"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingLeft="10dp"
-            android:textSize="20dp"
-            android:hint=""/>
+                <TextView
+                    android:id="@+id/txtCustOrderOrderNameDetailsUpd"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="12dp"
+                    android:paddingLeft="20dp"/>
+
+            </TableRow>
+            <TableRow
+                android:background="@drawable/activity_tablerow_top"
+                android:padding="10dp">
+
+                <TextView
+                    android:textColor="@color/elegantColorDark"
+                    android:background="@drawable/activity_table_cell"
+                    android:id="@+id/lblCustOrderOrderPriceDetailsUpd"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="12dp"
+                    android:text="Harga(RM)"/>
+
+                <TextView
+                    android:id="@+id/txtCustOrderOrderPriceDetailsUpd"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="12dp"
+                    android:paddingLeft="20dp"/>
+
+            </TableRow>
+            <TableRow
+                android:background="@drawable/activity_tablerow_last"
+                android:padding="10dp">
+
+                <TextView
+                    android:background="@drawable/activity_table_cell"
+                    android:id="@+id/lblCustOrderOrderAmountDetailsUpd"
+                    android:textColor="@color/elegantColorDark"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="12dp"
+                    android:text="Bilangan"
+                    android:paddingRight="20dp"/>
+
+                <EditText
+                    android:id="@+id/edtCustOrderOrderQuantityDetailsUpd"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="20dp"
+                    android:textSize="12dp"
+                    android:hint=""/>
+
+            </TableRow>
+
+        </TableLayout>
 
         <Button
+            android:background="@drawable/activity_btn_blue"
             android:id="@+id/btnCustUpdOrderOrderDetailsUpd"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="25dp"
-            android:text="Update"/>
+            android:text="Update"
+            android:textColor="@color/primaryColorDark"/>
 
     </LinearLayout>
 
